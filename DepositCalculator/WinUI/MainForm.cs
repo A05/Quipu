@@ -17,8 +17,15 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         internal MainForm(MainFormPresenter presenter)
         {
             this.presenter = presenter ?? throw new ArgumentNullException(nameof(presenter));
-
+            
             InitializeComponent();
+
+            this.presenter.SetView(this);
+        }
+
+        internal void SetViewModel(MainFormViewModel viewModel)
+        {
+            bindingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
         }
     }
 }
