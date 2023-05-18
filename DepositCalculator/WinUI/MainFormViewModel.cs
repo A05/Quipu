@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
-    internal class MainFormPresenter
+    internal class MainFormViewModel
     {
-        public MainFormViewModel ViewModel { get; }
     }
 }

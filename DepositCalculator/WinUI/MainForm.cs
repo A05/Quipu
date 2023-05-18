@@ -14,7 +14,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
     {
         private readonly MainFormPresenter presenter;
 
-        public MainForm(MainFormPresenter presenter)
+        internal MainForm(MainFormPresenter presenter)
         {
             this.presenter = presenter ?? throw new ArgumentNullException(nameof(presenter));
 
