@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.inputPanel = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.interestRateToLabel = new System.Windows.Forms.Label();
-            this.interestRateFromLabel = new System.Windows.Forms.Label();
+            this.maxInterestRateLabel = new System.Windows.Forms.Label();
+            this.minInterestRateLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.interestRateTrackBar = new System.Windows.Forms.TrackBar();
             this.interestPaymentComboBox = new System.Windows.Forms.ComboBox();
             this.interestRateTextBox = new System.Windows.Forms.TextBox();
-            this.termToLabel = new System.Windows.Forms.Label();
-            this.termFromLabel = new System.Windows.Forms.Label();
+            this.maxTermLabel = new System.Windows.Forms.Label();
+            this.minTermLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.termTrackBar = new System.Windows.Forms.TrackBar();
             this.termTextBox = new System.Windows.Forms.TextBox();
-            this.amountToLabel = new System.Windows.Forms.Label();
-            this.amountFromLabel = new System.Windows.Forms.Label();
+            this.maxAmountLabel = new System.Windows.Forms.Label();
+            this.minAmountLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.amountTrackBar = new System.Windows.Forms.TrackBar();
             this.currencyComboBox = new System.Windows.Forms.ComboBox();
@@ -52,30 +53,32 @@
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
             this.incomeValueLabel = new System.Windows.Forms.Label();
             this.incomeCaptionLabel = new System.Windows.Forms.Label();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
             this.outputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inputPanel
             // 
             this.inputPanel.Controls.Add(this.label10);
-            this.inputPanel.Controls.Add(this.interestRateToLabel);
-            this.inputPanel.Controls.Add(this.interestRateFromLabel);
+            this.inputPanel.Controls.Add(this.maxInterestRateLabel);
+            this.inputPanel.Controls.Add(this.minInterestRateLabel);
             this.inputPanel.Controls.Add(this.label9);
             this.inputPanel.Controls.Add(this.interestRateTrackBar);
             this.inputPanel.Controls.Add(this.interestPaymentComboBox);
             this.inputPanel.Controls.Add(this.interestRateTextBox);
-            this.inputPanel.Controls.Add(this.termToLabel);
-            this.inputPanel.Controls.Add(this.termFromLabel);
+            this.inputPanel.Controls.Add(this.maxTermLabel);
+            this.inputPanel.Controls.Add(this.minTermLabel);
             this.inputPanel.Controls.Add(this.label6);
             this.inputPanel.Controls.Add(this.termTrackBar);
             this.inputPanel.Controls.Add(this.termTextBox);
-            this.inputPanel.Controls.Add(this.amountToLabel);
-            this.inputPanel.Controls.Add(this.amountFromLabel);
+            this.inputPanel.Controls.Add(this.maxAmountLabel);
+            this.inputPanel.Controls.Add(this.minAmountLabel);
             this.inputPanel.Controls.Add(this.label1);
             this.inputPanel.Controls.Add(this.amountTrackBar);
             this.inputPanel.Controls.Add(this.currencyComboBox);
@@ -96,23 +99,23 @@
             this.label10.TabIndex = 36;
             this.label10.Text = "Interest payment";
             // 
-            // interestRateToLabel
+            // maxInterestRateLabel
             // 
-            this.interestRateToLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.interestRateToLabel.Location = new System.Drawing.Point(182, 327);
-            this.interestRateToLabel.Name = "interestRateToLabel";
-            this.interestRateToLabel.Size = new System.Drawing.Size(100, 13);
-            this.interestRateToLabel.TabIndex = 35;
-            this.interestRateToLabel.Text = "To Y $";
-            this.interestRateToLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.maxInterestRateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxInterestRateLabel.Location = new System.Drawing.Point(182, 327);
+            this.maxInterestRateLabel.Name = "maxInterestRateLabel";
+            this.maxInterestRateLabel.Size = new System.Drawing.Size(100, 13);
+            this.maxInterestRateLabel.TabIndex = 35;
+            this.maxInterestRateLabel.Text = "To Y $";
+            this.maxInterestRateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // interestRateFromLabel
+            // minInterestRateLabel
             // 
-            this.interestRateFromLabel.Location = new System.Drawing.Point(10, 327);
-            this.interestRateFromLabel.Name = "interestRateFromLabel";
-            this.interestRateFromLabel.Size = new System.Drawing.Size(100, 13);
-            this.interestRateFromLabel.TabIndex = 34;
-            this.interestRateFromLabel.Text = "From X $";
+            this.minInterestRateLabel.Location = new System.Drawing.Point(10, 327);
+            this.minInterestRateLabel.Name = "minInterestRateLabel";
+            this.minInterestRateLabel.Size = new System.Drawing.Size(100, 13);
+            this.minInterestRateLabel.TabIndex = 34;
+            this.minInterestRateLabel.Text = "From X $";
             // 
             // label9
             // 
@@ -152,23 +155,23 @@
             this.interestRateTextBox.Size = new System.Drawing.Size(272, 20);
             this.interestRateTextBox.TabIndex = 30;
             // 
-            // termToLabel
+            // maxTermLabel
             // 
-            this.termToLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.termToLabel.Location = new System.Drawing.Point(182, 209);
-            this.termToLabel.Name = "termToLabel";
-            this.termToLabel.Size = new System.Drawing.Size(100, 13);
-            this.termToLabel.TabIndex = 29;
-            this.termToLabel.Text = "To Y $";
-            this.termToLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.maxTermLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxTermLabel.Location = new System.Drawing.Point(182, 209);
+            this.maxTermLabel.Name = "maxTermLabel";
+            this.maxTermLabel.Size = new System.Drawing.Size(100, 13);
+            this.maxTermLabel.TabIndex = 29;
+            this.maxTermLabel.Text = "To Y $";
+            this.maxTermLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // termFromLabel
+            // minTermLabel
             // 
-            this.termFromLabel.Location = new System.Drawing.Point(10, 209);
-            this.termFromLabel.Name = "termFromLabel";
-            this.termFromLabel.Size = new System.Drawing.Size(100, 13);
-            this.termFromLabel.TabIndex = 28;
-            this.termFromLabel.Text = "From X $";
+            this.minTermLabel.Location = new System.Drawing.Point(10, 209);
+            this.minTermLabel.Name = "minTermLabel";
+            this.minTermLabel.Size = new System.Drawing.Size(100, 13);
+            this.minTermLabel.TabIndex = 28;
+            this.minTermLabel.Text = "From X $";
             // 
             // label6
             // 
@@ -198,23 +201,25 @@
             this.termTextBox.Size = new System.Drawing.Size(272, 20);
             this.termTextBox.TabIndex = 25;
             // 
-            // amountToLabel
+            // maxAmountLabel
             // 
-            this.amountToLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.amountToLabel.Location = new System.Drawing.Point(182, 91);
-            this.amountToLabel.Name = "amountToLabel";
-            this.amountToLabel.Size = new System.Drawing.Size(100, 13);
-            this.amountToLabel.TabIndex = 24;
-            this.amountToLabel.Text = "To Y $";
-            this.amountToLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.maxAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxAmountLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxAmountCaption", true));
+            this.maxAmountLabel.Location = new System.Drawing.Point(182, 91);
+            this.maxAmountLabel.Name = "maxAmountLabel";
+            this.maxAmountLabel.Size = new System.Drawing.Size(100, 13);
+            this.maxAmountLabel.TabIndex = 24;
+            this.maxAmountLabel.Text = "To Y $";
+            this.maxAmountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // amountFromLabel
+            // minAmountLabel
             // 
-            this.amountFromLabel.Location = new System.Drawing.Point(10, 91);
-            this.amountFromLabel.Name = "amountFromLabel";
-            this.amountFromLabel.Size = new System.Drawing.Size(100, 13);
-            this.amountFromLabel.TabIndex = 23;
-            this.amountFromLabel.Text = "From X $";
+            this.minAmountLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MinAmountCaption", true));
+            this.minAmountLabel.Location = new System.Drawing.Point(10, 91);
+            this.minAmountLabel.Name = "minAmountLabel";
+            this.minAmountLabel.Size = new System.Drawing.Size(100, 13);
+            this.minAmountLabel.TabIndex = 23;
+            this.minAmountLabel.Text = "From X $";
             // 
             // label1
             // 
@@ -230,6 +235,8 @@
             // 
             this.amountTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.Location = new System.Drawing.Point(10, 58);
             this.amountTrackBar.Name = "amountTrackBar";
             this.amountTrackBar.Size = new System.Drawing.Size(281, 45);
@@ -248,6 +255,7 @@
             // 
             this.amountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Amount", true));
             this.amountTextBox.Location = new System.Drawing.Point(10, 32);
             this.amountTextBox.Name = "amountTextBox";
             this.amountTextBox.Size = new System.Drawing.Size(166, 20);
@@ -305,6 +313,11 @@
             this.incomeCaptionLabel.TabIndex = 24;
             this.incomeCaptionLabel.Text = "Income";
             // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
+            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.DepositCalculator.WinUI.MainFormViewModel);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +338,7 @@
             this.outputPanel.ResumeLayout(false);
             this.outputPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,19 +346,19 @@
         #endregion
         private System.Windows.Forms.Panel inputPanel;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label interestRateToLabel;
-        private System.Windows.Forms.Label interestRateFromLabel;
+        private System.Windows.Forms.Label maxInterestRateLabel;
+        private System.Windows.Forms.Label minInterestRateLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TrackBar interestRateTrackBar;
         private System.Windows.Forms.ComboBox interestPaymentComboBox;
         private System.Windows.Forms.TextBox interestRateTextBox;
-        private System.Windows.Forms.Label termToLabel;
-        private System.Windows.Forms.Label termFromLabel;
+        private System.Windows.Forms.Label maxTermLabel;
+        private System.Windows.Forms.Label minTermLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TrackBar termTrackBar;
         private System.Windows.Forms.TextBox termTextBox;
-        private System.Windows.Forms.Label amountToLabel;
-        private System.Windows.Forms.Label amountFromLabel;
+        private System.Windows.Forms.Label maxAmountLabel;
+        private System.Windows.Forms.Label minAmountLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar amountTrackBar;
         private System.Windows.Forms.ComboBox currencyComboBox;
@@ -354,6 +368,7 @@
         private System.Windows.Forms.Label incomeCaptionLabel;
         private System.Windows.Forms.Label incomeValueLabel;
         private System.Windows.Forms.DataGridView interestPaymentDataGridView;
+        private System.Windows.Forms.BindingSource bindingSource;
     }
 }
 
