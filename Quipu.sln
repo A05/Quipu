@@ -7,23 +7,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DepositCalculator", "Deposi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Administration", "Administration", "{7F3945BF-81CE-4E85-88A8-4CDEB8246F24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.WinUI", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator.WinUI\Sx.Vx.Quipu.DepositCalculator.WinUI.csproj", "{4FF567C9-B7A8-4741-9824-FB489123A0CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.WinUI", "DepositCalculator\WinUI\Sx.Vx.Quipu.DepositCalculator.WinUI.csproj", "{4FF567C9-B7A8-4741-9824-FB489123A0CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.Contracts", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.Contracts\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.Contracts.csproj", "{6F4FCF26-6BEE-47A6-862A-062912DF9218}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.AppServices.Contracts", "DepositCalculator\AppServices.Contracts\Sx.Vx.Quipu.DepositCalculator.AppServices.Contracts.csproj", "{6F4FCF26-6BEE-47A6-862A-062912DF9218}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.WinUIAppServices", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.csproj", "{7D03C2EB-F106-4BC6-BE43-899D75FE11D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.AppServices", "DepositCalculator\AppServices\Sx.Vx.Quipu.DepositCalculator.AppServices.csproj", "{7D03C2EB-F106-4BC6-BE43-899D75FE11D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator\Sx.Vx.Quipu.DepositCalculator.csproj", "{A628382B-C2AE-4380-89FB-0036DDF747F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator", "DepositCalculator\Root\Sx.Vx.Quipu.DepositCalculator.csproj", "{A628382B-C2AE-4380-89FB-0036DDF747F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Domain", "Sx.Vx.Quipu.Domain\Sx.Vx.Quipu.Domain.csproj", "{F0B5BE42-7FA2-42D8-94FE-D5B7E3B36ACD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Domain", "Domain\Sx.Vx.Quipu.Domain.csproj", "{F0B5BE42-7FA2-42D8-94FE-D5B7E3B36ACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Domain.Contracts", "Sx.Vx.Quipu.Domain.Contracts\Sx.Vx.Quipu.Domain.Contracts.csproj", "{FD7A45C0-E87E-4473-A203-974DF17C678D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Domain.Contracts", "Domain.Contracts\Sx.Vx.Quipu.Domain.Contracts.csproj", "{FD7A45C0-E87E-4473-A203-974DF17C678D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu", "Sx.Vx.Quipu\Sx.Vx.Quipu.csproj", "{040CC1F8-EB4D-4E51-A22A-6B34753D28A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu", "Root\Sx.Vx.Quipu.csproj", "{040CC1F8-EB4D-4E51-A22A-6B34753D28A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Persistence", "Sx.Vx.Quipu.Persistence\Sx.Vx.Quipu.Persistence.csproj", "{E1DC5309-B788-4975-8745-DED409C71AA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Persistence", "Persistence\Sx.Vx.Quipu.Persistence.csproj", "{E1DC5309-B788-4975-8745-DED409C71AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Persistence.Contracts", "Sx.Vx.Quipu.Persistence.Contracts\Sx.Vx.Quipu.Persistence.Contracts.csproj", "{B310438C-B5FE-4198-B8A1-E41D8B2D22A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Persistence.Contracts", "Persistence.Contracts\Sx.Vx.Quipu.Persistence.Contracts.csproj", "{B310438C-B5FE-4198-B8A1-E41D8B2D22A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

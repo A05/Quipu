@@ -10,10 +10,14 @@ using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        private readonly MainFormPresenter presenter;
+
+        public MainForm(MainFormPresenter presenter)
         {
+            this.presenter = presenter ?? throw new ArgumentNullException(nameof(presenter));
+
             InitializeComponent();
         }
     }
