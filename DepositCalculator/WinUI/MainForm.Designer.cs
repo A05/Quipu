@@ -102,20 +102,22 @@
             // maxInterestRateLabel
             // 
             this.maxInterestRateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxInterestRateLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.maxInterestRateLabel.Location = new System.Drawing.Point(182, 327);
             this.maxInterestRateLabel.Name = "maxInterestRateLabel";
             this.maxInterestRateLabel.Size = new System.Drawing.Size(100, 13);
             this.maxInterestRateLabel.TabIndex = 35;
-            this.maxInterestRateLabel.Text = "To Y $";
+            this.maxInterestRateLabel.Text = "Max";
             this.maxInterestRateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // minInterestRateLabel
             // 
+            this.minInterestRateLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.minInterestRateLabel.Location = new System.Drawing.Point(10, 327);
             this.minInterestRateLabel.Name = "minInterestRateLabel";
             this.minInterestRateLabel.Size = new System.Drawing.Size(100, 13);
             this.minInterestRateLabel.TabIndex = 34;
-            this.minInterestRateLabel.Text = "From X $";
+            this.minInterestRateLabel.Text = "Min";
             // 
             // label9
             // 
@@ -131,9 +133,10 @@
             // 
             this.interestRateTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.interestRateTrackBar.AutoSize = false;
             this.interestRateTrackBar.Location = new System.Drawing.Point(10, 294);
             this.interestRateTrackBar.Name = "interestRateTrackBar";
-            this.interestRateTrackBar.Size = new System.Drawing.Size(272, 45);
+            this.interestRateTrackBar.Size = new System.Drawing.Size(272, 30);
             this.interestRateTrackBar.TabIndex = 32;
             // 
             // interestPaymentComboBox
@@ -158,20 +161,22 @@
             // maxTermLabel
             // 
             this.maxTermLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxTermLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.maxTermLabel.Location = new System.Drawing.Point(182, 209);
             this.maxTermLabel.Name = "maxTermLabel";
             this.maxTermLabel.Size = new System.Drawing.Size(100, 13);
             this.maxTermLabel.TabIndex = 29;
-            this.maxTermLabel.Text = "To Y $";
+            this.maxTermLabel.Text = "Max";
             this.maxTermLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // minTermLabel
             // 
+            this.minTermLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.minTermLabel.Location = new System.Drawing.Point(10, 209);
             this.minTermLabel.Name = "minTermLabel";
             this.minTermLabel.Size = new System.Drawing.Size(100, 13);
             this.minTermLabel.TabIndex = 28;
-            this.minTermLabel.Text = "From X $";
+            this.minTermLabel.Text = "Min";
             // 
             // label6
             // 
@@ -187,9 +192,10 @@
             // 
             this.termTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.termTrackBar.AutoSize = false;
             this.termTrackBar.Location = new System.Drawing.Point(10, 176);
             this.termTrackBar.Name = "termTrackBar";
-            this.termTrackBar.Size = new System.Drawing.Size(272, 45);
+            this.termTrackBar.Size = new System.Drawing.Size(272, 30);
             this.termTrackBar.TabIndex = 26;
             // 
             // termTextBox
@@ -205,21 +211,23 @@
             // 
             this.maxAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxAmountLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxAmountCaption", true));
+            this.maxAmountLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.maxAmountLabel.Location = new System.Drawing.Point(182, 91);
             this.maxAmountLabel.Name = "maxAmountLabel";
             this.maxAmountLabel.Size = new System.Drawing.Size(100, 13);
             this.maxAmountLabel.TabIndex = 24;
-            this.maxAmountLabel.Text = "To Y $";
+            this.maxAmountLabel.Text = "Max";
             this.maxAmountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // minAmountLabel
             // 
             this.minAmountLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MinAmountCaption", true));
+            this.minAmountLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.minAmountLabel.Location = new System.Drawing.Point(10, 91);
             this.minAmountLabel.Name = "minAmountLabel";
             this.minAmountLabel.Size = new System.Drawing.Size(100, 13);
             this.minAmountLabel.TabIndex = 23;
-            this.minAmountLabel.Text = "From X $";
+            this.minAmountLabel.Text = "Min";
             // 
             // label1
             // 
@@ -235,12 +243,16 @@
             // 
             this.amountTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.amountTrackBar.AutoSize = false;
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "TickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "Amount", true));
             this.amountTrackBar.Location = new System.Drawing.Point(10, 58);
             this.amountTrackBar.Name = "amountTrackBar";
-            this.amountTrackBar.Size = new System.Drawing.Size(281, 45);
+            this.amountTrackBar.Size = new System.Drawing.Size(272, 30);
             this.amountTrackBar.TabIndex = 21;
+            this.amountTrackBar.ValueChanged += new System.EventHandler(this.amountTrackBar_ValueChanged);
             // 
             // currencyComboBox
             // 
@@ -255,7 +267,7 @@
             // 
             this.amountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Amount", true));
+            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTextBox.Location = new System.Drawing.Point(10, 32);
             this.amountTextBox.Name = "amountTextBox";
             this.amountTextBox.Size = new System.Drawing.Size(166, 20);

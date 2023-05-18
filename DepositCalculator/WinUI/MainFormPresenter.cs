@@ -10,16 +10,17 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
     internal class MainFormPresenter
     {
-        private MainForm view;
-        private readonly MainFormViewModel viewModel;
+        private MainForm _view;
+        private readonly MainFormViewModel _viewModel;
 
         public MainFormPresenter()
         {
-            viewModel = new MainFormViewModel
+            _viewModel = new MainFormViewModel
             {
                 Amount = 25,
                 MinAmount = 10,
                 MaxAmount = 100,
+                TickFrequency = (100 - 10) / 15,
                 MinAmountCaption = $"From {10} $",
                 MaxAmountCaption = $"From {100} $"
             };
@@ -27,11 +28,16 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 
         public void SetView(MainForm view)
         {
-            Debug.Assert(this.view == null);
+            Debug.Assert(_view == null);
 
-            this.view = view ?? throw new ArgumentNullException(nameof(view));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
 
-            this.view.SetViewModel(viewModel);
+            _view.SetViewModel(_viewModel);
+        }
+
+        internal void HandleValueChangedOnAmountTrackBar(int value)
+        {
+            _viewModel.Amount = value;
         }
     }
 }

@@ -3,11 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
-    internal class MainFormViewModel
+    internal class MainFormViewModel : INotifyPropertyChanged
     {
         private int _amount;
         private int _minAmount;
         private int _maxAmount;
+        private int _tickFrequency;
         private string _minAmountCaption;
         private string _maxAmountCaption;
 
@@ -43,6 +44,18 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _maxAmount;
                 _maxAmount = value;
                 if (old != _maxAmount)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int TickFrequency
+        {
+            get => _tickFrequency;
+            set
+            {
+                var old = _tickFrequency;
+                _tickFrequency = value;
+                if (old != _tickFrequency)
                     OnPropertyChanged();
             }
         }
