@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DepositCalculator", "DepositCalculator", "{C51A93D9-5EF4-4B97-9138-0B3391504B57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Administration", "Administration", "{7F3945BF-81CE-4E85-88A8-4CDEB8246F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.WinUI", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator.WinUI\Sx.Vx.Quipu.DepositCalculator.WinUI.csproj", "{4FF567C9-B7A8-4741-9824-FB489123A0CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.Contracts", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.Contracts\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.Contracts.csproj", "{6F4FCF26-6BEE-47A6-862A-062912DF9218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator.WinUIAppServices", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices\Sx.Vx.Quipu.DepositCalculator.WinUIAppServices.csproj", "{7D03C2EB-F106-4BC6-BE43-899D75FE11D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.DepositCalculator", "DepositCalculator\Sx.Vx.Quipu.DepositCalculator\Sx.Vx.Quipu.DepositCalculator.csproj", "{A628382B-C2AE-4380-89FB-0036DDF747F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Domain", "Sx.Vx.Quipu.Domain\Sx.Vx.Quipu.Domain.csproj", "{F0B5BE42-7FA2-42D8-94FE-D5B7E3B36ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Domain.Contracts", "Sx.Vx.Quipu.Domain.Contracts\Sx.Vx.Quipu.Domain.Contracts.csproj", "{FD7A45C0-E87E-4473-A203-974DF17C678D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu", "Sx.Vx.Quipu\Sx.Vx.Quipu.csproj", "{040CC1F8-EB4D-4E51-A22A-6B34753D28A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Persistence", "Sx.Vx.Quipu.Persistence\Sx.Vx.Quipu.Persistence.csproj", "{E1DC5309-B788-4975-8745-DED409C71AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sx.Vx.Quipu.Persistence.Contracts", "Sx.Vx.Quipu.Persistence.Contracts\Sx.Vx.Quipu.Persistence.Contracts.csproj", "{B310438C-B5FE-4198-B8A1-E41D8B2D22A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FF567C9-B7A8-4741-9824-FB489123A0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF567C9-B7A8-4741-9824-FB489123A0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF567C9-B7A8-4741-9824-FB489123A0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF567C9-B7A8-4741-9824-FB489123A0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4FCF26-6BEE-47A6-862A-062912DF9218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4FCF26-6BEE-47A6-862A-062912DF9218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4FCF26-6BEE-47A6-862A-062912DF9218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4FCF26-6BEE-47A6-862A-062912DF9218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D03C2EB-F106-4BC6-BE43-899D75FE11D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D03C2EB-F106-4BC6-BE43-899D75FE11D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D03C2EB-F106-4BC6-BE43-899D75FE11D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D03C2EB-F106-4BC6-BE43-899D75FE11D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A628382B-C2AE-4380-89FB-0036DDF747F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A628382B-C2AE-4380-89FB-0036DDF747F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A628382B-C2AE-4380-89FB-0036DDF747F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A628382B-C2AE-4380-89FB-0036DDF747F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B5BE42-7FA2-42D8-94FE-D5B7E3B36ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B5BE42-7FA2-42D8-94FE-D5B7E3B36ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B5BE42-7FA2-42D8-94FE-D5B7E3B36ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B5BE42-7FA2-42D8-94FE-D5B7E3B36ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD7A45C0-E87E-4473-A203-974DF17C678D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7A45C0-E87E-4473-A203-974DF17C678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7A45C0-E87E-4473-A203-974DF17C678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7A45C0-E87E-4473-A203-974DF17C678D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{040CC1F8-EB4D-4E51-A22A-6B34753D28A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{040CC1F8-EB4D-4E51-A22A-6B34753D28A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{040CC1F8-EB4D-4E51-A22A-6B34753D28A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{040CC1F8-EB4D-4E51-A22A-6B34753D28A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1DC5309-B788-4975-8745-DED409C71AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1DC5309-B788-4975-8745-DED409C71AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1DC5309-B788-4975-8745-DED409C71AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DC5309-B788-4975-8745-DED409C71AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B310438C-B5FE-4198-B8A1-E41D8B2D22A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B310438C-B5FE-4198-B8A1-E41D8B2D22A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B310438C-B5FE-4198-B8A1-E41D8B2D22A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B310438C-B5FE-4198-B8A1-E41D8B2D22A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FF567C9-B7A8-4741-9824-FB489123A0CE} = {C51A93D9-5EF4-4B97-9138-0B3391504B57}
+		{6F4FCF26-6BEE-47A6-862A-062912DF9218} = {C51A93D9-5EF4-4B97-9138-0B3391504B57}
+		{7D03C2EB-F106-4BC6-BE43-899D75FE11D0} = {C51A93D9-5EF4-4B97-9138-0B3391504B57}
+		{A628382B-C2AE-4380-89FB-0036DDF747F3} = {C51A93D9-5EF4-4B97-9138-0B3391504B57}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7C78457-BADB-4DB8-A936-93B0A7714085}
+	EndGlobalSection
+EndGlobal
