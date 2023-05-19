@@ -49,5 +49,26 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 errorProvider.SetError(amountTextBox, error);
             }
         }
+
+        private void termTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            Debug.Assert(sender == termTrackBar);
+
+            _presenter.HandleValueChangedOnTermTrackBar(termTrackBar.Value);
+        }
+
+        private void termTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            Debug.Assert(sender == termTextBox);
+
+            if (_presenter.IsTermValid(termTextBox.Text, out var error))
+                errorProvider.SetError(termTextBox, string.Empty);
+            else
+            {
+                e.Cancel = true;
+                termTextBox.Select(0, termTextBox.Text.Length);
+                errorProvider.SetError(termTextBox, error);
+            }
+        }
     }
 }

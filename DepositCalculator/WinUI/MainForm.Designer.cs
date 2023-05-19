@@ -145,6 +145,7 @@
             // 
             this.interestPaymentComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.interestPaymentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.interestPaymentComboBox.FormattingEnabled = true;
             this.interestPaymentComboBox.Location = new System.Drawing.Point(10, 386);
             this.interestPaymentComboBox.Name = "interestPaymentComboBox";
@@ -155,6 +156,7 @@
             // 
             this.interestRateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorProvider.SetIconPadding(this.interestRateTextBox, -20);
             this.interestRateTextBox.Location = new System.Drawing.Point(10, 268);
             this.interestRateTextBox.Name = "interestRateTextBox";
             this.interestRateTextBox.Size = new System.Drawing.Size(272, 20);
@@ -163,6 +165,7 @@
             // maxTermLabel
             // 
             this.maxTermLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxTermLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxTermCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.maxTermLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.maxTermLabel.Location = new System.Drawing.Point(182, 209);
             this.maxTermLabel.Name = "maxTermLabel";
@@ -173,6 +176,7 @@
             // 
             // minTermLabel
             // 
+            this.minTermLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MinTermCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.minTermLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.minTermLabel.Location = new System.Drawing.Point(10, 209);
             this.minTermLabel.Name = "minTermLabel";
@@ -195,19 +199,27 @@
             this.termTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.termTrackBar.AutoSize = false;
+            this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "Term", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxTerm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinTerm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "TermTickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.termTrackBar.Location = new System.Drawing.Point(10, 176);
             this.termTrackBar.Name = "termTrackBar";
             this.termTrackBar.Size = new System.Drawing.Size(272, 30);
             this.termTrackBar.TabIndex = 26;
+            this.termTrackBar.ValueChanged += new System.EventHandler(this.termTrackBar_ValueChanged);
             // 
             // termTextBox
             // 
             this.termTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.termTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Term", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider.SetIconPadding(this.termTextBox, -20);
             this.termTextBox.Location = new System.Drawing.Point(10, 150);
             this.termTextBox.Name = "termTextBox";
             this.termTextBox.Size = new System.Drawing.Size(272, 20);
             this.termTextBox.TabIndex = 25;
+            this.termTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.termTextBox_Validating);
             // 
             // maxAmountLabel
             // 
@@ -248,8 +260,8 @@
             this.amountTrackBar.AutoSize = false;
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "TickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "Amount", true));
+            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "AmountTickFrequency", true));
             this.amountTrackBar.Location = new System.Drawing.Point(10, 58);
             this.amountTrackBar.Name = "amountTrackBar";
             this.amountTrackBar.Size = new System.Drawing.Size(272, 30);

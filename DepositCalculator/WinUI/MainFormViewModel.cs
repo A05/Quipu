@@ -12,10 +12,16 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         private int _amount;
         private int _minAmount;
         private int _maxAmount;
-        private int _tickFrequency;
+        private int _amountTickFrequency;
         private string _minAmountCaption;
-        private string _maxAmountCaption;        
+        private string _maxAmountCaption;
         private int _currencyCode;
+        private int _term;
+        private int _minTerm;
+        private int _maxTerm;
+        private int _termTickFrequency;
+        private string _minTermCaption;
+        private string _maxTermCaption;
 
         public int Amount
         {
@@ -53,14 +59,14 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
-        public int TickFrequency
+        public int AmountTickFrequency
         {
-            get => _tickFrequency;
+            get => _amountTickFrequency;
             set
             {
-                var old = _tickFrequency;
-                _tickFrequency = value;
-                if (old != _tickFrequency)
+                var old = _amountTickFrequency;
+                _amountTickFrequency = value;
+                if (old != _amountTickFrequency)
                     OnPropertyChanged();
             }
         }
@@ -99,6 +105,78 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _currencyCode;
                 _currencyCode = value;
                 if (old != _currencyCode)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int Term
+        {
+            get => _term;
+            set
+            {
+                var old = _term;
+                _term = value;
+                if (old != _term)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int MinTerm
+        {
+            get => _minTerm;
+            set
+            {
+                var old = _minTerm;
+                _minTerm = value;
+                if (old != _minTerm)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int MaxTerm
+        {
+            get => _maxTerm;
+            set
+            {
+                var old = _maxTerm;
+                _maxTerm = value;
+                if (old != _maxTerm)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int TermTickFrequency
+        {
+            get => _termTickFrequency;
+            set
+            {
+                var old = _termTickFrequency;
+                _termTickFrequency = value;
+                if (old != _termTickFrequency)
+                    OnPropertyChanged();
+            }
+        }
+
+        public string MinTermCaption
+        {
+            get => _minTermCaption;
+            set
+            {
+                var old = _minTermCaption;
+                _minTermCaption = value;
+                if (old != _minTermCaption)
+                    OnPropertyChanged();
+            }
+        }
+
+        public string MaxTermCaption
+        {
+            get => _maxTermCaption;
+            set
+            {
+                var old = _maxTermCaption;
+                _maxTermCaption = value;
+                if (old != _maxTermCaption)
                     OnPropertyChanged();
             }
         }

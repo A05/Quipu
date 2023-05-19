@@ -27,10 +27,16 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 Amount = 25,
                 MinAmount = 10,
                 MaxAmount = 100,
-                TickFrequency = (100 - 10) / 15,
+                AmountTickFrequency = (100 - 10) / 15,
                 MinAmountCaption = $"From {10} $",
                 MaxAmountCaption = $"From {100} $",
-                CurrencyCode = 3
+                CurrencyCode = 3,
+                Term = 12,
+                MinTerm = 3,
+                MaxTerm = 64,
+                TermTickFrequency = (64 - 3) / 15,
+                MinTermCaption = $"From {3} $",
+                MaxTermCaption = $"From {64} $",
             };
         }
 
@@ -43,9 +49,14 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             _view.SetViewModel(_viewModel);
         }
 
-        internal void HandleValueChangedOnAmountTrackBar(int value)
+        public void HandleValueChangedOnAmountTrackBar(int value)
         {
             _viewModel.Amount = value;
+        }
+
+        public void HandleValueChangedOnTermTrackBar(int term)
+        {
+            _viewModel.Term = term;
         }
 
         public bool IsAmountValid(string amount, out string error)
@@ -59,6 +70,19 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             
             error = $"Amount should be integer and be between {_viewModel.MinAmount} and {_viewModel.MaxAmount}.";
             return false;            
+        }
+
+        public bool IsTermValid(string term, out string error)
+        {
+            if (int.TryParse(term, out var nxTerm))
+                if (_viewModel.MinTerm <= nxTerm && nxTerm <= _viewModel.MaxTerm)
+                {
+                    error = string.Empty;
+                    return true;
+                }
+
+            error = $"Term should be integer and be between {_viewModel.MinTerm} and {_viewModel.MaxTerm}.";
+            return false;
         }
     }
 }
