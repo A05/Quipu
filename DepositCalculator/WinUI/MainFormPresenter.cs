@@ -15,7 +15,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             nameof(MainFormViewModel.CurrencyCode),
             nameof(MainFormViewModel.Term),
             nameof(MainFormViewModel.InterestRate),
-            nameof(MainFormViewModel.InterestPaymentCode)
+            nameof(MainFormViewModel.InterestPayment)
         };
 
         private readonly IDepositCalculationApplicationService _service;
@@ -35,10 +35,11 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 
             var interestPayments = new[]
             {
-                new KeyValuePair<int, string>(1, "Every months"),
-                new KeyValuePair<int, string>(2, "Every quater"),
-                new KeyValuePair<int, string>(3, "Every year"),
-                new KeyValuePair<int, string>(4, "Capitalization")
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryMonth, "Every months"),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryQuarter, "Every quater"),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryYear, "Every year"),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.AtTheEndOfTerm, "At the end of term"),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.Capitalization, "Capitalization")
             };
 
             _viewModel = new MainFormViewModel()
@@ -64,7 +65,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 MinInterestRateCaption = $"{1} %",
                 MaxInterestRateCaption = $"{100} %",
                 InterestPaymentEntries = interestPayments,
-                InterestPaymentCode = 2
+                InterestPayment = InterestPayment.EveryMonth
             };
 
             CalculateIncomePlan();
@@ -128,7 +129,11 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 
         private void CalculateIncomePlan()
         {
-            var plan = _service.CalculateIncomePlan();
+            var plan = _service.CalculateIncomePlan(
+                _viewModel.Amount,
+                _viewModel.Term,
+                _viewModel.InterestRate,
+                _viewModel.InterestPayment);
 
             _viewModel.IncomeDisplayValue = $"{plan.Income:.00} {_viewModel.CurrencyCode}";
         }

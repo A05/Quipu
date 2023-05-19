@@ -7,6 +7,6 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUIAppServices
 {
     public interface IDepositCalculationApplicationService
     {
-        DepositIncomePlan CalculateIncomePlan();
+        DepositIncomePlan CalculateIncomePlan(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment);
     }
 }

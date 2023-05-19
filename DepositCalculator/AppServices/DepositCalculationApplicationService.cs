@@ -8,7 +8,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUIAppServices
 {
     public class DepositCalculationApplicationService : IDepositCalculationApplicationService
     {
-        public DepositIncomePlan CalculateIncomePlan()
+        public DepositIncomePlan CalculateIncomePlan(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
             var rnd = new Random((int) DateTime.Now.Ticks);
             return new DepositIncomePlan((decimal) (rnd.NextDouble() * 20000d));

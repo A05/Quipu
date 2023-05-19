@@ -161,7 +161,7 @@
             // 
             this.interestPaymentComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.interestPaymentComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "InterestPaymentCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.interestPaymentComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "InterestPayment", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.interestPaymentComboBox.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bindingSource, "InterestPaymentEntries", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.interestPaymentComboBox.DisplayMember = "Value";
             this.interestPaymentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sx.Vx.Quipu.DepositCalculator.WinUIAppServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -31,8 +32,8 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         private int _interestRateTickFrequency;
         private string _minInterestRateCaption;
         private string _maxInterestRateCaption;
-        private IEnumerable<KeyValuePair<int, string>> _interestPaymentEntries;
-        private int _interestPaymentCode;
+        private IEnumerable<KeyValuePair<InterestPayment, string>> _interestPaymentEntries;
+        private InterestPayment _interestPayment;
         private string _incomeDisplayValue;
 
         #endregion
@@ -290,7 +291,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
-        public IEnumerable<KeyValuePair<int, string>> InterestPaymentEntries
+        public IEnumerable<KeyValuePair<InterestPayment, string>> InterestPaymentEntries
         {
             get => _interestPaymentEntries;
             set
@@ -301,14 +302,14 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
-        public int InterestPaymentCode
+        public InterestPayment InterestPayment
         {
-            get => _interestPaymentCode;
+            get => _interestPayment;
             set
             {
-                var old = _interestPaymentCode;
-                _interestPaymentCode = value;
-                if (old != _interestPaymentCode)
+                var old = _interestPayment;
+                _interestPayment = value;
+                if (old != _interestPayment)
                 {
                     OnPropertyChanged();
                     OnPropertyChanged(nameof(InterestPaymentDisplayValue));
@@ -333,7 +334,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 
         public string InterestPaymentDisplayValue
         {
-            get => _interestPaymentEntries.First(i => i.Key == InterestPaymentCode).Value;
+            get => _interestPaymentEntries.First(i => i.Key == InterestPayment).Value;
         }
 
         public string IncomeDisplayValue
