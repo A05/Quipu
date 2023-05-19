@@ -7,7 +7,19 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
     internal class MainFormViewModel : INotifyPropertyChanged
     {
-        private readonly IEnumerable<(int code, string caption)> _currencies;
+        internal class CurrencyEntry
+        {
+            public int Code { get; }
+            public string Caption { get; }
+
+            public CurrencyEntry(int code, string caption)
+            {
+                Code = code;
+                Caption = caption;
+            }
+        }
+
+        private readonly IEnumerable<CurrencyEntry> _currencyEntries;
 
         private int _amount;
         private int _minAmount;
@@ -89,7 +101,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
-        public IEnumerable<(int code, string caption)> Currencies => _currencies;
+        public IEnumerable<CurrencyEntry> CurrencyEntries => _currencyEntries;
 
         public int CurrencyCode
         {
@@ -110,9 +122,9 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public MainFormViewModel(IEnumerable<(int code, string caption)> currencies)
+        public MainFormViewModel(IEnumerable<CurrencyEntry> currencyEntries)
         {
-            _currencies = currencies ?? throw new ArgumentNullException(nameof(currencies));
+            _currencyEntries = currencyEntries ?? throw new ArgumentNullException(nameof(currencyEntries));
         }
     }
 }

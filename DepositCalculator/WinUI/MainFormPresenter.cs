@@ -17,7 +17,9 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         {
             var currencies = new[]
             {
-                (1, "UAH"), (2, "DLR"), (3, "EUR")
+                new MainFormViewModel.CurrencyEntry(1, "UAH"),
+                new MainFormViewModel.CurrencyEntry(2, "DLR"),
+                new MainFormViewModel.CurrencyEntry(3, "EUR")
             };
 
             _viewModel = new MainFormViewModel(currencies)
@@ -28,7 +30,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 TickFrequency = (100 - 10) / 15,
                 MinAmountCaption = $"From {10} $",
                 MaxAmountCaption = $"From {100} $",
-                
+                CurrencyCode = 3
             };
         }
 
