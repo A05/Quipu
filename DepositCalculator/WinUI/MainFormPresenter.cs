@@ -28,15 +28,21 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 MinAmount = 10,
                 MaxAmount = 100,
                 AmountTickFrequency = (100 - 10) / 15,
-                MinAmountCaption = $"From {10} $",
-                MaxAmountCaption = $"From {100} $",
+                MinAmountCaption = $"{10} $",
+                MaxAmountCaption = $"{100} $",
                 CurrencyCode = 3,
                 Term = 12,
                 MinTerm = 3,
                 MaxTerm = 64,
                 TermTickFrequency = (64 - 3) / 15,
-                MinTermCaption = $"From {3} $",
-                MaxTermCaption = $"From {64} $",
+                MinTermCaption = $"{3} mounths",
+                MaxTermCaption = $"{64} mounths",
+                InterestRate = 24,
+                MinInterestRate = 1,
+                MaxInterestRate = 100,
+                InterestRateTickFrequency = (100 - 1) / 15,
+                MinInterestRateCaption = $"{1} %",
+                MaxInterestRateCaption = $"{100} %",
             };
         }
 
@@ -57,6 +63,11 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         public void HandleValueChangedOnTermTrackBar(int term)
         {
             _viewModel.Term = term;
+        }
+
+        public void HandleValueChangedOnInterestRateTrackBar(int interestRate)
+        {
+            _viewModel.InterestRate = interestRate;
         }
 
         public bool IsAmountValid(string amount, out string error)
@@ -82,6 +93,19 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 }
 
             error = $"Term should be integer and be between {_viewModel.MinTerm} and {_viewModel.MaxTerm}.";
+            return false;
+        }
+
+        public bool IsInterestRateValid(string interestRate, out string error)
+        {
+            if (int.TryParse(interestRate, out var nxInterestRate))
+                if (_viewModel.MinInterestRate <= nxInterestRate && nxInterestRate <= _viewModel.MaxInterestRate)
+                {
+                    error = string.Empty;
+                    return true;
+                }
+
+            error = $"Term should be integer and be between {_viewModel.MinInterestRate} and {_viewModel.MaxInterestRate}.";
             return false;
         }
     }

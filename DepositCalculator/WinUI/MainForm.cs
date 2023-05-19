@@ -70,5 +70,26 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 errorProvider.SetError(termTextBox, error);
             }
         }
+
+        private void interestRateTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            Debug.Assert(sender == interestRateTrackBar);
+
+            _presenter.HandleValueChangedOnInterestRateTrackBar(interestRateTrackBar.Value);
+        }
+
+        private void interestRateTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            Debug.Assert(sender == interestRateTextBox);
+
+            if (_presenter.IsInterestRateValid(interestRateTextBox.Text, out var error))
+                errorProvider.SetError(interestRateTextBox, string.Empty);
+            else
+            {
+                e.Cancel = true;
+                interestRateTextBox.Select(0, interestRateTextBox.Text.Length);
+                errorProvider.SetError(interestRateTextBox, error);
+            }
+        }
     }
 }

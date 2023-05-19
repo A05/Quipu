@@ -22,6 +22,12 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         private int _termTickFrequency;
         private string _minTermCaption;
         private string _maxTermCaption;
+        private int _interestRate;
+        private int _minInterestRate;
+        private int _maxInterestRate;
+        private int _interestRateTickFrequency;
+        private string _minInterestRateCaption;
+        private string _maxInterestRateCaption;
 
         public int Amount
         {
@@ -177,6 +183,78 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _maxTermCaption;
                 _maxTermCaption = value;
                 if (old != _maxTermCaption)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int InterestRate
+        {
+            get => _interestRate;
+            set
+            {
+                var old = _interestRate;
+                _interestRate = value;
+                if (old != _interestRate)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int MinInterestRate
+        {
+            get => _minInterestRate;
+            set
+            {
+                var old = _minInterestRate;
+                _minInterestRate = value;
+                if (old != _minInterestRate)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int MaxInterestRate
+        {
+            get => _maxInterestRate;
+            set
+            {
+                var old = _maxInterestRate;
+                _maxInterestRate = value;
+                if (old != _maxInterestRate)
+                    OnPropertyChanged();
+            }
+        }
+
+        public int InterestRateTickFrequency
+        {
+            get => _interestRateTickFrequency;
+            set
+            {
+                var old = _interestRateTickFrequency;
+                _interestRateTickFrequency = value;
+                if (old != _interestRateTickFrequency)
+                    OnPropertyChanged();
+            }
+        }
+
+        public string MinInterestRateCaption
+        {
+            get => _minInterestRateCaption;
+            set
+            {
+                var old = _minInterestRateCaption;
+                _minInterestRateCaption = value;
+                if (old != _minInterestRateCaption)
+                    OnPropertyChanged();
+            }
+        }
+
+        public string MaxInterestRateCaption
+        {
+            get => _maxInterestRateCaption;
+            set
+            {
+                var old = _maxInterestRateCaption;
+                _maxInterestRateCaption = value;
+                if (old != _maxInterestRateCaption)
                     OnPropertyChanged();
             }
         }

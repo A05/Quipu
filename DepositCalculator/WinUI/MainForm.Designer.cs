@@ -104,6 +104,7 @@
             // maxInterestRateLabel
             // 
             this.maxInterestRateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxInterestRateLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxInterestRateCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.maxInterestRateLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.maxInterestRateLabel.Location = new System.Drawing.Point(182, 327);
             this.maxInterestRateLabel.Name = "maxInterestRateLabel";
@@ -114,6 +115,7 @@
             // 
             // minInterestRateLabel
             // 
+            this.minInterestRateLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MinInterestRateCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.minInterestRateLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.minInterestRateLabel.Location = new System.Drawing.Point(10, 327);
             this.minInterestRateLabel.Name = "minInterestRateLabel";
@@ -136,10 +138,15 @@
             this.interestRateTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.interestRateTrackBar.AutoSize = false;
+            this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "InterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxInterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinInterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "InterestRateTickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.interestRateTrackBar.Location = new System.Drawing.Point(10, 294);
             this.interestRateTrackBar.Name = "interestRateTrackBar";
             this.interestRateTrackBar.Size = new System.Drawing.Size(272, 30);
             this.interestRateTrackBar.TabIndex = 32;
+            this.interestRateTrackBar.ValueChanged += new System.EventHandler(this.interestRateTrackBar_ValueChanged);
             // 
             // interestPaymentComboBox
             // 
@@ -156,11 +163,13 @@
             // 
             this.interestRateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.interestRateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "InterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.errorProvider.SetIconPadding(this.interestRateTextBox, -20);
             this.interestRateTextBox.Location = new System.Drawing.Point(10, 268);
             this.interestRateTextBox.Name = "interestRateTextBox";
             this.interestRateTextBox.Size = new System.Drawing.Size(272, 20);
             this.interestRateTextBox.TabIndex = 30;
+            this.interestRateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.interestRateTextBox_Validating);
             // 
             // maxTermLabel
             // 
