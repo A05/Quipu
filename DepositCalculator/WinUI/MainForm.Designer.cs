@@ -50,29 +50,29 @@
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.splitter = new System.Windows.Forms.Splitter();
             this.outputPanel = new System.Windows.Forms.Panel();
-            this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.incomeValueLabel = new System.Windows.Forms.Label();
             this.incomeCaptionLabel = new System.Windows.Forms.Label();
+            this.interestPaymentValueLabel = new System.Windows.Forms.Label();
+            this.interestPaymentCaptionLabel = new System.Windows.Forms.Label();
+            this.interestRateValueLabel = new System.Windows.Forms.Label();
+            this.interestRateCaptionLabel = new System.Windows.Forms.Label();
+            this.termValueLabel = new System.Windows.Forms.Label();
+            this.termCaptionLabel = new System.Windows.Forms.Label();
+            this.amountValueLabel = new System.Windows.Forms.Label();
+            this.amountCaptionLabel = new System.Windows.Forms.Label();
+            this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.inputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
             this.outputPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // inputPanel
@@ -294,7 +294,7 @@
             // currencyComboBox
             // 
             this.currencyComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "CurrencyCode", true));
+            this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "CurrencyCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bindingSource, "CurrencyEntries", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.currencyComboBox.DisplayMember = "Value";
             this.currencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -330,14 +330,14 @@
             // 
             this.outputPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.outputPanel.Controls.Add(this.panel1);
-            this.outputPanel.Controls.Add(this.label11);
-            this.outputPanel.Controls.Add(this.label12);
-            this.outputPanel.Controls.Add(this.label7);
-            this.outputPanel.Controls.Add(this.label8);
-            this.outputPanel.Controls.Add(this.label4);
-            this.outputPanel.Controls.Add(this.label5);
-            this.outputPanel.Controls.Add(this.label2);
-            this.outputPanel.Controls.Add(this.label3);
+            this.outputPanel.Controls.Add(this.interestPaymentValueLabel);
+            this.outputPanel.Controls.Add(this.interestPaymentCaptionLabel);
+            this.outputPanel.Controls.Add(this.interestRateValueLabel);
+            this.outputPanel.Controls.Add(this.interestRateCaptionLabel);
+            this.outputPanel.Controls.Add(this.termValueLabel);
+            this.outputPanel.Controls.Add(this.termCaptionLabel);
+            this.outputPanel.Controls.Add(this.amountValueLabel);
+            this.outputPanel.Controls.Add(this.amountCaptionLabel);
             this.outputPanel.Controls.Add(this.interestPaymentDataGridView);
             this.outputPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.outputPanel.Location = new System.Drawing.Point(278, 0);
@@ -345,15 +345,16 @@
             this.outputPanel.Size = new System.Drawing.Size(269, 420);
             this.outputPanel.TabIndex = 22;
             // 
-            // interestPaymentDataGridView
+            // panel1
             // 
-            this.interestPaymentDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.interestPaymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.interestPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.interestPaymentDataGridView.Location = new System.Drawing.Point(0, 141);
-            this.interestPaymentDataGridView.Name = "interestPaymentDataGridView";
-            this.interestPaymentDataGridView.Size = new System.Drawing.Size(269, 279);
-            this.interestPaymentDataGridView.TabIndex = 26;
+            this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.Controls.Add(this.incomeValueLabel);
+            this.panel1.Controls.Add(this.incomeCaptionLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 109);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(269, 32);
+            this.panel1.TabIndex = 35;
             // 
             // incomeValueLabel
             // 
@@ -377,6 +378,108 @@
             this.incomeCaptionLabel.TabIndex = 24;
             this.incomeCaptionLabel.Text = "Income";
             // 
+            // interestPaymentValueLabel
+            // 
+            this.interestPaymentValueLabel.AutoSize = true;
+            this.interestPaymentValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "InterestPaymentDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.interestPaymentValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestPaymentValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.interestPaymentValueLabel.Location = new System.Drawing.Point(122, 80);
+            this.interestPaymentValueLabel.Name = "interestPaymentValueLabel";
+            this.interestPaymentValueLabel.Size = new System.Drawing.Size(34, 17);
+            this.interestPaymentValueLabel.TabIndex = 34;
+            this.interestPaymentValueLabel.Text = "N/A";
+            // 
+            // interestPaymentCaptionLabel
+            // 
+            this.interestPaymentCaptionLabel.AutoSize = true;
+            this.interestPaymentCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestPaymentCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.interestPaymentCaptionLabel.Location = new System.Drawing.Point(122, 58);
+            this.interestPaymentCaptionLabel.Name = "interestPaymentCaptionLabel";
+            this.interestPaymentCaptionLabel.Size = new System.Drawing.Size(129, 17);
+            this.interestPaymentCaptionLabel.TabIndex = 33;
+            this.interestPaymentCaptionLabel.Text = "Interest payment";
+            // 
+            // interestRateValueLabel
+            // 
+            this.interestRateValueLabel.AutoSize = true;
+            this.interestRateValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "InterestRateDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.interestRateValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestRateValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.interestRateValueLabel.Location = new System.Drawing.Point(6, 80);
+            this.interestRateValueLabel.Name = "interestRateValueLabel";
+            this.interestRateValueLabel.Size = new System.Drawing.Size(39, 17);
+            this.interestRateValueLabel.TabIndex = 32;
+            this.interestRateValueLabel.Text = "45%";
+            // 
+            // interestRateCaptionLabel
+            // 
+            this.interestRateCaptionLabel.AutoSize = true;
+            this.interestRateCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestRateCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.interestRateCaptionLabel.Location = new System.Drawing.Point(6, 58);
+            this.interestRateCaptionLabel.Name = "interestRateCaptionLabel";
+            this.interestRateCaptionLabel.Size = new System.Drawing.Size(97, 17);
+            this.interestRateCaptionLabel.TabIndex = 31;
+            this.interestRateCaptionLabel.Text = "Interest rate";
+            // 
+            // termValueLabel
+            // 
+            this.termValueLabel.AutoSize = true;
+            this.termValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "TermDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.termValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.termValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.termValueLabel.Location = new System.Drawing.Point(122, 31);
+            this.termValueLabel.Name = "termValueLabel";
+            this.termValueLabel.Size = new System.Drawing.Size(83, 17);
+            this.termValueLabel.TabIndex = 30;
+            this.termValueLabel.Text = "36 months";
+            // 
+            // termCaptionLabel
+            // 
+            this.termCaptionLabel.AutoSize = true;
+            this.termCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.termCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.termCaptionLabel.Location = new System.Drawing.Point(122, 9);
+            this.termCaptionLabel.Name = "termCaptionLabel";
+            this.termCaptionLabel.Size = new System.Drawing.Size(45, 17);
+            this.termCaptionLabel.TabIndex = 29;
+            this.termCaptionLabel.Text = "Term";
+            // 
+            // amountValueLabel
+            // 
+            this.amountValueLabel.AutoSize = true;
+            this.amountValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "AmountDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.amountValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.amountValueLabel.Location = new System.Drawing.Point(6, 31);
+            this.amountValueLabel.Name = "amountValueLabel";
+            this.amountValueLabel.Size = new System.Drawing.Size(63, 17);
+            this.amountValueLabel.TabIndex = 28;
+            this.amountValueLabel.Text = "10.00 $";
+            // 
+            // amountCaptionLabel
+            // 
+            this.amountCaptionLabel.AutoSize = true;
+            this.amountCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.amountCaptionLabel.Location = new System.Drawing.Point(6, 9);
+            this.amountCaptionLabel.Name = "amountCaptionLabel";
+            this.amountCaptionLabel.Size = new System.Drawing.Size(62, 17);
+            this.amountCaptionLabel.TabIndex = 27;
+            this.amountCaptionLabel.Text = "Amount";
+            // 
+            // interestPaymentDataGridView
+            // 
+            this.interestPaymentDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.interestPaymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.interestPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.interestPaymentDataGridView.Location = new System.Drawing.Point(0, 141);
+            this.interestPaymentDataGridView.Name = "interestPaymentDataGridView";
+            this.interestPaymentDataGridView.Size = new System.Drawing.Size(269, 279);
+            this.interestPaymentDataGridView.TabIndex = 26;
+            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
@@ -385,105 +488,6 @@
             // 
             this.bindingSource.AllowNew = false;
             this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.DepositCalculator.WinUI.MainFormViewModel);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(6, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 17);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "10.00 $";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(6, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 17);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Amount";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(122, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 17);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "36 months";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(122, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Term";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(6, 80);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 17);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "45%";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(6, 58);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 17);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Interest rate";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(122, 80);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 17);
-            this.label11.TabIndex = 34;
-            this.label11.Text = "N/A";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(122, 58);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(129, 17);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Interest payment";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Info;
-            this.panel1.Controls.Add(this.incomeValueLabel);
-            this.panel1.Controls.Add(this.incomeCaptionLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 109);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(269, 32);
-            this.panel1.TabIndex = 35;
             // 
             // MainForm
             // 
@@ -504,11 +508,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).EndInit();
             this.outputPanel.ResumeLayout(false);
             this.outputPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -540,15 +544,15 @@
         private System.Windows.Forms.DataGridView interestPaymentDataGridView;
         private System.Windows.Forms.BindingSource bindingSource;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label amountValueLabel;
+        private System.Windows.Forms.Label amountCaptionLabel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label interestPaymentValueLabel;
+        private System.Windows.Forms.Label interestPaymentCaptionLabel;
+        private System.Windows.Forms.Label interestRateValueLabel;
+        private System.Windows.Forms.Label interestRateCaptionLabel;
+        private System.Windows.Forms.Label termValueLabel;
+        private System.Windows.Forms.Label termCaptionLabel;
     }
 }
 

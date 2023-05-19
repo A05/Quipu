@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
@@ -45,7 +46,10 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _amount;
                 _amount = value;
                 if (old != _amount)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(AmountDisplayValue));
+                }
             }
         }
 
@@ -128,7 +132,10 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _currencyCode;
                 _currencyCode = value;
                 if (old != _currencyCode)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(AmountDisplayValue));
+                }
             }
         }
 
@@ -140,7 +147,10 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _term;
                 _term = value;
                 if (old != _term)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(TermDisplayValue));
+                }
             }
         }
 
@@ -212,7 +222,10 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _interestRate;
                 _interestRate = value;
                 if (old != _interestRate)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(InterestRateDisplayValue));
+                }
             }
         }
 
@@ -295,8 +308,31 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 var old = _interestPaymentCode;
                 _interestPaymentCode = value;
                 if (old != _interestPaymentCode)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(InterestPaymentDisplayValue));
+                }
             }
+        }
+
+        public string AmountDisplayValue
+        {
+            get => $"{Amount} {CurrencyCode}";
+        }
+
+        public string TermDisplayValue
+        {
+            get => $"{Term} months";
+        }
+
+        public string InterestRateDisplayValue
+        {
+            get => $"{InterestRate} %";
+        }
+
+        public string InterestPaymentDisplayValue
+        {
+            get => _interestPaymentEntries.First(i => i.Key == InterestPaymentCode).Value;
         }
 
         #endregion
