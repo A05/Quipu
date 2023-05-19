@@ -17,9 +17,9 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         {
             var currencies = new[]
             {
-                new MainFormViewModel.CurrencyEntry(1, "UAH"),
-                new MainFormViewModel.CurrencyEntry(2, "DLR"),
-                new MainFormViewModel.CurrencyEntry(3, "EUR")
+                new KeyValuePair<int, string>(1, "UAH"),
+                new KeyValuePair<int, string>(2, "DLR"),
+                new KeyValuePair<int, string>(3, "EUR")
             };
 
             _viewModel = new MainFormViewModel(currencies)
