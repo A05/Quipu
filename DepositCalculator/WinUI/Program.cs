@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Sx.Vx.Quipu.DepositCalculator.WinUIAppServices;
+using System;
 using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
@@ -13,7 +11,11 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(new MainFormPresenter()));
+
+            var applicationService = new DepositCalculationApplicationService();
+            var presenter = new MainFormPresenter(applicationService);
+
+            Application.Run(new MainForm(presenter));
         }
     }
 }

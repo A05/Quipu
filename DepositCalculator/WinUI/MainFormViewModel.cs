@@ -33,6 +33,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         private string _maxInterestRateCaption;
         private IEnumerable<KeyValuePair<int, string>> _interestPaymentEntries;
         private int _interestPaymentCode;
+        private string _incomeDisplayValue;
 
         #endregion
 
@@ -333,6 +334,18 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         public string InterestPaymentDisplayValue
         {
             get => _interestPaymentEntries.First(i => i.Key == InterestPaymentCode).Value;
+        }
+
+        public string IncomeDisplayValue
+        {
+            get => _incomeDisplayValue;
+            set
+            {
+                var old = _incomeDisplayValue;
+                _incomeDisplayValue = value;
+                if (old != _incomeDisplayValue)
+                    OnPropertyChanged();
+            }
         }
 
         #endregion

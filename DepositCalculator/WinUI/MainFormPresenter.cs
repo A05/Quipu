@@ -1,16 +1,31 @@
-﻿using System;
+﻿using Sx.Vx.Quipu.DepositCalculator.WinUIAppServices;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
     internal class MainFormPresenter
     {
-        private MainForm _view;
-        private readonly MainFormViewModel _viewModel;
-
-        public MainFormPresenter()
+        private static readonly string[] InputProperties = new[]
         {
+            nameof(MainFormViewModel.Amount),
+            nameof(MainFormViewModel.CurrencyCode),
+            nameof(MainFormViewModel.Term),
+            nameof(MainFormViewModel.InterestRate),
+            nameof(MainFormViewModel.InterestPaymentCode)
+        };
+
+        private readonly IDepositCalculationApplicationService _service;
+        private readonly MainFormViewModel _viewModel;
+        private MainForm _view;
+
+        public MainFormPresenter(IDepositCalculationApplicationService service)
+        {
+            _service = service ?? throw new ArgumentNullException(nameof(service));
+
             var currencies = new[]
             {
                 new KeyValuePair<int, string>(1, "UAH"),
@@ -51,6 +66,10 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 InterestPaymentEntries = interestPayments,
                 InterestPaymentCode = 2
             };
+
+            CalculateIncomePlan();
+
+            _viewModel.PropertyChanged += HandlePropertyChangedOnViewModel;
         }
 
         public void SetView(MainForm view)
@@ -99,6 +118,19 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 
             error = $"Term should be integer and be between {_viewModel.MinInterestRate} and {_viewModel.MaxInterestRate}.";
             return false;
+        }
+
+        private void HandlePropertyChangedOnViewModel(object sender, PropertyChangedEventArgs e)
+        {
+            if (InputProperties.Contains(e.PropertyName))
+                CalculateIncomePlan();
+        }
+
+        private void CalculateIncomePlan()
+        {
+            var plan = _service.CalculateIncomePlan();
+
+            _viewModel.IncomeDisplayValue = $"{plan.Income:.00} {_viewModel.CurrencyCode}";
         }
     }
 }

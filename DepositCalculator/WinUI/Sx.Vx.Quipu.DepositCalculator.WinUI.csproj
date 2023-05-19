@@ -82,5 +82,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppServices.Contracts\Sx.Vx.Quipu.DepositCalculator.AppServices.Contracts.csproj">
+      <Project>{6f4fcf26-6bee-47a6-862a-062912df9218}</Project>
+      <Name>Sx.Vx.Quipu.DepositCalculator.AppServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppServices\Sx.Vx.Quipu.DepositCalculator.AppServices.csproj">
+      <Project>{7d03c2eb-f106-4bc6-be43-899d75fe11d0}</Project>
+      <Name>Sx.Vx.Quipu.DepositCalculator.AppServices</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -356,6 +356,7 @@
             // incomeValueLabel
             // 
             this.incomeValueLabel.AutoSize = true;
+            this.incomeValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "IncomeDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.incomeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incomeValueLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.incomeValueLabel.Location = new System.Drawing.Point(121, 6);
