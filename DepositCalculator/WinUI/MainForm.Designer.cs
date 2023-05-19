@@ -156,7 +156,6 @@
             this.interestRateTrackBar.Name = "interestRateTrackBar";
             this.interestRateTrackBar.Size = new System.Drawing.Size(253, 30);
             this.interestRateTrackBar.TabIndex = 32;
-            this.interestRateTrackBar.ValueChanged += new System.EventHandler(this.interestRateTrackBar_ValueChanged);
             // 
             // interestPaymentComboBox
             // 
@@ -230,7 +229,6 @@
             this.termTrackBar.Name = "termTrackBar";
             this.termTrackBar.Size = new System.Drawing.Size(253, 30);
             this.termTrackBar.TabIndex = 26;
-            this.termTrackBar.ValueChanged += new System.EventHandler(this.termTrackBar_ValueChanged);
             // 
             // termTextBox
             // 
@@ -281,15 +279,14 @@
             this.amountTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.amountTrackBar.AutoSize = false;
+            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "Amount", true));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "AmountTickFrequency", true));
             this.amountTrackBar.Location = new System.Drawing.Point(10, 58);
             this.amountTrackBar.Name = "amountTrackBar";
             this.amountTrackBar.Size = new System.Drawing.Size(253, 30);
             this.amountTrackBar.TabIndex = 21;
-            this.amountTrackBar.ValueChanged += new System.EventHandler(this.amountTrackBar_ValueChanged);
             // 
             // currencyComboBox
             // 

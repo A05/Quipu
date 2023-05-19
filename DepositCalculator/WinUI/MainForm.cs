@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
@@ -29,13 +23,6 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             bindingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
         }
 
-        private void amountTrackBar_ValueChanged(object sender, EventArgs e)
-        {
-            Debug.Assert(sender == amountTrackBar);
-
-            _presenter.HandleValueChangedOnAmountTrackBar(amountTrackBar.Value);
-        }
-
         private void amountTextBox_Validating(object sender, CancelEventArgs e)
         {
             Debug.Assert(sender == amountTextBox);
@@ -50,13 +37,6 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
-        private void termTrackBar_ValueChanged(object sender, EventArgs e)
-        {
-            Debug.Assert(sender == termTrackBar);
-
-            _presenter.HandleValueChangedOnTermTrackBar(termTrackBar.Value);
-        }
-
         private void termTextBox_Validating(object sender, CancelEventArgs e)
         {
             Debug.Assert(sender == termTextBox);
@@ -69,13 +49,6 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 termTextBox.Select(0, termTextBox.Text.Length);
                 errorProvider.SetError(termTextBox, error);
             }
-        }
-
-        private void interestRateTrackBar_ValueChanged(object sender, EventArgs e)
-        {
-            Debug.Assert(sender == interestRateTrackBar);
-
-            _presenter.HandleValueChangedOnInterestRateTrackBar(interestRateTrackBar.Value);
         }
 
         private void interestRateTextBox_Validating(object sender, CancelEventArgs e)

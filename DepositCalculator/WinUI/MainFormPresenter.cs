@@ -62,21 +62,6 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             _view.SetViewModel(_viewModel);
         }
 
-        public void HandleValueChangedOnAmountTrackBar(int value)
-        {
-            _viewModel.Amount = value;
-        }
-
-        public void HandleValueChangedOnTermTrackBar(int term)
-        {
-            _viewModel.Term = term;
-        }
-
-        public void HandleValueChangedOnInterestRateTrackBar(int interestRate)
-        {
-            _viewModel.InterestRate = interestRate;
-        }
-
         public bool IsAmountValid(string amount, out string error)
         {
             if (int.TryParse(amount, out var nxAmount))
