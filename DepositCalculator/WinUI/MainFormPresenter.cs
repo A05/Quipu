@@ -15,14 +15,20 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 
         public MainFormPresenter()
         {
-            _viewModel = new MainFormViewModel
+            var currencies = new[]
+            {
+                (1, "UAH"), (2, "DLR"), (3, "EUR")
+            };
+
+            _viewModel = new MainFormViewModel(currencies)
             {
                 Amount = 25,
                 MinAmount = 10,
                 MaxAmount = 100,
                 TickFrequency = (100 - 10) / 15,
                 MinAmountCaption = $"From {10} $",
-                MaxAmountCaption = $"From {100} $"
+                MaxAmountCaption = $"From {100} $",
+                
             };
         }
 

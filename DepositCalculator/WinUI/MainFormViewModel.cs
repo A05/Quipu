@@ -1,16 +1,21 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
     internal class MainFormViewModel : INotifyPropertyChanged
     {
+        private readonly IEnumerable<(int code, string caption)> _currencies;
+
         private int _amount;
         private int _minAmount;
         private int _maxAmount;
         private int _tickFrequency;
         private string _minAmountCaption;
-        private string _maxAmountCaption;
+        private string _maxAmountCaption;        
+        private int _currencyCode;
 
         public int Amount
         {
@@ -84,11 +89,30 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
+        public IEnumerable<(int code, string caption)> Currencies => _currencies;
+
+        public int CurrencyCode
+        {
+            get => _currencyCode;
+            set
+            {
+                var old = _currencyCode;
+                _currencyCode = value;
+                if (old != _currencyCode)
+                    OnPropertyChanged();
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public MainFormViewModel(IEnumerable<(int code, string caption)> currencies)
+        {
+            _currencies = currencies ?? throw new ArgumentNullException(nameof(currencies));
         }
     }
 }
