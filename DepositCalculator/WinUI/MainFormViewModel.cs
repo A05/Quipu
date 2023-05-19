@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
     internal class MainFormViewModel : INotifyPropertyChanged
     {
-        private readonly IEnumerable<KeyValuePair<int, string>> _currencyEntries;
-
+        #region Fields
+        
         private int _amount;
         private int _minAmount;
         private int _maxAmount;
         private int _amountTickFrequency;
         private string _minAmountCaption;
         private string _maxAmountCaption;
+        private IEnumerable<KeyValuePair<int, string>> _currencyEntries;
         private int _currencyCode;
         private int _term;
         private int _minTerm;
@@ -28,6 +30,12 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         private int _interestRateTickFrequency;
         private string _minInterestRateCaption;
         private string _maxInterestRateCaption;
+        private IEnumerable<KeyValuePair<int, string>> _interestPaymentEntries;
+        private int _interestPaymentCode;
+
+        #endregion
+
+        #region Properties
 
         public int Amount
         {
@@ -101,7 +109,16 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
-        public IEnumerable<KeyValuePair<int, string>> CurrencyEntries => _currencyEntries;
+        public IEnumerable<KeyValuePair<int, string>> CurrencyEntries
+        {
+            get => _currencyEntries;
+            set
+            {
+                Debug.Assert(_currencyEntries == null);
+
+                _currencyEntries = value ?? throw new ArgumentNullException(nameof(value));
+            }
+        }
 
         public int CurrencyCode
         {
@@ -259,16 +276,36 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             }
         }
 
+        public IEnumerable<KeyValuePair<int, string>> InterestPaymentEntries
+        {
+            get => _interestPaymentEntries;
+            set
+            {
+                Debug.Assert(_interestPaymentEntries == null);
+
+                _interestPaymentEntries = value ?? throw new ArgumentNullException(nameof(value));
+            }
+        }
+
+        public int InterestPaymentCode
+        {
+            get => _interestPaymentCode;
+            set
+            {
+                var old = _interestPaymentCode;
+                _interestPaymentCode = value;
+                if (old != _interestPaymentCode)
+                    OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public MainFormViewModel(IEnumerable<KeyValuePair<int, string>> currencyEntries)
-        {
-            _currencyEntries = currencyEntries ?? throw new ArgumentNullException(nameof(currencyEntries));
         }
     }
 }

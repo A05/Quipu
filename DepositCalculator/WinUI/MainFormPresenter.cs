@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 {
@@ -22,7 +18,15 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 new KeyValuePair<int, string>(3, "EUR")
             };
 
-            _viewModel = new MainFormViewModel(currencies)
+            var interestPayments = new[]
+            {
+                new KeyValuePair<int, string>(1, "Every months"),
+                new KeyValuePair<int, string>(2, "Every quater"),
+                new KeyValuePair<int, string>(3, "Every year"),
+                new KeyValuePair<int, string>(4, "Capitalization")
+            };
+
+            _viewModel = new MainFormViewModel()
             {
                 Amount = 25,
                 MinAmount = 10,
@@ -30,6 +34,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 AmountTickFrequency = (100 - 10) / 15,
                 MinAmountCaption = $"{10} $",
                 MaxAmountCaption = $"{100} $",
+                CurrencyEntries = currencies,
                 CurrencyCode = 3,
                 Term = 12,
                 MinTerm = 3,
@@ -43,6 +48,8 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 InterestRateTickFrequency = (100 - 1) / 15,
                 MinInterestRateCaption = $"{1} %",
                 MaxInterestRateCaption = $"{100} %",
+                InterestPaymentEntries = interestPayments,
+                InterestPaymentCode = 2
             };
         }
 
