@@ -47,5 +47,18 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
         {
             _viewModel.Amount = value;
         }
+
+        public bool IsAmountValid(string amount, out string error)
+        {
+            if (int.TryParse(amount, out var nxAmount))
+                if (_viewModel.MinAmount <= nxAmount && nxAmount <= _viewModel.MaxAmount)
+                {
+                    error = string.Empty;
+                    return true;
+                }
+            
+            error = $"Amount should be integer and be between {_viewModel.MinAmount} and {_viewModel.MaxAmount}.";
+            return false;            
+        }
     }
 }

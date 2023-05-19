@@ -35,5 +35,19 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
 
             _presenter.HandleValueChangedOnAmountTrackBar(amountTrackBar.Value);
         }
+
+        private void amountTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            Debug.Assert(sender == amountTextBox);
+
+            if (_presenter.IsAmountValid(amountTextBox.Text, out var error))
+                errorProvider.SetError(amountTextBox, string.Empty);
+            else
+            {
+                e.Cancel = true;
+                amountTextBox.Select(0, amountTextBox.Text.Length);
+                errorProvider.SetError(amountTextBox, error);
+            }
+        }
     }
 }

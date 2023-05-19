@@ -53,6 +53,7 @@
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
             this.incomeValueLabel = new System.Windows.Forms.Label();
             this.incomeCaptionLabel = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
             this.outputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -273,10 +275,12 @@
             this.amountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider.SetIconPadding(this.amountTextBox, -20);
             this.amountTextBox.Location = new System.Drawing.Point(10, 32);
             this.amountTextBox.Name = "amountTextBox";
             this.amountTextBox.Size = new System.Drawing.Size(166, 20);
             this.amountTextBox.TabIndex = 19;
+            this.amountTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.amountTextBox_Validating);
             // 
             // splitter
             // 
@@ -330,6 +334,10 @@
             this.incomeCaptionLabel.TabIndex = 24;
             this.incomeCaptionLabel.Text = "Income";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // bindingSource
             // 
             this.bindingSource.AllowNew = false;
@@ -355,6 +363,7 @@
             this.outputPanel.ResumeLayout(false);
             this.outputPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -386,6 +395,7 @@
         private System.Windows.Forms.Label incomeValueLabel;
         private System.Windows.Forms.DataGridView interestPaymentDataGridView;
         private System.Windows.Forms.BindingSource bindingSource;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
 
