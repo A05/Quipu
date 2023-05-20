@@ -499,6 +499,7 @@
             this.MaximizeBox = false;
             this.Name = "CalculatorForm";
             this.Text = "Deposit Calculator";
+            this.Load += new System.EventHandler(this.CalculatorForm_Load);
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();

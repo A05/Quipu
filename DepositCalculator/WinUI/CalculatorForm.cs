@@ -23,6 +23,11 @@ namespace Sx.Vx.Quipu.WinUI
             bindingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
         }
 
+        private void CalculatorForm_Load(object sender, EventArgs e)
+        {
+            _presenter.HandleLoadOnView();
+        }
+
         private void amountTextBox_Validating(object sender, CancelEventArgs e)
         {
             Debug.Assert(sender == amountTextBox);

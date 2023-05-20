@@ -42,6 +42,11 @@ namespace Sx.Vx.Quipu.WinUI
             CalculateIncomePlan(); // Fill the deposity income plan properties.
 
             _view.SetViewModel(_viewModel);
+        }
+
+        public void HandleLoadOnView()
+        {
+            Debug.Assert(_view != null);
 
             _viewModel.PropertyChanged += HandlePropertyChangedOnViewModel;
         }
