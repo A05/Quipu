@@ -6,9 +6,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Sx.Vx.Quipu.DepositCalculator.WinUI
+namespace Sx.Vx.Quipu.DepositCalculator
 {
-    internal class MainFormViewModel : INotifyPropertyChanged
+    internal class CalculatorFormViewModel : INotifyPropertyChanged
     {
         #region Fields
         

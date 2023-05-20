@@ -1,6 +1,6 @@
-﻿namespace Sx.Vx.Quipu.DepositCalculator.WinUI
+﻿namespace Sx.Vx.Quipu.DepositCalculator
 {
-    partial class MainForm
+    partial class CalculatorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.inputPanel = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.maxInterestRateLabel = new System.Windows.Forms.Label();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.minInterestRateLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.interestRateTrackBar = new System.Windows.Forms.TrackBar();
@@ -63,8 +64,8 @@
             this.amountCaptionLabel = new System.Windows.Forms.Label();
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inputPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
@@ -72,7 +73,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inputPanel
@@ -122,6 +122,11 @@
             this.maxInterestRateLabel.TabIndex = 35;
             this.maxInterestRateLabel.Text = "Max";
             this.maxInterestRateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
+            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.DepositCalculator.CalculatorFormViewModel);
             // 
             // minInterestRateLabel
             // 
@@ -482,12 +487,7 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // bindingSource
-            // 
-            this.bindingSource.AllowNew = false;
-            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.DepositCalculator.WinUI.MainFormViewModel);
-            // 
-            // MainForm
+            // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -497,10 +497,11 @@
             this.Controls.Add(this.outputPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "CalculatorForm";
             this.Text = "Deposit Calculator";
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).EndInit();
@@ -510,7 +511,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

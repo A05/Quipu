@@ -3,13 +3,13 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Sx.Vx.Quipu.DepositCalculator.WinUI
+namespace Sx.Vx.Quipu.DepositCalculator
 {
-    public partial class MainForm : Form
+    public partial class CalculatorForm : Form
     {
-        private readonly MainFormPresenter _presenter;
+        private readonly CalculatorFormPresenter _presenter;
 
-        internal MainForm(MainFormPresenter presenter)
+        internal CalculatorForm(CalculatorFormPresenter presenter)
         {
             _presenter = presenter ?? throw new ArgumentNullException(nameof(presenter));
             
@@ -18,7 +18,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             _presenter.SetView(this);
         }
 
-        internal void SetViewModel(MainFormViewModel viewModel)
+        internal void SetViewModel(CalculatorFormViewModel viewModel)
         {
             bindingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
         }

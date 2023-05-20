@@ -5,24 +5,24 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Sx.Vx.Quipu.DepositCalculator.WinUI
+namespace Sx.Vx.Quipu.DepositCalculator
 {
-    internal class MainFormPresenter
+    internal class CalculatorFormPresenter
     {
         private static readonly string[] InputProperties = new[]
         {
-            nameof(MainFormViewModel.Amount),
-            nameof(MainFormViewModel.CurrencyCode),
-            nameof(MainFormViewModel.Term),
-            nameof(MainFormViewModel.InterestRate),
-            nameof(MainFormViewModel.InterestPayment)
+            nameof(CalculatorFormViewModel.Amount),
+            nameof(CalculatorFormViewModel.CurrencyCode),
+            nameof(CalculatorFormViewModel.Term),
+            nameof(CalculatorFormViewModel.InterestRate),
+            nameof(CalculatorFormViewModel.InterestPayment)
         };
 
         private readonly IDepositCalculationApplicationService _service;
-        private readonly MainFormViewModel _viewModel;
-        private MainForm _view;
+        private readonly CalculatorFormViewModel _viewModel;
+        private CalculatorForm _view;
 
-        public MainFormPresenter(IDepositCalculationApplicationService service)
+        public CalculatorFormPresenter(IDepositCalculationApplicationService service)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
 
@@ -42,7 +42,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
                 new KeyValuePair<InterestPayment, string>(InterestPayment.Capitalization, "Capitalization")
             };
 
-            _viewModel = new MainFormViewModel()
+            _viewModel = new CalculatorFormViewModel()
             {
                 Amount = 25,
                 MinAmount = 10,
@@ -73,7 +73,7 @@ namespace Sx.Vx.Quipu.DepositCalculator.WinUI
             _viewModel.PropertyChanged += HandlePropertyChangedOnViewModel;
         }
 
-        public void SetView(MainForm view)
+        public void SetView(CalculatorForm view)
         {
             Debug.Assert(_view == null);
 
