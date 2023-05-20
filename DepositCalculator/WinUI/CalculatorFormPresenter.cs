@@ -30,11 +30,7 @@ namespace Sx.Vx.Quipu.WinUI
                 throw new ArgumentNullException(nameof(calculatorFactory));
             
             _calculator = calculatorFactory.Create();
-            _viewModel = viewModelFactory.Create();
-
-            CalculateIncomePlan();
-
-            _viewModel.PropertyChanged += HandlePropertyChangedOnViewModel;
+            _viewModel = viewModelFactory.Create();            
         }
 
         public void SetView(CalculatorForm view)
@@ -43,7 +39,11 @@ namespace Sx.Vx.Quipu.WinUI
 
             _view = view ?? throw new ArgumentNullException(nameof(view));
 
+            CalculateIncomePlan(); // Fill the deposity income plan properties.
+
             _view.SetViewModel(_viewModel);
+
+            _viewModel.PropertyChanged += HandlePropertyChangedOnViewModel;
         }
 
         public bool IsAmountValid(string amount, out string error)

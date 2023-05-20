@@ -46,7 +46,7 @@ namespace Sx.Vx.Quipu.WinUI
                 MinInterestRateCaption = $"{1} %",
                 MaxInterestRateCaption = $"{100} %",
                 InterestPaymentEntries = interestPayments,
-                InterestPayment = InterestPayment.EveryMonth
+                InterestPayment = InterestPayment.AtTheEndOfTerm
             };
 
             return viewModel;

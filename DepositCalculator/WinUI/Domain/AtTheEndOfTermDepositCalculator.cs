@@ -35,7 +35,7 @@ namespace Sx.Vx.Quipu.Domain
                 var yearPeriodInDays = (nextYearPeriodStart - yearPeriodStart).Days;
                 var termInPeriodInDays = termInDays > yearPeriodInDays ? yearPeriodInDays : termInDays;
 
-                var periodIncome = amount * (interestRate / 100) * (yearPeriodInDays / termInPeriodInDays);
+                var periodIncome = amount * (interestRate / 100m) * ((decimal) termInPeriodInDays / yearPeriodInDays);
                 totalIncome += periodIncome;
 
                 termInDays -= yearPeriodInDays;
