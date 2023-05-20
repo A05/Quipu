@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sx.Vx.Quipu.Domain
+﻿namespace Sx.Vx.Quipu.Domain
 {
-    internal static class DepositCalculatorFactory
+    internal class DepositCalculatorFactory
     {
-        public static DepositCalculator Create()
+        public DepositCalculator Create()
         {
             var r1 = new AtTheEndOfTermDepositCalculator(null);
             //var r2 = new TeamXTotalsMarketRules(probabilitiesBuilder, r1);

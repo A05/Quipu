@@ -12,10 +12,20 @@ namespace Sx.Vx.Quipu.WinUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var calculator = DepositCalculatorFactory.Create();
-            var presenter = new CalculatorFormPresenter(calculator);
+            var mainForm = Bootstrap();
 
-            Application.Run(new CalculatorForm(presenter));
+            Application.Run(mainForm);
+        }
+
+        static CalculatorForm Bootstrap()
+        {
+            var viewModelFactory = new CalculatorFormViewModelFactory();
+            var calculatorFactory = new DepositCalculatorFactory();
+            var presenter = new CalculatorFormPresenter(viewModelFactory, calculatorFactory);
+
+            var mainForm = new CalculatorForm(presenter);
+
+            return mainForm;
         }
     }
 }
