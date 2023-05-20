@@ -32,7 +32,7 @@ namespace Sx.Vx.Quipu.WinUI
                 MinAmountCaption = $"{10} $",
                 MaxAmountCaption = $"{100} $",
                 CurrencyEntries = currencies,
-                CurrencyCode = 3,
+                CurrencyCode = 1, // TODO: (UUUUU) Set only the first one!
                 Term = 12,
                 MinTerm = 3,
                 MaxTerm = 64,
@@ -46,7 +46,7 @@ namespace Sx.Vx.Quipu.WinUI
                 MinInterestRateCaption = $"{1} %",
                 MaxInterestRateCaption = $"{100} %",
                 InterestPaymentEntries = interestPayments,
-                InterestPayment = InterestPayment.AtTheEndOfTerm
+                InterestPayment = InterestPayment.EveryMonth // TODO: (UUUUU) Set only the first one!
             };
 
             return viewModel;

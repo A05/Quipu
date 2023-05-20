@@ -18,7 +18,7 @@ namespace Sx.Vx.Quipu.WinUI
         private int _amountTickFrequency;
         private string _minAmountCaption;
         private string _maxAmountCaption;
-        private IEnumerable<KeyValuePair<int, string>> _currencyEntries;
+        private KeyValuePair<int, string>[] _currencyEntries;
         private int _currencyCode;
         private int _term;
         private int _minTerm;
@@ -32,7 +32,7 @@ namespace Sx.Vx.Quipu.WinUI
         private int _interestRateTickFrequency;
         private string _minInterestRateCaption;
         private string _maxInterestRateCaption;
-        private IEnumerable<KeyValuePair<InterestPayment, string>> _interestPaymentEntries;
+        private KeyValuePair<InterestPayment, string>[] _interestPaymentEntries;
         private InterestPayment _interestPayment;
         private string _incomeDisplayValue;
 
@@ -115,7 +115,7 @@ namespace Sx.Vx.Quipu.WinUI
             }
         }
 
-        public IEnumerable<KeyValuePair<int, string>> CurrencyEntries
+        public KeyValuePair<int, string>[] CurrencyEntries
         {
             get => _currencyEntries;
             set
@@ -291,7 +291,7 @@ namespace Sx.Vx.Quipu.WinUI
             }
         }
 
-        public IEnumerable<KeyValuePair<InterestPayment, string>> InterestPaymentEntries
+        public KeyValuePair<InterestPayment, string>[] InterestPaymentEntries
         {
             get => _interestPaymentEntries;
             set
