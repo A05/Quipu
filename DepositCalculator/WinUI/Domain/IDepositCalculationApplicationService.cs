@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sx.Vx.Quipu.DepositCalculator.WinUIAppServices
+namespace Sx.Vx.Quipu.Domain
 {
     public interface IDepositCalculationApplicationService
     {

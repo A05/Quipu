@@ -54,10 +54,11 @@
     </Compile>
     <Compile Include="CalculatorFormPresenter.cs" />
     <Compile Include="CalculatorFormViewModel.cs" />
-    <Compile Include="Math\DepositCalculationApplicationService.cs" />
-    <Compile Include="Math\DepositIncomePlan.cs" />
-    <Compile Include="Math\IDepositCalculationApplicationService.cs" />
-    <Compile Include="Math\InterestPayment.cs" />
+    <Compile Include="Conditions.cs" />
+    <Compile Include="Domain\DepositCalculationApplicationService.cs" />
+    <Compile Include="Domain\DepositIncomePlan.cs" />
+    <Compile Include="Domain\IDepositCalculationApplicationService.cs" />
+    <Compile Include="Domain\InterestPayment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CalculatorForm.resx">

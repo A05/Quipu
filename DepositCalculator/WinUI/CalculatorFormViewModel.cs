@@ -1,4 +1,4 @@
-﻿using Sx.Vx.Quipu.DepositCalculator.WinUIAppServices;
+﻿using Sx.Vx.Quipu.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -1,4 +1,4 @@
-﻿namespace Sx.Vx.Quipu.DepositCalculator.WinUIAppServices
+﻿namespace Sx.Vx.Quipu.Domain
 {
     public enum InterestPayment
     {

@@ -1,8 +1,5 @@
-﻿using System;
-
-namespace Sx.Vx.Quipu.DepositCalculator.WinUIAppServices
+﻿namespace Sx.Vx.Quipu.Domain
 {
-    [Serializable]
     public class DepositIncomePlan
     {
         public decimal Income { get; private set; }
