@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Sx.Vx.Quipu.DepositCalculator
+namespace Sx.Vx.Quipu.WinUI
 {
     internal class CalculatorFormViewModel : INotifyPropertyChanged
     {

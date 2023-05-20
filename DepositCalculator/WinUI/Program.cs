@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Sx.Vx.Quipu.DepositCalculator
+namespace Sx.Vx.Quipu.WinUI
 {
     internal static class Program
     {
@@ -12,8 +12,8 @@ namespace Sx.Vx.Quipu.DepositCalculator
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var applicationService = new DepositCalculationApplicationService();
-            var presenter = new CalculatorFormPresenter(applicationService);
+            var calculator = DepositCalculatorFactory.Create();
+            var presenter = new CalculatorFormPresenter(calculator);
 
             Application.Run(new CalculatorForm(presenter));
         }

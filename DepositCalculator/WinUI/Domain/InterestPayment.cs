@@ -7,6 +7,9 @@
         EveryQuarter,
         EveryYear,
         AtTheEndOfTerm,
-        Capitalization
+        Capitalization,
+        CapitalizationByDay,
+        CapitalizationByMonth,
+        CapitalizationByYear,
     }
 }

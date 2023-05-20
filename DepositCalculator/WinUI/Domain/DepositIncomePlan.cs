@@ -1,12 +1,23 @@
-﻿namespace Sx.Vx.Quipu.Domain
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
+namespace Sx.Vx.Quipu.Domain
 {
     public class DepositIncomePlan
     {
-        public decimal Income { get; private set; }
+        public decimal TotalIncome { get; }
 
-        public DepositIncomePlan(decimal income)
+        public IEnumerable<(DateTime date, decimal income)> Incomes { get; }
+
+        public DepositIncomePlan(decimal totalIncome, IEnumerable<(DateTime date, decimal income)> incomes)
         {
-            Income = income;
+            TotalIncome = totalIncome;
+
+            Incomes = incomes ?? throw new ArgumentNullException(nameof(incomes));
+
+            Debug.Assert(TotalIncome == Incomes.Sum(i => i.income));
         }
     }
 }

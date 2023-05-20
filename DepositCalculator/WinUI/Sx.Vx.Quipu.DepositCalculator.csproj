@@ -55,7 +55,9 @@
     <Compile Include="CalculatorFormPresenter.cs" />
     <Compile Include="CalculatorFormViewModel.cs" />
     <Compile Include="Conditions.cs" />
-    <Compile Include="Domain\DepositCalculationApplicationService.cs" />
+    <Compile Include="Domain\AtTheEndOfTermDepositCalculator.cs" />
+    <Compile Include="Domain\DepositCalculator.cs" />
+    <Compile Include="Domain\DepositCalculatorFactory.cs" />
     <Compile Include="Domain\DepositIncomePlan.cs" />
     <Compile Include="Domain\InterestPayment.cs" />
     <Compile Include="Program.cs" />

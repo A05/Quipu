@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Sx.Vx.Quipu.DepositCalculator
+namespace Sx.Vx.Quipu.WinUI
 {
     internal class CalculatorFormPresenter
     {
@@ -18,13 +18,13 @@ namespace Sx.Vx.Quipu.DepositCalculator
             nameof(CalculatorFormViewModel.InterestPayment)
         };
 
-        private readonly DepositCalculationApplicationService _service;
+        private readonly DepositCalculator _calculator;
         private readonly CalculatorFormViewModel _viewModel;
         private CalculatorForm _view;
 
-        public CalculatorFormPresenter(DepositCalculationApplicationService service)
+        public CalculatorFormPresenter(DepositCalculator calculator)
         {
-            _service = service ?? throw new ArgumentNullException(nameof(service));
+            _calculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
 
             var currencies = new[]
             {
@@ -129,13 +129,13 @@ namespace Sx.Vx.Quipu.DepositCalculator
 
         private void CalculateIncomePlan()
         {
-            var plan = _service.CalculateIncomePlan(
+            var plan = _calculator.Calculate(
                 _viewModel.Amount,
                 _viewModel.Term,
                 _viewModel.InterestRate,
                 _viewModel.InterestPayment);
 
-            _viewModel.IncomeDisplayValue = $"{plan.Income:.00} {_viewModel.CurrencyCode}";
+            _viewModel.IncomeDisplayValue = $"{plan.TotalIncome:.00} {_viewModel.CurrencyCode}";
         }
     }
 }

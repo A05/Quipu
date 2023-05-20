@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Sx.Vx.Quipu.DepositCalculator
+namespace Sx.Vx.Quipu.WinUI
 {
     public partial class CalculatorForm : Form
     {

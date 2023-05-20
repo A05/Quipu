@@ -1,4 +1,4 @@
-﻿namespace Sx.Vx.Quipu.DepositCalculator
+﻿namespace Sx.Vx.Quipu.WinUI
 {
     partial class CalculatorForm
     {
@@ -126,7 +126,7 @@
             // bindingSource
             // 
             this.bindingSource.AllowNew = false;
-            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.DepositCalculator.CalculatorFormViewModel);
+            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
             // 
             // minInterestRateLabel
             // 
