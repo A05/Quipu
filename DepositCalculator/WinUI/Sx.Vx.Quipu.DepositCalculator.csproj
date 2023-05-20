@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4FF567C9-B7A8-4741-9824-FB489123A0CE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Sx.Vx.Quipu.DepositCalculator.WinUI</RootNamespace>
-    <AssemblyName>Sx.Vx.Quipu.DepositCalculator.WinUI</AssemblyName>
+    <RootNamespace>Sx.Vx.Quipu</RootNamespace>
+    <AssemblyName>Sx.Vx.Quipu.DepositCalculator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,6 +54,10 @@
     </Compile>
     <Compile Include="MainFormPresenter.cs" />
     <Compile Include="MainFormViewModel.cs" />
+    <Compile Include="Math\DepositCalculationApplicationService.cs" />
+    <Compile Include="Math\DepositIncomePlan.cs" />
+    <Compile Include="Math\IDepositCalculationApplicationService.cs" />
+    <Compile Include="Math\InterestPayment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -67,6 +71,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\MainFormViewModel.datasource" />
     <None Include="Properties\Settings.settings">
@@ -81,16 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AppServices.Contracts\Sx.Vx.Quipu.DepositCalculator.AppServices.Contracts.csproj">
-      <Project>{6f4fcf26-6bee-47a6-862a-062912df9218}</Project>
-      <Name>Sx.Vx.Quipu.DepositCalculator.AppServices.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AppServices\Sx.Vx.Quipu.DepositCalculator.AppServices.csproj">
-      <Project>{7d03c2eb-f106-4bc6-be43-899d75fe11d0}</Project>
-      <Name>Sx.Vx.Quipu.DepositCalculator.AppServices</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
