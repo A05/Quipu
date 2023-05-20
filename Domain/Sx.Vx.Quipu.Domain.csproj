@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>f0b5be42-7fa2-42d8-94fe-d5b7e3b36acd</ProjectGuid>
+    <ProjectGuid>{E287A4C6-125C-4CBE-8A94-CBC96835DAB1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sx.Vx.Quipu.Domain</RootNamespace>
@@ -31,24 +31,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Calculators\AtTheEndOfTermInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\CapitalizationInterestByMonthDepositCalculator.cs" />
+    <Compile Include="Calculators\CapitalizationInterestByQuarterDepositCalculator.cs" />
+    <Compile Include="Calculators\CapitalizationInterestByYearDepositCalculator.cs" />
+    <Compile Include="Calculators\EveryMonthInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\EveryQuarterInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\EveryYearInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\CapitalizationInterestByDayDepositCalculator.cs" />
+    <Compile Include="Calculators\SimplePercentDepositCalculator.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="DepositCalculator.cs" />
+    <Compile Include="DepositCalculatorFactory.cs" />
+    <Compile Include="DepositIncomePlan.cs" />
+    <Compile Include="InterestPayment.cs" />
+    <Compile Include="Money.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
