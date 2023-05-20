@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sx.Vx.Quipu.Domain
 {
-    public class DepositCalculationApplicationService : IDepositCalculationApplicationService
+    public class DepositCalculationApplicationService
     {
         public DepositIncomePlan CalculateIncomePlan(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {

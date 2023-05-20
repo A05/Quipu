@@ -18,11 +18,11 @@ namespace Sx.Vx.Quipu.DepositCalculator
             nameof(CalculatorFormViewModel.InterestPayment)
         };
 
-        private readonly IDepositCalculationApplicationService _service;
+        private readonly DepositCalculationApplicationService _service;
         private readonly CalculatorFormViewModel _viewModel;
         private CalculatorForm _view;
 
-        public CalculatorFormPresenter(IDepositCalculationApplicationService service)
+        public CalculatorFormPresenter(DepositCalculationApplicationService service)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
 

@@ -57,7 +57,6 @@
     <Compile Include="Conditions.cs" />
     <Compile Include="Domain\DepositCalculationApplicationService.cs" />
     <Compile Include="Domain\DepositIncomePlan.cs" />
-    <Compile Include="Domain\IDepositCalculationApplicationService.cs" />
     <Compile Include="Domain\InterestPayment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
