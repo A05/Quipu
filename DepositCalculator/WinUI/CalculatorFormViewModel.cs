@@ -35,6 +35,7 @@ namespace Sx.Vx.Quipu.WinUI
         private KeyValuePair<InterestPayment, string>[] _interestPaymentEntries;
         private InterestPayment _interestPayment;
         private string _incomeDisplayValue;
+        private readonly BindingList<KeyValuePair<DateTime, decimal>> _incomes = new BindingList<KeyValuePair<DateTime, decimal>>();
 
         #endregion
 
@@ -348,6 +349,8 @@ namespace Sx.Vx.Quipu.WinUI
                     OnPropertyChanged();
             }
         }
+
+        public BindingList<KeyValuePair<DateTime, decimal>> Incomes => _incomes;
 
         #endregion
 

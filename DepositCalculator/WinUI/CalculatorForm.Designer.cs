@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inputPanel = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.maxInterestRateLabel = new System.Windows.Forms.Label();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.minInterestRateLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.interestRateTrackBar = new System.Windows.Forms.TrackBar();
@@ -64,8 +65,11 @@
             this.amountCaptionLabel = new System.Windows.Forms.Label();
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inputPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
@@ -73,6 +77,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inputPanel
@@ -122,11 +128,6 @@
             this.maxInterestRateLabel.TabIndex = 35;
             this.maxInterestRateLabel.Text = "Max";
             this.maxInterestRateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.AllowNew = false;
-            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
             // 
             // minInterestRateLabel
             // 
@@ -475,8 +476,13 @@
             // 
             // interestPaymentDataGridView
             // 
+            this.interestPaymentDataGridView.AutoGenerateColumns = false;
             this.interestPaymentDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.interestPaymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.interestPaymentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.keyDataGridViewTextBoxColumn,
+            this.valueDataGridViewTextBoxColumn});
+            this.interestPaymentDataGridView.DataSource = this.incomesBindingSource;
             this.interestPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.interestPaymentDataGridView.Location = new System.Drawing.Point(0, 141);
             this.interestPaymentDataGridView.Name = "interestPaymentDataGridView";
@@ -486,6 +492,36 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
+            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
+            // 
+            // incomesBindingSource
+            // 
+            this.incomesBindingSource.DataMember = "Incomes";
+            this.incomesBindingSource.DataSource = this.bindingSource;
+            // 
+            // keyDataGridViewTextBoxColumn
+            // 
+            this.keyDataGridViewTextBoxColumn.DataPropertyName = "Key";
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.keyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.keyDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.keyDataGridViewTextBoxColumn.Name = "keyDataGridViewTextBoxColumn";
+            this.keyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Income";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // CalculatorForm
             // 
@@ -502,7 +538,6 @@
             this.Load += new System.EventHandler(this.CalculatorForm_Load);
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).EndInit();
@@ -512,6 +547,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,6 +589,9 @@
         private System.Windows.Forms.Label interestRateCaptionLabel;
         private System.Windows.Forms.Label termValueLabel;
         private System.Windows.Forms.Label termCaptionLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource incomesBindingSource;
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using Sx.Vx.Quipu.Domain;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -105,6 +106,10 @@ namespace Sx.Vx.Quipu.WinUI
                 _viewModel.InterestPayment);
 
             _viewModel.IncomeDisplayValue = $"{plan.TotalIncome:.00} {_viewModel.CurrencyCode}";
+            
+            _viewModel.Incomes.Clear();
+            foreach (var (date, income) in plan.Incomes)
+                _viewModel.Incomes.Add(new KeyValuePair<DateTime, decimal>(date, income));
         }
     }
 }
