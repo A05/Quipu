@@ -10,7 +10,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
         {
         }
 
-        protected sealed override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
+        protected override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
             if (amount <= 0)
                 throw new ArgumentException();
@@ -41,17 +41,59 @@ namespace Sx.Vx.Quipu.Domain.Calculators
         protected virtual decimal CalculateRemainder() => decimal.Zero;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     internal class CapitalizationInterestByDayDepositCalculator : ComplexPercentDepositCalculator
     {
         public CapitalizationInterestByDayDepositCalculator(DepositCalculator next) : base(next, InterestPayment.CapitalizationByDay)
         {
         }
 
-        protected override int GetCapitalizationUnitCountPerYear() => 12;
+        protected override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
+        {
+            if (amount <= 0)
+                throw new ArgumentException();
 
-        protected override int GetCapitalizationUnitCount(int termInMonths) => termInMonths;
+            var revenue = amount;
+
+            var termStart = DateTime.Now;
+            var termEnd = termStart.AddMonths(termInMonths); // [termStart, termEnd)
+            var termDurationInDays = (termEnd - termStart).Days; // [termStart, termEnd]
+
+            var periodStart = termStart;
+            var leftDurationInDays = termDurationInDays;
+
+            while (leftDurationInDays > 0)
+            {
+                var periodEnd = new DateTime(periodStart.Year + 1, 01, 01); // [periodStart, periodEnd)
+                var maxPeriodDurationInDays = (periodEnd - periodStart).Days; // [periodStart, periodEnd]
+                var periodDuratinInDays = leftDurationInDays > maxPeriodDurationInDays ? maxPeriodDurationInDays : leftDurationInDays;
+
+                var yearDurationInDays = DateTime.IsLeapYear(periodStart.Year) ? 366 : 365;
+
+                var dRevenue = (double)revenue;
+                var dInterestRate = (double)interestRate / 100d;
+                var dInterestRateByDay = dInterestRate / yearDurationInDays;
+                revenue = (decimal)(dRevenue * Math.Pow(1 + dInterestRateByDay, periodDuratinInDays));
+
+                periodStart = periodEnd;
+                leftDurationInDays -= periodDuratinInDays;
+            }
+
+            var totalIncome = Round(revenue - amount);
+
+            return new DepositIncomePlan(totalIncome, new[] { (termEnd, totalIncome) }.AsEnumerable());
+        }
+
+        protected override int GetCapitalizationUnitCountPerYear() => 365; // TODO: (NU) A leap year phenomenon should be taken into considiration.
+
+        protected override int GetCapitalizationUnitCount(int termInMonths) => termInMonths * 1;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     internal class CapitalizationInterestByMonthDepositCalculator : ComplexPercentDepositCalculator
     {
         public CapitalizationInterestByMonthDepositCalculator(DepositCalculator next) : base(next, InterestPayment.CapitalizationByMonth)
