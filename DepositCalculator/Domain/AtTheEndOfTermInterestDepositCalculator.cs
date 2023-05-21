@@ -72,6 +72,7 @@ namespace Sx.Vx.Quipu.Domain
                 var periodYearInDays = (new DateTime(periodStart.Year + 1, 1, 1) - new DateTime(periodStart.Year, 1, 1)).TotalDays;
 
                 var periodIncome = amount * (interestRate / 100m) * (termInPeriodInDays / (decimal)periodYearInDays);
+                periodIncome = Round(periodIncome);
 
                 totalIncome += periodIncome;
                 incomes.Add((nextPeriodStart, periodIncome));
