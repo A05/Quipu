@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Calculators\AtTheEndOfTermInterestDepositCalculatorTests.cs" />
     <Compile Include="Calculators\CapitalizationInterestByDayDepositCalculatorTests.cs" />
+    <Compile Include="Calculators\CapitalizationInterestByMonthDepositCalculatorTests.cs" />
     <Compile Include="DepositCalculatorFactoryTests.cs" />
     <Compile Include="DepositCalculatorTests.cs" />
     <Compile Include="Calculators\EveryMonthInterestDepositCalculatorTests.cs" />
