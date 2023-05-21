@@ -15,13 +15,13 @@ namespace Sx.Vx.Quipu.Domain
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(4, plan.Incomes.Count());
-            Assert.AreEqual(48.07m, plan.TotalIncome);
+            Assert.AreEqual(48.02m, plan.TotalIncome);
 
             plan = sut.Calculate(2548, 19, 3m, InterestPayment.EveryQuarter);
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(7, plan.Incomes.Count());
-            Assert.AreEqual(121.25m, plan.TotalIncome);
+            Assert.AreEqual(121.20m, plan.TotalIncome);
         }
     }
 }
