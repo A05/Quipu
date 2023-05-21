@@ -55,6 +55,7 @@
     <Compile Include="Calculators\CapitalizationInterestByQuarterDepositCalculatorTests.cs" />
     <Compile Include="Calculators\CapitalizationInterestByYearDepositCalculatorTests.cs" />
     <Compile Include="DepositCalculatorFactoryTests.cs" />
+    <Compile Include="DepositCalculatorHarmonizingTests.cs" />
     <Compile Include="DepositCalculatorTests.cs" />
     <Compile Include="Calculators\EveryMonthInterestDepositCalculatorTests.cs" />
     <Compile Include="Calculators\EveryQuarterInterestDepositCalculatorTests.cs" />
