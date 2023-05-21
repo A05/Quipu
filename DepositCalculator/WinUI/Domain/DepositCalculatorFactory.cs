@@ -4,12 +4,12 @@
     {
         public DepositCalculator Create()
         {
-            var r1 = new AtTheEndOfTermDepositCalculator(null);
-            var r2 = new EveryMonthDepositCalculator(r1);
-            var r3 = new EveryQuarterDepositCalculator(r2);
-            //var r4 = new InningsNOverMTeamXTotalMarketRules(probabilitiesBuilder, r3);
+            var o1 = new AtTheEndOfTermDepositCalculator(null);
+            var o2 = new EveryMonthDepositCalculator(o1);
+            var o3 = new EveryQuarterDepositCalculator(o2);
+            var o4 = new EveryYearDepositCalculator(o3);
 
-            return r3;
+            return o4;
         }
     }
 }
