@@ -54,7 +54,7 @@
     <Compile Include="Domain\EveryMonthInterestDepositCalculatorTests.cs" />
     <Compile Include="Domain\EveryQuarterInterestDepositCalculatorTests.cs" />
     <Compile Include="Domain\EveryYearInterestDepositCalculatorTests.cs" />
-    <Compile Include="Domain\HarmonizingDepositCalculatorTests.cs" />
+    <Compile Include="Domain\DepositCalculatorFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

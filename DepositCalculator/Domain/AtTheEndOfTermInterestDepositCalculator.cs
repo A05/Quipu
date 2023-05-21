@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Sx.Vx.Quipu.Domain
@@ -11,7 +12,39 @@ namespace Sx.Vx.Quipu.Domain
 
         protected override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
-            throw new NotImplementedException();
+            if (amount <= 0)
+                throw new ArgumentException();
+
+            var totalIncome = 0m;
+            var incomes = new List<(DateTime date, decimal income)>(capacity: termInMonths);
+
+            var termStart = DateTime.Now;
+            var termEnd = termStart.AddMonths(termInMonths);
+            var termDurationInDays = (termEnd - termStart).Days;
+
+            var periodStart = termStart;
+            var leftDurationInDays = termDurationInDays;
+
+            do
+            {
+                var periodEnd = periodStart.AddMonths(1);
+                var maxPeriodDurationInDays = (periodEnd - periodStart).Days;
+                var periodDurationInDays = leftDurationInDays > maxPeriodDurationInDays ? maxPeriodDurationInDays : leftDurationInDays;
+
+                var yearDurationInDays = DateTime.IsLeapYear(periodStart.Year) ? 366 : 365;
+
+                var periodIncome = amount * (interestRate / 100m) * (periodDurationInDays / (decimal)yearDurationInDays);
+                periodIncome = Round(periodIncome);
+
+                totalIncome += periodIncome;
+                incomes.Add((periodEnd, periodIncome));
+
+                leftDurationInDays -= maxPeriodDurationInDays;
+                periodStart = periodEnd;
+            }
+            while (leftDurationInDays > 0);
+
+            return new DepositIncomePlan(totalIncome, incomes.AsEnumerable());
         }
     }
 
