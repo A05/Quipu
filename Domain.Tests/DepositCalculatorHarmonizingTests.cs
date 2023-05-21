@@ -38,5 +38,37 @@ namespace Sx.Vx.Quipu.Domain
                 Assert.AreEqual(expTotalIncome2, plan.TotalIncome);
             }
         }
+
+        [TestMethod]
+        public void ShouldCalculateTheNearTotalIncomeWithComplexPercent()
+        {
+            const decimal PRECISION = 0.098m;
+
+            var factory = new DepositCalculatorFactory();
+            var sut = factory.Create();
+
+            var interestPayments = new[]
+            {
+                InterestPayment.CapitalizationByDay,
+                InterestPayment.CapitalizationByMonth,
+                InterestPayment.CapitalizationByQuarter,
+                InterestPayment.CapitalizationByYear
+            };
+
+            decimal? expTotalIncome = null;
+
+            foreach (var interestPayment in interestPayments)
+            {
+                var plan = sut.Calculate(2548, 19, 21m, interestPayment);
+
+                expTotalIncome = expTotalIncome ?? (expTotalIncome = plan.TotalIncome);
+
+                Assert.IsNotNull(plan);
+
+                Assert.IsTrue(
+                    plan.TotalIncome >= expTotalIncome - expTotalIncome * PRECISION &&
+                    plan.TotalIncome <= expTotalIncome + expTotalIncome * PRECISION);
+            }
+        }
     }
 }
