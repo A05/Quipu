@@ -22,6 +22,7 @@ namespace Sx.Vx.Quipu.WinUI
                 new KeyValuePair<InterestPayment, string>(InterestPayment.AtTheEndOfTerm, "At the end of term"),
                 new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByDay, "Capitalization by day"),
                 new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByMonth, "Capitalization by month"),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByQuarter, "Capitalization by quarter"),
                 new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByYear, "Capitalization by year")
             };
 

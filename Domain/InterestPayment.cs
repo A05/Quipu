@@ -9,6 +9,7 @@
         AtTheEndOfTerm,
         CapitalizationByDay,
         CapitalizationByMonth,
+        CapitalizationByQuarter,
         CapitalizationByYear,
     }
 }

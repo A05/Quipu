@@ -45,6 +45,7 @@
     <Compile Include="Calculators\EveryMonthInterestDepositCalculator.cs" />
     <Compile Include="Calculators\EveryQuarterInterestDepositCalculator.cs" />
     <Compile Include="Calculators\EveryYearInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\ComplexPercentDepositCalculator.cs" />
     <Compile Include="Calculators\SimplePercentDepositCalculator.cs" />
     <Compile Include="DepositCalculator.cs" />
     <Compile Include="DepositCalculatorFactory.cs" />
