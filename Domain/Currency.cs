@@ -191,7 +191,7 @@ namespace Sx.Vx.Quipu.Domain
         public byte Precision { get; }
         public string Name { get; }
 
-        private Currency(string alphabeticCode, ushort numericCode, byte precision, string name)
+        private Currency(string alphabeticCode, ushort numericCode, byte precision, string name) : this()
         {
             AlphabeticCode = alphabeticCode;
             NumericCode = numericCode;
@@ -204,7 +204,6 @@ namespace Sx.Vx.Quipu.Domain
         public override bool Equals(object obj)
         {
             return obj != null && obj is Currency other && Equals(other);
-                
         }
 
         public bool Equals(Currency other)
@@ -216,11 +215,6 @@ namespace Sx.Vx.Quipu.Domain
                 Name == other.Name;
         }
 
-        public int CompareTo(Currency other)
-        {
-            return AlphabeticCode.CompareTo(other.AlphabeticCode);
-        }
-
         public static bool operator ==(Currency c1, Currency c2)
         {
             return c1.Equals(c2);
@@ -229,6 +223,31 @@ namespace Sx.Vx.Quipu.Domain
         public static bool operator !=(Currency c1, Currency c2)
         {
             return !c1.Equals(c2);
+        }
+
+        public int CompareTo(Currency other)
+        {
+            return AlphabeticCode.CompareTo(other.AlphabeticCode);
+        }
+
+        public static bool operator >(Currency c1, Currency c2)
+        {
+            return c1.CompareTo(c2) > 0;
+        }
+
+        public static bool operator <(Currency c1, Currency c2)
+        {
+            return c1.CompareTo(c2) < 0;
+        }
+
+        public static bool operator >=(Currency c1, Currency c2)
+        {
+            return c1.CompareTo(c2) >= 0;
+        }
+
+        public static bool operator <=(Currency c1, Currency c2)
+        {
+            return c1.CompareTo(c2) <= 0;
         }
 
         public override int GetHashCode()

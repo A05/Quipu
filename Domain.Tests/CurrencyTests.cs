@@ -34,6 +34,9 @@ namespace Sx.Vx.Quipu.Domain
         [TestMethod]
         public void ShouldBeEquatable()
         {
+            Assert.IsFalse(Currency.ETB.Equals(null));
+            Assert.IsFalse(Currency.ETB == null);
+
             foreach (var c1 in Currency.Currencies)
             {
                 Assert.AreNotEqual(Currency.Empty, c1);
@@ -67,7 +70,19 @@ namespace Sx.Vx.Quipu.Domain
             Assert.AreEqual(sorted1.Length, sorted2.Length);
 
             for (var i = 0; i < sorted1.Length; i++)
+            {
                 Assert.AreEqual(sorted1[i], sorted2[i]);
+                Assert.IsTrue(sorted1[i] <= sorted2[i]);
+                Assert.IsTrue(sorted1[i] >= sorted2[i]);
+
+                if (i != 0)
+                {
+                    Assert.IsTrue(sorted1[i - 1] < sorted1[i]);
+                    Assert.IsTrue(sorted1[i - 1] <= sorted1[i]);
+                    Assert.IsTrue(sorted1[i] > sorted1[i - 1]);
+                    Assert.IsTrue(sorted1[i] >= sorted1[i - 1]);
+                }
+            }
         }
 
         [TestMethod]
