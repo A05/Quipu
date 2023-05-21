@@ -8,7 +8,7 @@
     <ProjectGuid>{BDBCC86E-3201-4A7F-8CA4-E75DBA13194B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sx.Vx.Quipu.DepositCalculator</RootNamespace>
+    <RootNamespace>Sx.Vx.Quipu</RootNamespace>
     <AssemblyName>Sx.Vx.Quipu.DepositCalculator.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -49,11 +49,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Domain\AtTheEndOfTermInterestDepositCalculatorTests.cs" />
+    <Compile Include="Domain\EveryMonthInterestDepositCalculatorTests.cs" />
+    <Compile Include="Domain\EveryQuarterInterestDepositCalculatorTests.cs" />
+    <Compile Include="Domain\EveryYearInterestDepositCalculatorTests.cs" />
+    <Compile Include="Domain\HarmonizingDepositCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DepositCalculator\Sx.Vx.Quipu.DepositCalculator.csproj">
+      <Project>{4ff567c9-b7a8-4741-9824-fb489123a0ce}</Project>
+      <Name>Sx.Vx.Quipu.DepositCalculator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

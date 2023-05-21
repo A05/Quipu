@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace Sx.Vx.Quipu.DepositCalculator
+namespace Sx.Vx.Quipu.Domain
 {
     [TestClass]
-    public class UnitTest1
+    public class EveryQuarterInterestDepositCalculatorTests
     {
         [TestMethod]
         public void TestMethod1()

@@ -15,9 +15,9 @@ namespace Sx.Vx.Quipu.Domain
         }
     }
 
-    public class AtTheEndOfTermDepositCalculator : SimplePercentDepositCalculator
+    public class AtTheEndOfTermInterestDepositCalculator : SimplePercentDepositCalculator
     {
-        public AtTheEndOfTermDepositCalculator(DepositCalculator next) : base(next, InterestPayment.AtTheEndOfTerm)
+        public AtTheEndOfTermInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.AtTheEndOfTerm)
         {
         }
 
@@ -47,9 +47,9 @@ namespace Sx.Vx.Quipu.Domain
         }
     }
 
-    public class EveryMonthDepositCalculator : SimplePercentDepositCalculator
+    public class EveryMonthInterestDepositCalculator : SimplePercentDepositCalculator
     {
-        public EveryMonthDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryMonth)
+        public EveryMonthInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryMonth)
         {
         }
 
@@ -83,9 +83,9 @@ namespace Sx.Vx.Quipu.Domain
         }
     }
 
-    public class EveryQuarterDepositCalculator : SimplePercentDepositCalculator
+    public class EveryQuarterInterestDepositCalculator : SimplePercentDepositCalculator
     {
-        public EveryQuarterDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryQuarter)
+        public EveryQuarterInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryQuarter)
         {
         }
 
@@ -119,9 +119,9 @@ namespace Sx.Vx.Quipu.Domain
         }
     }
 
-    public class EveryYearDepositCalculator : SimplePercentDepositCalculator
+    public class EveryYearInterestDepositCalculator : SimplePercentDepositCalculator
     {
-        public EveryYearDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryYear)
+        public EveryYearInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryYear)
         {
         }
 
