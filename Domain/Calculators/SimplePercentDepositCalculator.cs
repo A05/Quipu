@@ -18,7 +18,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
             var totalIncome = 0m;
             var incomes = new List<(DateTime date, decimal income)>(capacity: termInMonths);
 
-            var termStart = DateTime.Now; // TODO: (UUUU) plus one problem!!!
+            var termStart = DateTime.Now;
             var termEnd = termStart.AddMonths(termInMonths);
             var termDurationInDays = (termEnd - termStart).Days;
 
