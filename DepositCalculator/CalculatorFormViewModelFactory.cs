@@ -20,7 +20,9 @@ namespace Sx.Vx.Quipu.WinUI
                 new KeyValuePair<InterestPayment, string>(InterestPayment.EveryQuarter, "Every quater"),
                 new KeyValuePair<InterestPayment, string>(InterestPayment.EveryYear, "Every year"),
                 new KeyValuePair<InterestPayment, string>(InterestPayment.AtTheEndOfTerm, "At the end of term"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.Capitalization, "Capitalization")
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByDay, "Capitalization by day"),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByMonth, "Capitalization by month"),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByYear, "Capitalization by year")
             };
 
             var viewModel = new CalculatorFormViewModel()
