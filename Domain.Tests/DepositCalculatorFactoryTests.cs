@@ -14,7 +14,7 @@ namespace Sx.Vx.Quipu.Domain
         }
 
         [TestMethod]
-        public void ShouldCalculateTheSameTotalIncome()
+        public void ShouldCalculateTheSameTotalIncomeWithSimplePercent()
         {
             var factory = new DepositCalculatorFactory();
             var sut = factory.Create();
