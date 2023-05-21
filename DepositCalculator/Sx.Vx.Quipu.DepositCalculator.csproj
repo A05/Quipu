@@ -56,11 +56,6 @@
     <Compile Include="CalculatorFormViewModel.cs" />
     <Compile Include="CalculatorFormViewModelFactory.cs" />
     <Compile Include="Conditions.cs" />
-    <Compile Include="Domain\AtTheEndOfTermInterestDepositCalculator.cs" />
-    <Compile Include="Domain\DepositCalculator.cs" />
-    <Compile Include="Domain\DepositCalculatorFactory.cs" />
-    <Compile Include="Domain\DepositIncomePlan.cs" />
-    <Compile Include="Domain\InterestPayment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CalculatorForm.resx">
@@ -89,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Sx.Vx.Quipu.Domain.csproj">
+      <Project>{e287a4c6-125c-4cbe-8a94-cbc96835dab1}</Project>
+      <Name>Sx.Vx.Quipu.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

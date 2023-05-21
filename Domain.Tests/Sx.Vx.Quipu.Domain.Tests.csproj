@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BDBCC86E-3201-4A7F-8CA4-E75DBA13194B}</ProjectGuid>
+    <ProjectGuid>{5F407A4D-8E0B-47D1-8AA8-8FC7EF6B18C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sx.Vx.Quipu</RootNamespace>
-    <AssemblyName>Sx.Vx.Quipu.DepositCalculator.Tests</AssemblyName>
+    <RootNamespace>Sx.Vx.Quipu.Domain</RootNamespace>
+    <AssemblyName>Sx.Vx.Quipu.Domain.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,18 +49,23 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtTheEndOfTermInterestDepositCalculatorTests.cs" />
+    <Compile Include="DepositCalculatorFactoryTests.cs" />
+    <Compile Include="DepositCalculatorTests.cs" />
+    <Compile Include="EveryMonthInterestDepositCalculatorTests.cs" />
+    <Compile Include="EveryQuarterInterestDepositCalculatorTests.cs" />
+    <Compile Include="EveryYearInterestDepositCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DepositCalculator\Sx.Vx.Quipu.DepositCalculator.csproj">
-      <Project>{4ff567c9-b7a8-4741-9824-fb489123a0ce}</Project>
-      <Name>Sx.Vx.Quipu.DepositCalculator</Name>
+    <ProjectReference Include="..\Domain\Sx.Vx.Quipu.Domain.csproj">
+      <Project>{e287a4c6-125c-4cbe-8a94-cbc96835dab1}</Project>
+      <Name>Sx.Vx.Quipu.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

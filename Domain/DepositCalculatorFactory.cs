@@ -1,6 +1,6 @@
 ﻿namespace Sx.Vx.Quipu.Domain
 {
-    internal class DepositCalculatorFactory
+    public class DepositCalculatorFactory
     {
         public DepositCalculator Create()
         {
