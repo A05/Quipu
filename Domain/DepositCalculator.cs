@@ -28,14 +28,7 @@ namespace Sx.Vx.Quipu.Domain
             if (_next != null)
                 return _next.Calculate(amount, termInMonths, interestRate, interestPayment);
 
-#if DEBUG
-            var rnd = new Random((int)DateTime.Now.Ticks);
-            var totalIncome = (decimal)(rnd.NextDouble() * 20000d);
-
-            return new DepositIncomePlan(totalIncome, new[] { (DateTime.Now.AddMonths(termInMonths), totalIncome) });
-#else
             throw new NotSupportedException($"The {interestPayment:G} interest payment is not supported yet.");
-#endif
         }
 
         protected abstract DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment);

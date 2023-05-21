@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 
 namespace Sx.Vx.Quipu.Domain
 {
@@ -11,6 +13,24 @@ namespace Sx.Vx.Quipu.Domain
             var sut = new DepositCalculatorFactory();
 
             Assert.IsNotNull(sut.Create());
+        }
+
+        [TestMethod]
+        public void ShouldCreateCalculatorForEachInterestPayment()
+        {
+            var sut = new DepositCalculatorFactory();
+
+            var calculator = sut.Create();
+
+            foreach (var interestPayment in Enum.GetValues(typeof(InterestPayment)).Cast<InterestPayment>())
+            {
+                if (interestPayment != InterestPayment.Unknown)
+                {
+                    var plan = calculator.Calculate(100, 12, 48m, interestPayment);
+
+                    Assert.IsNotNull(plan);
+                }
+            }
         }
 
         [TestMethod]

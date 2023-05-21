@@ -13,7 +13,7 @@ namespace Sx.Vx.Quipu.Domain
             var o5 = new CapitalizationInterestByDayDepositCalculator(o4);
             var o6 = new CapitalizationInterestByMonthDepositCalculator(o5);
             var o7 = new CapitalizationInterestByQuarterDepositCalculator(o6);
-            var o8 = new CapitalizationInterestByQuarterDepositCalculator(o7);
+            var o8 = new CapitalizationInterestByYearDepositCalculator(o7);
 
             return o8;
         }
