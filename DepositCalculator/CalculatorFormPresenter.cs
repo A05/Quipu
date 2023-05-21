@@ -100,7 +100,7 @@ namespace Sx.Vx.Quipu.WinUI
         private void CalculateIncomePlan()
         {
             var plan = _calculator.Calculate(
-                _viewModel.Amount,
+                new Money(_viewModel.Amount, Currency.UAH), // TODO: SR (UUU) 
                 _viewModel.Term,
                 _viewModel.InterestRate,
                 _viewModel.InterestPayment);

@@ -9,12 +9,12 @@ namespace Sx.Vx.Quipu.Domain.Calculators
         {
         }
 
-        protected override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
+        protected override DepositIncomePlan CalculateImpl(Money money, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
-            if (amount <= 0)
+            if (money.Amount <= 0)
                 throw new ArgumentException();
 
-            var revenue = amount;
+            var revenue = money.Amount;
 
             var termStart = DateTime.Now;
             var termEnd = termStart.AddMonths(termInMonths); // [termStart, termEnd)
@@ -40,7 +40,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
                 leftDurationInDays -= periodDuratinInDays;
             }
 
-            var totalIncome = Round(revenue - amount);
+            var totalIncome = Round(revenue - money.Amount);
 
             return new DepositIncomePlan(totalIncome, new[] { (termEnd, totalIncome) }.AsEnumerable());
         }

@@ -74,6 +74,10 @@ namespace Sx.Vx.Quipu.Domain
             return m1.CompareTo(m2) <= 0;
         }
 
+        public static implicit operator decimal(Money m) => m.Amount;
+
+        public static implicit operator Money(decimal amount) => new Money(amount, Currency.Empty);
+
         public Money Round()
         {
             var amount = GetRoundedAmount();

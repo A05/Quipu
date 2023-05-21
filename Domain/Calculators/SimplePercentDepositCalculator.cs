@@ -10,9 +10,9 @@ namespace Sx.Vx.Quipu.Domain.Calculators
         {
         }
 
-        protected sealed override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
+        protected sealed override DepositIncomePlan CalculateImpl(Money money, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
-            if (amount <= 0)
+            if (money.Amount <= 0)
                 throw new ArgumentException();
 
             var totalIncome = 0m;
@@ -36,7 +36,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
                 var yearDurationInDays = DateTime.IsLeapYear(periodStart.Year) ? 366 : 365;
 
-                var periodIncome = amount * (interestRate / 100m) * (periodDurationInDays / (decimal)yearDurationInDays);
+                var periodIncome = money.Amount * (interestRate / 100m) * (periodDurationInDays / (decimal)yearDurationInDays);
                 periodIncome = Round(periodIncome);
 
                 leftDurationInDays -= maxPeriodDurationInDays;

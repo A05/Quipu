@@ -20,17 +20,17 @@ namespace Sx.Vx.Quipu.Domain
             _interestPayments = interestPayments ?? throw new ArgumentException("Interest payment is not specified.");
         }
 
-        public DepositIncomePlan Calculate(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
+        public DepositIncomePlan Calculate(Money money, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
             if (_interestPayments.Contains(interestPayment))
-                return CalculateImpl(amount, termInMonths, interestRate, interestPayment);
+                return CalculateImpl(money, termInMonths, interestRate, interestPayment);
 
             if (_next != null)
-                return _next.Calculate(amount, termInMonths, interestRate, interestPayment);
+                return _next.Calculate(money, termInMonths, interestRate, interestPayment);
 
             throw new NotSupportedException($"The {interestPayment:G} interest payment is not supported yet.");
         }
 
-        protected abstract DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment);
+        protected abstract DepositIncomePlan CalculateImpl(Money amount, int termInMonths, decimal interestRate, InterestPayment interestPayment);
     }
 }
