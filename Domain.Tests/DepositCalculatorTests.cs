@@ -10,10 +10,10 @@ namespace Sx.Vx.Quipu.Domain
         [TestMethod]
         public void ShouldRound()
         {
-            Assert.AreEqual(25.48m, DepositCalculator.Round(25.48193m));
-            Assert.AreEqual(25.48m, DepositCalculator.Round(25.48913m));
-            Assert.AreEqual(25.19m, DepositCalculator.Round(25.19348m));
-            Assert.AreEqual(25.48m, DepositCalculator.Round(25.485m));
+            Assert.AreEqual(25.48m, new Money(25.48193m, Currency.UAH).Rounded);
+            Assert.AreEqual(25.48m, new Money(25.48913m, Currency.UAH).Rounded);
+            Assert.AreEqual(25.19m, new Money(25.19348m, Currency.UAH).Rounded);
+            Assert.AreEqual(25.48m, new Money(25.485m, Currency.UAH).Rounded);
         }
     }
 }

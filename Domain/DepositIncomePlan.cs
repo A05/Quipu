@@ -7,11 +7,11 @@ namespace Sx.Vx.Quipu.Domain
 {
     public class DepositIncomePlan
     {
-        public decimal TotalIncome { get; }
+        public Money TotalIncome { get; }
 
-        public IEnumerable<(DateTime date, decimal income)> Incomes { get; }
+        public IEnumerable<(DateTime date, Money income)> Incomes { get; }
 
-        public DepositIncomePlan(decimal totalIncome, IEnumerable<(DateTime date, decimal income)> incomes)
+        public DepositIncomePlan(Money totalIncome, IEnumerable<(DateTime date, Money income)> incomes)
         {
             TotalIncome = totalIncome;
 

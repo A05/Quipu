@@ -11,13 +11,13 @@ namespace Sx.Vx.Quipu.Domain.Calculators
         {
             var sut = new CapitalizationInterestByQuarterDepositCalculator(null);
 
-            var plan = sut.Calculate(350000m, 9, 4.7m, InterestPayment.CapitalizationByQuarter);
+            var plan = sut.Calculate(new Money(350000m, Currency.UAH), 9, 4.7m, InterestPayment.CapitalizationByQuarter);
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());
             Assert.AreEqual(12483.03m, plan.TotalIncome);
 
-            plan = sut.Calculate(350000m, 11, 4.7m, InterestPayment.CapitalizationByQuarter);
+            plan = sut.Calculate(new Money(350000m, Currency.UAH), 11, 4.7m, InterestPayment.CapitalizationByQuarter);
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());

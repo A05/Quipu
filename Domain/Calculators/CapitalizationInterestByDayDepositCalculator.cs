@@ -11,10 +11,10 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
         protected override DepositIncomePlan CalculateImpl(Money money, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
-            if (money.Amount <= 0)
+            if (money <= 0)
                 throw new ArgumentException();
 
-            var revenue = money.Amount;
+            var revenue = (double)money;
 
             var termStart = DateTime.Now;
             var termEnd = termStart.AddMonths(termInMonths); // [termStart, termEnd)
@@ -34,13 +34,13 @@ namespace Sx.Vx.Quipu.Domain.Calculators
                 var dRevenue = (double)revenue;
                 var dInterestRate = (double)interestRate / 100d;
                 var dInterestRateByDay = dInterestRate / yearDurationInDays;
-                revenue = (decimal)(dRevenue * Math.Pow(1 + dInterestRateByDay, periodDuratinInDays));
-
+                revenue = dRevenue * Math.Pow(1 + dInterestRateByDay, periodDuratinInDays);
+                
                 periodStart = periodEnd;
                 leftDurationInDays -= periodDuratinInDays;
             }
 
-            var totalIncome = Round(revenue - money.Amount);
+            var totalIncome = money.Get((decimal)revenue - money.Amount).Rounded;
 
             return new DepositIncomePlan(totalIncome, new[] { (termEnd, totalIncome) }.AsEnumerable());
         }

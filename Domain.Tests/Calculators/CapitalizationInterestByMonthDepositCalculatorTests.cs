@@ -11,7 +11,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
         {
             var sut = new CapitalizationInterestByMonthDepositCalculator(null);
 
-            var plan = sut.Calculate(350000m, 9, 4.7m, InterestPayment.CapitalizationByMonth);
+            var plan = sut.Calculate(new Money(350000m, Currency.UAH), 9, 4.7m, InterestPayment.CapitalizationByMonth);
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());

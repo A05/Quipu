@@ -12,17 +12,17 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
         protected sealed override DepositIncomePlan CalculateImpl(Money money, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
-            if (money.Amount <= 0)
+            if (money <= 0)
                 throw new ArgumentException();
 
-            var totalIncome = 0m;
-            var incomes = new List<(DateTime date, decimal income)>(capacity: termInMonths);
+            var totalIncome = money.Zero;
+            var incomes = new List<(DateTime date, Money income)>(capacity: termInMonths);
 
             var termStart = DateTime.Now;
             var termEnd = termStart.AddMonths(termInMonths);
             var termDurationInDays = (termEnd - termStart).Days;
 
-            var totalOfIncomeInterval = 0m;
+            var totalOfIncomeInterval = money.Zero;
             var incomeIntervalInMonths = GetIncomeIntervalInMonths(termInMonths);
 
             var periodStart = termStart;
@@ -36,8 +36,8 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
                 var yearDurationInDays = DateTime.IsLeapYear(periodStart.Year) ? 366 : 365;
 
-                var periodIncome = money.Amount * (interestRate / 100m) * (periodDurationInDays / (decimal)yearDurationInDays);
-                periodIncome = Round(periodIncome);
+                var periodIncomeAmount = money * (interestRate / 100m) * (periodDurationInDays / (decimal)yearDurationInDays);
+                var periodIncome = money.Get(periodIncomeAmount).Rounded;
 
                 leftDurationInDays -= maxPeriodDurationInDays;
                 periodStart = periodEnd;
@@ -48,7 +48,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
                 if (months % incomeIntervalInMonths == 0 || leftDurationInDays <= 0)
                 {
                     incomes.Add((periodEnd, totalOfIncomeInterval));
-                    totalOfIncomeInterval = 0m;
+                    totalOfIncomeInterval = money.Zero;
                 }
             }
 

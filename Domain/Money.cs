@@ -9,8 +9,10 @@ namespace Sx.Vx.Quipu.Domain
         private string _toString;
 
         public decimal Amount { get; }
-
         public Currency Currency { get; }
+
+        public Money Zero => new Money(decimal.Zero, Currency);
+        public Money Rounded => new Money(GetRoundedAmount(), Currency);
 
         public Money(decimal amount, Currency currency) : this()
         {
@@ -30,8 +32,10 @@ namespace Sx.Vx.Quipu.Domain
 
         public int CompareTo(Money other)
         {
-            var r = Currency.CompareTo(other.Currency);
-            return r == 0 ? Amount.CompareTo(other.Amount) : r;
+            if (Currency.CompareTo(other.Currency) != 0)
+                throw new InvalidOperationException();
+
+            return Amount.CompareTo(other.Amount);
         }
 
         public override int GetHashCode()
@@ -75,16 +79,11 @@ namespace Sx.Vx.Quipu.Domain
         }
 
         public static implicit operator decimal(Money m) => m.Amount;
+        public static explicit operator double(Money m) => (double) m.Amount;
 
-        public static implicit operator Money(decimal amount) => new Money(amount, Currency.Empty);
+        public static explicit operator Money(decimal amount) => new Money(amount, Currency.Empty);
 
-        public Money Round()
-        {
-            var amount = GetRoundedAmount();
-            var money = new Money(amount, Currency);
-            
-            return money;
-        }
+        public Money Get(decimal amount) => new Money(amount, Currency);
 
         private decimal GetRoundedAmount()
         {

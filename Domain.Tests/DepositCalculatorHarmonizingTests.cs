@@ -23,14 +23,14 @@ namespace Sx.Vx.Quipu.Domain
 
             foreach (var interestPayment in interestPayments)
             {
-                var plan = sut.Calculate(100, 12, 48m, interestPayment);
+                var plan = sut.Calculate((Money)100, 12, 48m, interestPayment);
 
                 expTotalIncome1 = expTotalIncome1 ?? (expTotalIncome1 = plan.TotalIncome);
 
                 Assert.IsNotNull(plan);
                 Assert.AreEqual(expTotalIncome1, plan.TotalIncome);
 
-                plan = sut.Calculate(2548, 19, 3m, interestPayment);
+                plan = sut.Calculate((Money)2548, 19, 3m, interestPayment);
 
                 expTotalIncome2 = expTotalIncome2 ?? (expTotalIncome2 = plan.TotalIncome);
 
@@ -59,7 +59,7 @@ namespace Sx.Vx.Quipu.Domain
 
             foreach (var interestPayment in interestPayments)
             {
-                var plan = sut.Calculate(2548, 19, 21m, interestPayment);
+                var plan = sut.Calculate(new Money(2548, Currency.UAH), 19, 21m, interestPayment);
 
                 expTotalIncome = expTotalIncome ?? (expTotalIncome = plan.TotalIncome);
 

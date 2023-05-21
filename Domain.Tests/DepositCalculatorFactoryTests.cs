@@ -26,7 +26,7 @@ namespace Sx.Vx.Quipu.Domain
             {
                 if (interestPayment != InterestPayment.Unknown)
                 {
-                    var plan = calculator.Calculate(100, 12, 48m, interestPayment);
+                    var plan = calculator.Calculate(new Money(100, Currency.UAH), 12, 48m, interestPayment);
 
                     Assert.IsNotNull(plan);
                 }
