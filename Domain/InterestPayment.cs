@@ -10,6 +10,6 @@
         CapitalizationByDay,
         CapitalizationByMonth,
         CapitalizationByQuarter,
-        CapitalizationByYear,
+        CapitalizationByYear
     }
 }

@@ -162,4 +162,42 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
         protected override int GetCapitalizationUnitCount(int termInMonths) => termInMonths * 1;
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    internal class CapitalizationInterestByYearDepositCalculator : ComplexPercentDepositCalculator
+    {
+        public CapitalizationInterestByYearDepositCalculator(DepositCalculator next) : base(next, InterestPayment.CapitalizationByYear)
+        {
+        }
+
+        protected override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
+        {
+            if (amount <= 0)
+                throw new ArgumentException();
+
+            var termStart = DateTime.Now;
+            var termEnd = termStart.AddMonths(termInMonths); // [termStart, termEnd)
+
+            var years = termInMonths / 12;
+
+            var dAmount = (double)amount;
+            var dInterestRateByYear = (double)interestRate / 100d;
+            var revenue = dAmount * Math.Pow(1 + dInterestRateByYear, years);
+
+            var leftDurationInMonths = termInMonths % 12;
+
+            var dInterestRateByMonth = dInterestRateByYear / 12;
+            revenue += revenue * dInterestRateByMonth * leftDurationInMonths;
+
+            var totalIncome = Round((decimal)revenue - amount);
+
+            return new DepositIncomePlan(totalIncome, new[] { (termEnd, totalIncome) }.AsEnumerable());
+        }
+
+        protected override int GetCapitalizationUnitCountPerYear() => 365; // TODO: (NU) A leap year phenomenon should be taken into considiration.
+
+        protected override int GetCapitalizationUnitCount(int termInMonths) => termInMonths * 1;
+    }
 }
