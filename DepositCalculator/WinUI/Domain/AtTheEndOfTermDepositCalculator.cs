@@ -82,4 +82,40 @@ namespace Sx.Vx.Quipu.Domain
             return new DepositIncomePlan(totalIncome, incomes);
         }
     }
+
+    public class EveryQuarterDepositCalculator : SimplePercentDepositCalculator
+    {
+        public EveryQuarterDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryQuarter)
+        {
+        }
+
+        protected override DepositIncomePlan CalculateImpl(decimal amount, int termInMonths, decimal interestRate, InterestPayment interestPayment)
+        {
+            var now = DateTime.Now;
+            var termEnd = now.AddMonths(termInMonths);
+            var termInDays = (termEnd - now).Days;
+
+            var totalIncome = 0m;
+            var incomes = new List<(DateTime date, decimal income)>(capacity: termInMonths);
+
+            var periodStart = now;
+            while (termInDays > 0)
+            {
+                var nextPeriodStart = periodStart.AddMonths(3);
+                var periodInDays = (nextPeriodStart - periodStart).Days;
+                var termInPeriodInDays = termInDays > periodInDays ? periodInDays : termInDays;
+                var periodYearInDays = (new DateTime(periodStart.Year + 1, 1, 1) - new DateTime(periodStart.Year, 1, 1)).TotalDays;
+
+                var periodIncome = amount * (interestRate / 100m) * (termInPeriodInDays / (decimal)periodYearInDays);
+
+                totalIncome += periodIncome;
+                incomes.Add((nextPeriodStart, periodIncome));
+
+                termInDays -= periodInDays;
+                periodStart = nextPeriodStart;
+            }
+
+            return new DepositIncomePlan(totalIncome, incomes);
+        }
+    }
 }

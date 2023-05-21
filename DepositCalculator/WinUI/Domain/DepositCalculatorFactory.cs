@@ -6,10 +6,10 @@
         {
             var r1 = new AtTheEndOfTermDepositCalculator(null);
             var r2 = new EveryMonthDepositCalculator(r1);
-            //var r3 = new TeamXFirstMOversTotalMarketRules(probabilitiesBuilder, r2);
+            var r3 = new EveryQuarterDepositCalculator(r2);
             //var r4 = new InningsNOverMTeamXTotalMarketRules(probabilitiesBuilder, r3);
 
-            return r2;
+            return r3;
         }
     }
 }
