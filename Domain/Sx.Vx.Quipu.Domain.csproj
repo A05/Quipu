@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AtTheEndOfTermInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\AtTheEndOfTermInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\EveryMonthInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\EveryQuarterInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\EveryYearInterestDepositCalculator.cs" />
+    <Compile Include="Calculators\SimplePercentDepositCalculator.cs" />
     <Compile Include="DepositCalculator.cs" />
     <Compile Include="DepositCalculatorFactory.cs" />
     <Compile Include="DepositIncomePlan.cs" />

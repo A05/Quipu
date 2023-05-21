@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace Sx.Vx.Quipu.Domain
+namespace Sx.Vx.Quipu.Domain.Calculators
 {
     [TestClass]
     public class EveryMonthInterestDepositCalculatorTests

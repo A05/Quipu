@@ -1,4 +1,6 @@
-﻿namespace Sx.Vx.Quipu.Domain
+﻿using Sx.Vx.Quipu.Domain.Calculators;
+
+namespace Sx.Vx.Quipu.Domain
 {
     public class DepositCalculatorFactory
     {

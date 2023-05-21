@@ -49,12 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AtTheEndOfTermInterestDepositCalculatorTests.cs" />
+    <Compile Include="Calculators\AtTheEndOfTermInterestDepositCalculatorTests.cs" />
     <Compile Include="DepositCalculatorFactoryTests.cs" />
     <Compile Include="DepositCalculatorTests.cs" />
-    <Compile Include="EveryMonthInterestDepositCalculatorTests.cs" />
-    <Compile Include="EveryQuarterInterestDepositCalculatorTests.cs" />
-    <Compile Include="EveryYearInterestDepositCalculatorTests.cs" />
+    <Compile Include="Calculators\EveryMonthInterestDepositCalculatorTests.cs" />
+    <Compile Include="Calculators\EveryQuarterInterestDepositCalculatorTests.cs" />
+    <Compile Include="Calculators\EveryYearInterestDepositCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

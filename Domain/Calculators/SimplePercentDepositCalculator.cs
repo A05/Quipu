@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Sx.Vx.Quipu.Domain
+namespace Sx.Vx.Quipu.Domain.Calculators
 {
-    public abstract class SimplePercentDepositCalculator : DepositCalculator
+    internal abstract class SimplePercentDepositCalculator : DepositCalculator
     {
         protected SimplePercentDepositCalculator(DepositCalculator next, InterestPayment interestPayment) : base(next, interestPayment)
         {
@@ -56,53 +56,5 @@ namespace Sx.Vx.Quipu.Domain
         }
 
         protected abstract int GetIncomeIntervalInMonths(int termInMonths);
-    }
-
-    public class AtTheEndOfTermInterestDepositCalculator : SimplePercentDepositCalculator
-    {
-        public AtTheEndOfTermInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.AtTheEndOfTerm)
-        {
-        }
-
-        protected override int GetIncomeIntervalInMonths(int termInMonths)
-        {
-            return termInMonths;
-        }
-    }
-
-    public class EveryMonthInterestDepositCalculator : SimplePercentDepositCalculator
-    {
-        public EveryMonthInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryMonth)
-        {
-        }
-
-        protected override int GetIncomeIntervalInMonths(int termInMonths)
-        {
-            return 1;
-        }
-    }
-
-    public class EveryQuarterInterestDepositCalculator : SimplePercentDepositCalculator
-    {
-        public EveryQuarterInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryQuarter)
-        {
-        }
-
-        protected override int GetIncomeIntervalInMonths(int termInMonths)
-        {
-            return 3;
-        }
-    }
-
-    public class EveryYearInterestDepositCalculator : SimplePercentDepositCalculator
-    {
-        public EveryYearInterestDepositCalculator(DepositCalculator next) : base(next, InterestPayment.EveryYear)
-        {
-        }
-
-        protected override int GetIncomeIntervalInMonths(int termInMonths)
-        {
-            return 12;
-        }
     }
 }
