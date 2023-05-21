@@ -1,6 +1,9 @@
-﻿namespace Sx.Vx.Quipu.Domain
+﻿using System;
+using System.Collections.Generic;
+
+namespace Sx.Vx.Quipu.Domain
 {
-    public struct Currency
+    public struct Currency : IEquatable<Currency>, IComparable<Currency>
     {
         public static readonly Currency Empty = new Currency();
 
@@ -165,6 +168,22 @@
         public static readonly Currency ZMW = new Currency("ZMW", 967, 2, "Zambian kwacha");
         public static readonly Currency ZWL = new Currency("ZWL", 932, 2, "Zimbabwean dollar");
 
+        public static IEnumerable<Currency> Currencies { get; } = new[] 
+        {
+            AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN,
+            BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF,
+            CLP, COP, CRC, CUC, CUP, CVE, CZK, DJF, DKK, DOP, DZD, EGP, ERN, ETB,
+            EUR, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG,
+            HUF, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF,
+            KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA,
+            MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MYR, MZN, NAD, NGN, NIO,
+            NOK, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PLN, PYG, QAR, RON, RSD,
+            CNY, RUB, RWF, SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLE, SLL, SOS, SRD,
+            SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS,
+            UAH, UGX, USD, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XCD,
+            XOF, XPF, YER, ZAR, ZMW, ZWL
+        };
+
         private readonly string _toString;
 
         public string AlphabeticCode { get; }
@@ -184,14 +203,32 @@
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is Currency other))
-                return false;
+            return obj != null && obj is Currency other && Equals(other);
+                
+        }
 
+        public bool Equals(Currency other)
+        {
             return
                 NumericCode == other.NumericCode &&
                 Precision == other.Precision &&
                 AlphabeticCode == other.AlphabeticCode &&
                 Name == other.Name;
+        }
+
+        public int CompareTo(Currency other)
+        {
+            return AlphabeticCode.CompareTo(other.AlphabeticCode);
+        }
+
+        public static bool operator ==(Currency c1, Currency c2)
+        {
+            return c1.Equals(c2);
+        }
+
+        public static bool operator !=(Currency c1, Currency c2)
+        {
+            return !c1.Equals(c2);
         }
 
         public override int GetHashCode()
