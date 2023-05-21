@@ -12,11 +12,17 @@ namespace Sx.Vx.Quipu.Domain
         {
             var sut = new AtTheEndOfTermInterestDepositCalculator(null);
 
-            var plan = sut.Calculate(100m, 12, 25m, InterestPayment.AtTheEndOfTerm);
+            var plan = sut.Calculate(100, 12, 48m, InterestPayment.AtTheEndOfTerm);
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());
-            Assert.AreEqual(25m, plan.TotalIncome);
+            Assert.AreEqual(48m, plan.TotalIncome);
+
+            plan = sut.Calculate(2548, 19, 3m, InterestPayment.AtTheEndOfTerm);
+
+            Assert.IsNotNull(plan);
+            Assert.AreEqual(1, plan.Incomes.Count());
+            Assert.AreEqual(121.25m, plan.TotalIncome);
         }
     }
 }

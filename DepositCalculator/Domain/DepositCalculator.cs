@@ -5,6 +5,12 @@ namespace Sx.Vx.Quipu.Domain
 {
     public abstract class DepositCalculator
     {
+        // TODO: (U) make money class
+        public static decimal Round(decimal value)
+        {
+            return Math.Truncate(value * 100) / 100; 
+        }
+
         private readonly DepositCalculator _next;
         private readonly InterestPayment[] _interestPayments;
         

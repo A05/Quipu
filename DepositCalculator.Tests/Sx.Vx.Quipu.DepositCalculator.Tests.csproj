@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\AtTheEndOfTermInterestDepositCalculatorTests.cs" />
+    <Compile Include="Domain\DepositCalculatorTests.cs" />
     <Compile Include="Domain\EveryMonthInterestDepositCalculatorTests.cs" />
     <Compile Include="Domain\EveryQuarterInterestDepositCalculatorTests.cs" />
     <Compile Include="Domain\EveryYearInterestDepositCalculatorTests.cs" />

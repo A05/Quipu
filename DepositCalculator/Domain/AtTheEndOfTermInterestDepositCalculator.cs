@@ -37,6 +37,7 @@ namespace Sx.Vx.Quipu.Domain
                 var termInPeriodInDays = termInDays > yearPeriodInDays ? yearPeriodInDays : termInDays;
 
                 var periodIncome = amount * (interestRate / 100m) * ((decimal) termInPeriodInDays / yearPeriodInDays);
+                periodIncome = Round(periodIncome);
                 totalIncome += periodIncome;
 
                 termInDays -= yearPeriodInDays;
