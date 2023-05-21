@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sx.Vx.Quipu.Domain
 {
@@ -38,16 +34,6 @@ namespace Sx.Vx.Quipu.Domain
             return r == 0 ? Amount.CompareTo(other.Amount) : r;
         }
 
-        public static bool operator ==(Money m1, Money m2)
-        {
-            return m1.Equals(m2);
-        }
-
-        public static bool operator !=(Money m1, Money m2)
-        {
-            return !m1.Equals(m2);
-        }
-
         public override int GetHashCode()
         {
             return Amount.GetHashCode() ^ Currency.GetHashCode();
@@ -58,10 +44,50 @@ namespace Sx.Vx.Quipu.Domain
             return _toString ?? (_toString = $"{GetRoundedAmount()} {Currency.AlphabeticCode}");
         }
 
+        public static bool operator ==(Money m1, Money m2)
+        {
+            return m1.Equals(m2);
+        }
+
+        public static bool operator !=(Money m1, Money m2)
+        {
+            return !m1.Equals(m2);
+        }
+
+        public static bool operator >(Money m1, Money m2)
+        {
+            return m1.CompareTo(m2) > 0;
+        }
+
+        public static bool operator <(Money m1, Money m2)
+        {
+            return m1.CompareTo(m2) < 0;
+        }
+
+        public static bool operator >=(Money m1, Money m2)
+        {
+            return m1.CompareTo(m2) >= 0;
+        }
+
+        public static bool operator <=(Money m1, Money m2)
+        {
+            return m1.CompareTo(m2) <= 0;
+        }
+
+        public Money Round()
+        {
+            var amount = GetRoundedAmount();
+            var money = new Money(amount, Currency);
+            
+            return money;
+        }
+
         private decimal GetRoundedAmount()
         {
             var precision = (int) Math.Pow(10, Currency.Precision);
-            return Math.Truncate(Amount * precision) / precision;
+            var amount = Math.Truncate(Amount * precision) / precision;
+
+            return amount;
         }
     }
 }

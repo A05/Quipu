@@ -215,6 +215,21 @@ namespace Sx.Vx.Quipu.Domain
                 Name == other.Name;
         }
 
+        public int CompareTo(Currency other)
+        {
+            return AlphabeticCode.CompareTo(other.AlphabeticCode);
+        }
+
+        public override int GetHashCode()
+        {
+            return NumericCode;
+        }
+
+        public override string ToString()
+        {
+            return _toString ?? "Empty";
+        }
+
         public static bool operator ==(Currency c1, Currency c2)
         {
             return c1.Equals(c2);
@@ -223,11 +238,6 @@ namespace Sx.Vx.Quipu.Domain
         public static bool operator !=(Currency c1, Currency c2)
         {
             return !c1.Equals(c2);
-        }
-
-        public int CompareTo(Currency other)
-        {
-            return AlphabeticCode.CompareTo(other.AlphabeticCode);
         }
 
         public static bool operator >(Currency c1, Currency c2)
@@ -248,16 +258,6 @@ namespace Sx.Vx.Quipu.Domain
         public static bool operator <=(Currency c1, Currency c2)
         {
             return c1.CompareTo(c2) <= 0;
-        }
-
-        public override int GetHashCode()
-        {
-            return NumericCode;
-        }
-
-        public override string ToString()
-        {
-            return _toString ?? "Empty";
         }
     }
 }
