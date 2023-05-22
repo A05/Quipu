@@ -71,6 +71,29 @@ namespace Sx.Vx.Quipu.WinUI
             }
         }
 
+        private void currencyRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            var rb = (RadioButton)sender;
+
+            if (rb.Checked)
+            {
+                int currencyCode;
+
+                if (sender == uahRadioButton)
+                    currencyCode = Currency.UAH.NumericCode;
+                else if (sender == usdRadioButton)
+                    currencyCode = Currency.USD.NumericCode;
+                else if (sender == eurRadioButton)
+                    currencyCode = Currency.EUR.NumericCode;
+                else
+                    throw new NotSupportedException();
+
+                var model = (CalculatorFormViewModel)bindingSource.DataSource;
+
+                model.CurrencyCode = currencyCode;
+            }
+        }
+
         private void interestPaymentRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             InterestPayment interestPayment;
@@ -97,6 +120,16 @@ namespace Sx.Vx.Quipu.WinUI
             var model = (CalculatorFormViewModel)bindingSource.DataSource;
 
             model.InterestPayment = interestPayment;
+        }
+
+        private void maxAmountLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void minAmountLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

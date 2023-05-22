@@ -10,6 +10,8 @@ namespace Sx.Vx.Quipu.WinUI
 {
     internal class CalculatorFormViewModel : INotifyPropertyChanged
     {
+        public const int MORE_CURRENCY_CODE = 0;
+
         #region Fields
         
         private int _amount;
@@ -20,6 +22,7 @@ namespace Sx.Vx.Quipu.WinUI
         private string _maxAmountCaption;
         private KeyValuePair<int, string>[] _currencyEntries;
         private int _currencyCode;
+        private int _comboBoxCurrencyCode;
         private int _term;
         private int _minTerm;
         private int _maxTerm;
@@ -136,10 +139,61 @@ namespace Sx.Vx.Quipu.WinUI
                 _currencyCode = value;
                 if (old != _currencyCode)
                 {
+                    _comboBoxCurrencyCode = MORE_CURRENCY_CODE;
+
                     OnPropertyChanged();
+
+                    OnPropertyChanged(nameof(ComboBoxCurrencyCode));
+
+                    OnPropertyChanged(nameof(IsUahRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsUsdRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsEurRadioButtonChecked));
+
                     OnPropertyChanged(nameof(AmountDisplayValue));
                 }
             }
+        }
+
+        public int ComboBoxCurrencyCode
+        {
+            get => _comboBoxCurrencyCode;
+            set
+            {
+                var old = _comboBoxCurrencyCode;
+                _comboBoxCurrencyCode = value;
+                if (old != _comboBoxCurrencyCode)
+                {
+                    if (_comboBoxCurrencyCode == MORE_CURRENCY_CODE)
+                        _currencyCode = Currency.UAH.NumericCode;
+                    else
+                        _currencyCode = _comboBoxCurrencyCode;
+
+                    OnPropertyChanged();
+
+                    OnPropertyChanged(nameof(CurrencyCode));
+
+                    OnPropertyChanged(nameof(IsUahRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsUsdRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsEurRadioButtonChecked));
+
+                    OnPropertyChanged(nameof(AmountDisplayValue));
+                }
+            }
+        }
+
+        public bool IsUahRadioButtonChecked
+        {
+            get => CurrencyCode == Currency.UAH.NumericCode;
+        }
+
+        public bool IsUsdRadioButtonChecked
+        {
+            get => CurrencyCode == Currency.USD.NumericCode;
+        }
+
+        public bool IsEurRadioButtonChecked
+        {
+            get => CurrencyCode == Currency.EUR.NumericCode;
         }
 
         public int Term

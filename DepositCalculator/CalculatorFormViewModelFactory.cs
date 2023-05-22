@@ -1,5 +1,6 @@
 ﻿using Sx.Vx.Quipu.Domain;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Sx.Vx.Quipu.WinUI
 {
@@ -7,12 +8,7 @@ namespace Sx.Vx.Quipu.WinUI
     {
         public CalculatorFormViewModel Create()
         {
-            var currencies = new[]
-            {
-                new KeyValuePair<int, string>(1, "UAH"),
-                new KeyValuePair<int, string>(2, "DLR"),
-                new KeyValuePair<int, string>(3, "EUR")
-            };
+            var currencies = GetCurrencies();
 
             var interestPayments = new[]
             {
@@ -35,7 +31,8 @@ namespace Sx.Vx.Quipu.WinUI
                 MinAmountCaption = $"{10} $",
                 MaxAmountCaption = $"{100} $",
                 CurrencyEntries = currencies,
-                CurrencyCode = 1, // TODO: (UUUUU) Set only the first one!
+                CurrencyCode = Currency.UAH.NumericCode,
+                ComboBoxCurrencyCode = CalculatorFormViewModel.MORE_CURRENCY_CODE,
                 Term = 12,
                 MinTerm = 3,
                 MaxTerm = 64,
@@ -49,10 +46,27 @@ namespace Sx.Vx.Quipu.WinUI
                 MinInterestRateCaption = $"{1} %",
                 MaxInterestRateCaption = $"{100} %",
                 InterestPaymentEntries = interestPayments,
-                InterestPayment = InterestPayment.EveryMonth // TODO: (UUUUU) Set only the first one!
+                InterestPayment = InterestPayment.EveryMonth
             };
 
             return viewModel;
+        }
+
+        private KeyValuePair<int, string>[] GetCurrencies()
+        {
+            var currencies = new KeyValuePair<int, string>[Currency.Currencies.Count() - 3 + 1];
+
+            int i = 0;
+
+            currencies[i++] = new KeyValuePair<int, string>(CalculatorFormViewModel.MORE_CURRENCY_CODE, "More...");
+
+            foreach (var c in Currency.Currencies.OrderBy(_ => _))
+                if (c == Currency.UAH || c == Currency.USD || c == Currency.EUR)
+                    continue;
+                else                
+                    currencies[i++] = new KeyValuePair<int, string>(c.NumericCode, $"{c.AlphabeticCode} - {c.Name}");
+
+            return currencies;
         }
     }
 }
