@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inputPanel = new System.Windows.Forms.Panel();
             this.currencyPanel = new System.Windows.Forms.Panel();
             this.eurRadioButton = new System.Windows.Forms.RadioButton();
@@ -129,8 +130,7 @@
             // 
             // currencyPanel
             // 
-            this.currencyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currencyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.currencyPanel.Controls.Add(this.eurRadioButton);
             this.currencyPanel.Controls.Add(this.usdRadioButton);
             this.currencyPanel.Controls.Add(this.uahRadioButton);
@@ -470,6 +470,8 @@
             // 
             // amountTextBox
             // 
+            this.amountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.errorProvider.SetIconPadding(this.amountTextBox, -20);
             this.amountTextBox.Location = new System.Drawing.Point(10, 32);
@@ -634,7 +636,13 @@
             // 
             // interestPaymentDataGridView
             // 
+            this.interestPaymentDataGridView.AllowUserToAddRows = false;
+            this.interestPaymentDataGridView.AllowUserToDeleteRows = false;
+            this.interestPaymentDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Honeydew;
+            this.interestPaymentDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.interestPaymentDataGridView.AutoGenerateColumns = false;
+            this.interestPaymentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.interestPaymentDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.interestPaymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.interestPaymentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -643,7 +651,10 @@
             this.interestPaymentDataGridView.DataSource = this.incomesBindingSource;
             this.interestPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.interestPaymentDataGridView.Location = new System.Drawing.Point(0, 140);
+            this.interestPaymentDataGridView.MultiSelect = false;
             this.interestPaymentDataGridView.Name = "interestPaymentDataGridView";
+            this.interestPaymentDataGridView.ReadOnly = true;
+            this.interestPaymentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.interestPaymentDataGridView.Size = new System.Drawing.Size(269, 349);
             this.interestPaymentDataGridView.TabIndex = 26;
             // 
@@ -664,22 +675,25 @@
             // keyDataGridViewTextBoxColumn
             // 
             this.keyDataGridViewTextBoxColumn.DataPropertyName = "Key";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.keyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.keyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.keyDataGridViewTextBoxColumn.HeaderText = "Date";
             this.keyDataGridViewTextBoxColumn.Name = "keyDataGridViewTextBoxColumn";
             this.keyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.keyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // valueDataGridViewTextBoxColumn
             // 
             this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.NullValue = null;
+            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.valueDataGridViewTextBoxColumn.HeaderText = "Income";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // CalculatorForm
             // 
@@ -747,8 +761,6 @@
         private System.Windows.Forms.Label interestRateCaptionLabel;
         private System.Windows.Forms.Label termValueLabel;
         private System.Windows.Forms.Label termCaptionLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource incomesBindingSource;
         private System.Windows.Forms.RadioButton everyMonthRadioButton;
         private System.Windows.Forms.RadioButton everyQuarterRadioButton;
@@ -762,6 +774,8 @@
         private System.Windows.Forms.RadioButton eurRadioButton;
         private System.Windows.Forms.RadioButton usdRadioButton;
         private System.Windows.Forms.RadioButton uahRadioButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
     }
 }
 

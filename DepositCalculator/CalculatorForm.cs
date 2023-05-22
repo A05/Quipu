@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.WinUI
@@ -26,6 +27,10 @@ namespace Sx.Vx.Quipu.WinUI
 
         private void CalculatorForm_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn col in interestPaymentDataGridView.Columns)
+                if (col.Index == 1)
+                    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             _presenter.HandleLoadOnView();
         }
 

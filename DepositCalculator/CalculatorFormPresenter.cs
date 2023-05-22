@@ -111,7 +111,7 @@ namespace Sx.Vx.Quipu.WinUI
             
             _viewModel.Incomes.Clear();
             foreach (var (date, income) in plan.Incomes)
-                _viewModel.Incomes.Add(new KeyValuePair<DateTime, decimal>(date, income));
+                _viewModel.Incomes.Add(new KeyValuePair<DateTime, Money>(date, income));
         }
     }
 }
