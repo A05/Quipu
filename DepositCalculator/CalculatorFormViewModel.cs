@@ -313,9 +313,60 @@ namespace Sx.Vx.Quipu.WinUI
                 if (old != _interestPayment)
                 {
                     OnPropertyChanged();
+
+                    OnPropertyChanged(nameof(IsEveryMonthRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsEveryQuarterRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsEveryYearRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsAtTheEndOfTermRadioButtonChecked));
+
+                    OnPropertyChanged(nameof(IsCapitalizationByDayRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsCapitalizationByMonthRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsCapitalizationByQuarterRadioButtonChecked));
+                    OnPropertyChanged(nameof(IsCapitalizationByYearRadioButtonChecked));
+
                     OnPropertyChanged(nameof(InterestPaymentDisplayValue));
                 }
             }
+        }
+
+        public bool IsEveryMonthRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.EveryMonth;
+        }
+
+        public bool IsEveryQuarterRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.EveryQuarter;
+        }
+
+        public bool IsEveryYearRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.EveryYear;
+        }
+
+        public bool IsAtTheEndOfTermRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.AtTheEndOfTerm;
+        }
+
+        public bool IsCapitalizationByDayRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.CapitalizationByDay;
+        }
+
+        public bool IsCapitalizationByMonthRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.CapitalizationByMonth;
+        }
+
+        public bool IsCapitalizationByQuarterRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.CapitalizationByQuarter;
+        }
+
+        public bool IsCapitalizationByYearRadioButtonChecked
+        {
+            get => InterestPayment == InterestPayment.CapitalizationByYear;
         }
 
         public string AmountDisplayValue

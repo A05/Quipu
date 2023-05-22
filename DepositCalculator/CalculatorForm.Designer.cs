@@ -32,12 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inputPanel = new System.Windows.Forms.Panel();
+            this.c12nByYearRadioButton = new System.Windows.Forms.RadioButton();
+            this.c12nByQuarterRadioButton = new System.Windows.Forms.RadioButton();
+            this.c12nByMonthRadioButton = new System.Windows.Forms.RadioButton();
+            this.c12nByDayRadioButton = new System.Windows.Forms.RadioButton();
+            this.endOfTermRadioButton = new System.Windows.Forms.RadioButton();
+            this.everyYearRadioButton = new System.Windows.Forms.RadioButton();
+            this.everyQuarterRadioButton = new System.Windows.Forms.RadioButton();
+            this.everyMonthRadioButton = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.maxInterestRateLabel = new System.Windows.Forms.Label();
             this.minInterestRateLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.interestRateTrackBar = new System.Windows.Forms.TrackBar();
-            this.interestPaymentComboBox = new System.Windows.Forms.ComboBox();
             this.interestRateTextBox = new System.Windows.Forms.TextBox();
             this.maxTermLabel = new System.Windows.Forms.Label();
             this.minTermLabel = new System.Windows.Forms.Label();
@@ -64,9 +71,9 @@
             this.amountValueLabel = new System.Windows.Forms.Label();
             this.amountCaptionLabel = new System.Windows.Forms.Label();
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
+            this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inputPanel.SuspendLayout();
@@ -76,19 +83,26 @@
             this.outputPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inputPanel
             // 
+            this.inputPanel.Controls.Add(this.c12nByYearRadioButton);
+            this.inputPanel.Controls.Add(this.c12nByQuarterRadioButton);
+            this.inputPanel.Controls.Add(this.c12nByMonthRadioButton);
+            this.inputPanel.Controls.Add(this.c12nByDayRadioButton);
+            this.inputPanel.Controls.Add(this.endOfTermRadioButton);
+            this.inputPanel.Controls.Add(this.everyYearRadioButton);
+            this.inputPanel.Controls.Add(this.everyQuarterRadioButton);
+            this.inputPanel.Controls.Add(this.everyMonthRadioButton);
             this.inputPanel.Controls.Add(this.label10);
             this.inputPanel.Controls.Add(this.maxInterestRateLabel);
             this.inputPanel.Controls.Add(this.minInterestRateLabel);
             this.inputPanel.Controls.Add(this.label9);
             this.inputPanel.Controls.Add(this.interestRateTrackBar);
-            this.inputPanel.Controls.Add(this.interestPaymentComboBox);
             this.inputPanel.Controls.Add(this.interestRateTextBox);
             this.inputPanel.Controls.Add(this.maxTermLabel);
             this.inputPanel.Controls.Add(this.minTermLabel);
@@ -104,8 +118,106 @@
             this.inputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inputPanel.Location = new System.Drawing.Point(0, 0);
             this.inputPanel.Name = "inputPanel";
-            this.inputPanel.Size = new System.Drawing.Size(278, 420);
+            this.inputPanel.Size = new System.Drawing.Size(278, 510);
             this.inputPanel.TabIndex = 20;
+            // 
+            // c12nByYearRadioButton
+            // 
+            this.c12nByYearRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c12nByYearRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.c12nByYearRadioButton.Location = new System.Drawing.Point(124, 475);
+            this.c12nByYearRadioButton.Name = "c12nByYearRadioButton";
+            this.c12nByYearRadioButton.Size = new System.Drawing.Size(143, 24);
+            this.c12nByYearRadioButton.TabIndex = 45;
+            this.c12nByYearRadioButton.Text = "Capitalization By Year";
+            this.c12nByYearRadioButton.UseVisualStyleBackColor = true;
+            this.c12nByYearRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // c12nByQuarterRadioButton
+            // 
+            this.c12nByQuarterRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c12nByQuarterRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.c12nByQuarterRadioButton.Location = new System.Drawing.Point(124, 445);
+            this.c12nByQuarterRadioButton.Name = "c12nByQuarterRadioButton";
+            this.c12nByQuarterRadioButton.Size = new System.Drawing.Size(143, 24);
+            this.c12nByQuarterRadioButton.TabIndex = 44;
+            this.c12nByQuarterRadioButton.Text = "Capitalization By Quarter";
+            this.c12nByQuarterRadioButton.UseVisualStyleBackColor = true;
+            this.c12nByQuarterRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // c12nByMonthRadioButton
+            // 
+            this.c12nByMonthRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c12nByMonthRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.c12nByMonthRadioButton.Location = new System.Drawing.Point(124, 415);
+            this.c12nByMonthRadioButton.Name = "c12nByMonthRadioButton";
+            this.c12nByMonthRadioButton.Size = new System.Drawing.Size(143, 24);
+            this.c12nByMonthRadioButton.TabIndex = 43;
+            this.c12nByMonthRadioButton.Text = "Capitalization By Month";
+            this.c12nByMonthRadioButton.UseVisualStyleBackColor = true;
+            this.c12nByMonthRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // c12nByDayRadioButton
+            // 
+            this.c12nByDayRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c12nByDayRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.c12nByDayRadioButton.Location = new System.Drawing.Point(124, 385);
+            this.c12nByDayRadioButton.Name = "c12nByDayRadioButton";
+            this.c12nByDayRadioButton.Size = new System.Drawing.Size(143, 24);
+            this.c12nByDayRadioButton.TabIndex = 42;
+            this.c12nByDayRadioButton.Text = "Capitalization By Day";
+            this.c12nByDayRadioButton.UseVisualStyleBackColor = true;
+            this.c12nByDayRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // endOfTermRadioButton
+            // 
+            this.endOfTermRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.endOfTermRadioButton.Location = new System.Drawing.Point(10, 475);
+            this.endOfTermRadioButton.Name = "endOfTermRadioButton";
+            this.endOfTermRadioButton.Size = new System.Drawing.Size(108, 24);
+            this.endOfTermRadioButton.TabIndex = 41;
+            this.endOfTermRadioButton.Text = "End of term";
+            this.endOfTermRadioButton.UseVisualStyleBackColor = true;
+            this.endOfTermRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // everyYearRadioButton
+            // 
+            this.everyYearRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.everyYearRadioButton.Location = new System.Drawing.Point(10, 445);
+            this.everyYearRadioButton.Name = "everyYearRadioButton";
+            this.everyYearRadioButton.Size = new System.Drawing.Size(108, 24);
+            this.everyYearRadioButton.TabIndex = 40;
+            this.everyYearRadioButton.Text = "Every year";
+            this.everyYearRadioButton.UseVisualStyleBackColor = true;
+            this.everyYearRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // everyQuarterRadioButton
+            // 
+            this.everyQuarterRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.everyQuarterRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsEveryQuarterRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.everyQuarterRadioButton.Location = new System.Drawing.Point(10, 415);
+            this.everyQuarterRadioButton.Name = "everyQuarterRadioButton";
+            this.everyQuarterRadioButton.Size = new System.Drawing.Size(108, 24);
+            this.everyQuarterRadioButton.TabIndex = 39;
+            this.everyQuarterRadioButton.Text = "Every quarter";
+            this.everyQuarterRadioButton.UseVisualStyleBackColor = true;
+            this.everyQuarterRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // everyMonthRadioButton
+            // 
+            this.everyMonthRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.everyMonthRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsEveryMonthRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.everyMonthRadioButton.Location = new System.Drawing.Point(10, 385);
+            this.everyMonthRadioButton.Name = "everyMonthRadioButton";
+            this.everyMonthRadioButton.Size = new System.Drawing.Size(108, 24);
+            this.everyMonthRadioButton.TabIndex = 38;
+            this.everyMonthRadioButton.Text = "Every month";
+            this.everyMonthRadioButton.UseVisualStyleBackColor = true;
+            this.everyMonthRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // label10
             // 
@@ -162,21 +274,6 @@
             this.interestRateTrackBar.Name = "interestRateTrackBar";
             this.interestRateTrackBar.Size = new System.Drawing.Size(253, 30);
             this.interestRateTrackBar.TabIndex = 32;
-            // 
-            // interestPaymentComboBox
-            // 
-            this.interestPaymentComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.interestPaymentComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "InterestPayment", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.interestPaymentComboBox.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bindingSource, "InterestPaymentEntries", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.interestPaymentComboBox.DisplayMember = "Value";
-            this.interestPaymentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.interestPaymentComboBox.FormattingEnabled = true;
-            this.interestPaymentComboBox.Location = new System.Drawing.Point(10, 386);
-            this.interestPaymentComboBox.Name = "interestPaymentComboBox";
-            this.interestPaymentComboBox.Size = new System.Drawing.Size(253, 21);
-            this.interestPaymentComboBox.TabIndex = 31;
-            this.interestPaymentComboBox.ValueMember = "Key";
             // 
             // interestRateTextBox
             // 
@@ -325,7 +422,7 @@
             this.splitter.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter.Location = new System.Drawing.Point(273, 0);
             this.splitter.Name = "splitter";
-            this.splitter.Size = new System.Drawing.Size(5, 420);
+            this.splitter.Size = new System.Drawing.Size(5, 510);
             this.splitter.TabIndex = 21;
             this.splitter.TabStop = false;
             // 
@@ -345,7 +442,7 @@
             this.outputPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.outputPanel.Location = new System.Drawing.Point(278, 0);
             this.outputPanel.Name = "outputPanel";
-            this.outputPanel.Size = new System.Drawing.Size(269, 420);
+            this.outputPanel.Size = new System.Drawing.Size(269, 510);
             this.outputPanel.TabIndex = 22;
             // 
             // panel1
@@ -354,7 +451,7 @@
             this.panel1.Controls.Add(this.incomeValueLabel);
             this.panel1.Controls.Add(this.incomeCaptionLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 109);
+            this.panel1.Location = new System.Drawing.Point(0, 108);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(269, 32);
             this.panel1.TabIndex = 35;
@@ -484,10 +581,15 @@
             this.valueDataGridViewTextBoxColumn});
             this.interestPaymentDataGridView.DataSource = this.incomesBindingSource;
             this.interestPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.interestPaymentDataGridView.Location = new System.Drawing.Point(0, 141);
+            this.interestPaymentDataGridView.Location = new System.Drawing.Point(0, 140);
             this.interestPaymentDataGridView.Name = "interestPaymentDataGridView";
-            this.interestPaymentDataGridView.Size = new System.Drawing.Size(269, 279);
+            this.interestPaymentDataGridView.Size = new System.Drawing.Size(269, 370);
             this.interestPaymentDataGridView.TabIndex = 26;
+            // 
+            // incomesBindingSource
+            // 
+            this.incomesBindingSource.DataMember = "Incomes";
+            this.incomesBindingSource.DataSource = this.bindingSource;
             // 
             // errorProvider
             // 
@@ -497,11 +599,6 @@
             // 
             this.bindingSource.AllowNew = false;
             this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
-            // 
-            // incomesBindingSource
-            // 
-            this.incomesBindingSource.DataMember = "Incomes";
-            this.incomesBindingSource.DataSource = this.bindingSource;
             // 
             // keyDataGridViewTextBoxColumn
             // 
@@ -527,7 +624,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 420);
+            this.ClientSize = new System.Drawing.Size(547, 510);
             this.Controls.Add(this.splitter);
             this.Controls.Add(this.inputPanel);
             this.Controls.Add(this.outputPanel);
@@ -546,9 +643,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,7 +657,6 @@
         private System.Windows.Forms.Label minInterestRateLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TrackBar interestRateTrackBar;
-        private System.Windows.Forms.ComboBox interestPaymentComboBox;
         private System.Windows.Forms.TextBox interestRateTextBox;
         private System.Windows.Forms.Label maxTermLabel;
         private System.Windows.Forms.Label minTermLabel;
@@ -592,6 +688,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource incomesBindingSource;
+        private System.Windows.Forms.RadioButton everyMonthRadioButton;
+        private System.Windows.Forms.RadioButton everyQuarterRadioButton;
+        private System.Windows.Forms.RadioButton c12nByYearRadioButton;
+        private System.Windows.Forms.RadioButton c12nByQuarterRadioButton;
+        private System.Windows.Forms.RadioButton c12nByMonthRadioButton;
+        private System.Windows.Forms.RadioButton c12nByDayRadioButton;
+        private System.Windows.Forms.RadioButton endOfTermRadioButton;
+        private System.Windows.Forms.RadioButton everyYearRadioButton;
     }
 }
 

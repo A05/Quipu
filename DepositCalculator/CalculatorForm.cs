@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sx.Vx.Quipu.Domain;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -68,6 +69,34 @@ namespace Sx.Vx.Quipu.WinUI
                 interestRateTextBox.Select(0, interestRateTextBox.Text.Length);
                 errorProvider.SetError(interestRateTextBox, error);
             }
+        }
+
+        private void interestPaymentRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            InterestPayment interestPayment;
+
+            if (sender == everyMonthRadioButton)
+                interestPayment = InterestPayment.EveryMonth;
+            else if (sender == everyQuarterRadioButton)
+                interestPayment = InterestPayment.EveryQuarter;
+            else if (sender == everyYearRadioButton)
+                interestPayment = InterestPayment.EveryYear;
+            else if (sender == endOfTermRadioButton)
+                interestPayment = InterestPayment.AtTheEndOfTerm;
+            else if (sender == c12nByDayRadioButton)
+                interestPayment = InterestPayment.CapitalizationByDay;
+            else if (sender == c12nByMonthRadioButton)
+                interestPayment = InterestPayment.CapitalizationByMonth;
+            else if (sender == c12nByQuarterRadioButton)
+                interestPayment = InterestPayment.CapitalizationByQuarter;
+            else if (sender == c12nByYearRadioButton)
+                interestPayment = InterestPayment.CapitalizationByYear;
+            else
+                throw new NotSupportedException();
+
+            var model = (CalculatorFormViewModel)bindingSource.DataSource;
+
+            model.InterestPayment = interestPayment;
         }
     }
 }
