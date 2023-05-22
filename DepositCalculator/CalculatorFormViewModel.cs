@@ -423,7 +423,7 @@ namespace Sx.Vx.Quipu.WinUI
 
         public string AmountDisplayValue
         {
-            get => $"{Amount} {Currency.AlphabeticCode}";
+            get => $"{Amount:#,#} {Currency.AlphabeticCode}";
         }
 
         public string TermDisplayValue

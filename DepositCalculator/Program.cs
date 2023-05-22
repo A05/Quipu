@@ -21,7 +21,8 @@ namespace Sx.Vx.Quipu.WinUI
         {
             // TODO: Implement it with Unity.
 
-            var viewModelFactory = new CalculatorFormViewModelFactory();
+            var limitRepository = LimitRepository.Load();
+            var viewModelFactory = new CalculatorFormViewModelFactory(limitRepository);
             var calculatorFactory = new DepositCalculatorFactory();
             var presenter = new CalculatorFormPresenter(viewModelFactory, calculatorFactory);
 

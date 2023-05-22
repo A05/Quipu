@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4FF567C9-B7A8-4741-9824-FB489123A0CE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Sx.Vx.Quipu</RootNamespace>
+    <RootNamespace>Sx.Vx.Quipu.WinUI</RootNamespace>
     <AssemblyName>Sx.Vx.Quipu.DepositCalculator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -55,7 +55,8 @@
     <Compile Include="CalculatorFormPresenter.cs" />
     <Compile Include="CalculatorFormViewModel.cs" />
     <Compile Include="CalculatorFormViewModelFactory.cs" />
-    <Compile Include="Conditions.cs" />
+    <Compile Include="Limit.cs" />
+    <Compile Include="LimitRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CalculatorForm.resx">
@@ -90,6 +91,11 @@
       <Project>{e287a4c6-125c-4cbe-8a94-cbc96835dab1}</Project>
       <Name>Sx.Vx.Quipu.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Limits.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

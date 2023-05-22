@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace Sx.Vx.Quipu.Domain
 {

@@ -49,7 +49,7 @@ namespace Sx.Vx.Quipu.Domain
                 if (this == Empty)
                     _toString = "0";
                 else
-                    _toString = $"{GetRoundedAmount():.00} {Currency.AlphabeticCode ?? string.Empty}";
+                    _toString = $"{GetRoundedAmount():#,#.00} {Currency.AlphabeticCode ?? string.Empty}";
 
             return _toString;
         }

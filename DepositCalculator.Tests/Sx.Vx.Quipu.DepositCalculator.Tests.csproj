@@ -8,7 +8,7 @@
     <ProjectGuid>{BDBCC86E-3201-4A7F-8CA4-E75DBA13194B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sx.Vx.Quipu</RootNamespace>
+    <RootNamespace>Sx.Vx.Quipu.WinUI</RootNamespace>
     <AssemblyName>Sx.Vx.Quipu.DepositCalculator.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CalculatorFormViewModelFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

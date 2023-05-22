@@ -70,6 +70,24 @@ namespace Sx.Vx.Quipu.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to ready XML stream..
+        /// </summary>
+        internal static string FailedToReadXmlStream {
+            get {
+                return ResourceManager.GetString("FailedToReadXmlStream", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to recognize a currency numeric code {0}..
+        /// </summary>
+        internal static string FailedToRecognizeCurrencyNumericCode {
+            get {
+                return ResourceManager.GetString("FailedToRecognizeCurrencyNumericCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0:G} interest payment is not supported yet..
         /// </summary>
         internal static string InterestPaymentIsNotSupportedYet {

@@ -20,6 +20,7 @@ namespace Sx.Vx.Quipu.WinUI
 
         private readonly DepositCalculator _calculator;
         private readonly CalculatorFormViewModel _viewModel;
+        private readonly CalculatorFormViewModelFactory _viewModelFactory;
         private CalculatorForm _view;
 
         public CalculatorFormPresenter(CalculatorFormViewModelFactory viewModelFactory, DepositCalculatorFactory calculatorFactory)
@@ -29,9 +30,11 @@ namespace Sx.Vx.Quipu.WinUI
 
             if (calculatorFactory == null)
                 throw new ArgumentNullException(nameof(calculatorFactory));
-            
+
+            _viewModelFactory = viewModelFactory;
+
             _calculator = calculatorFactory.Create();
-            _viewModel = viewModelFactory.Create();            
+            _viewModel = viewModelFactory.Create();
         }
 
         public void SetView(CalculatorForm view)
@@ -94,7 +97,12 @@ namespace Sx.Vx.Quipu.WinUI
         private void HandlePropertyChangedOnViewModel(object sender, PropertyChangedEventArgs e)
         {
             if (InputProperties.Contains(e.PropertyName))
+            {
+                if (e.PropertyName == nameof(CalculatorFormViewModel.Currency))
+                    _viewModelFactory.ApplyLimit(_viewModel);
+
                 CalculateIncomePlan();
+            }
         }
 
         private void CalculateIncomePlan()

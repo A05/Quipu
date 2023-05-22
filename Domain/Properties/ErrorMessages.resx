@@ -120,6 +120,12 @@
   <data name="AmountMustBeGreaterThanZero" xml:space="preserve">
     <value>Amount must be greater than zero.</value>
   </data>
+  <data name="FailedToReadXmlStream" xml:space="preserve">
+    <value>Failed to ready XML stream.</value>
+  </data>
+  <data name="FailedToRecognizeCurrencyNumericCode" xml:space="preserve">
+    <value>Failed to recognize a currency numeric code {0}.</value>
+  </data>
   <data name="InterestPaymentIsNotSupportedYet" xml:space="preserve">
     <value>The {0:G} interest payment is not supported yet.</value>
   </data>

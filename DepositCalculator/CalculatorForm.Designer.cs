@@ -35,6 +35,7 @@
             this.inputPanel = new System.Windows.Forms.Panel();
             this.currencyPanel = new System.Windows.Forms.Panel();
             this.eurRadioButton = new System.Windows.Forms.RadioButton();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usdRadioButton = new System.Windows.Forms.RadioButton();
             this.uahRadioButton = new System.Windows.Forms.RadioButton();
             this.c12nByYearRadioButton = new System.Windows.Forms.RadioButton();
@@ -76,13 +77,13 @@
             this.amountValueLabel = new System.Windows.Forms.Label();
             this.amountCaptionLabel = new System.Windows.Forms.Label();
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
-            this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.inputPanel.SuspendLayout();
             this.currencyPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
@@ -91,7 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inputPanel
@@ -125,7 +125,7 @@
             this.inputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inputPanel.Location = new System.Drawing.Point(0, 0);
             this.inputPanel.Name = "inputPanel";
-            this.inputPanel.Size = new System.Drawing.Size(279, 489);
+            this.inputPanel.Size = new System.Drawing.Size(288, 489);
             this.inputPanel.TabIndex = 20;
             // 
             // currencyPanel
@@ -134,7 +134,7 @@
             this.currencyPanel.Controls.Add(this.eurRadioButton);
             this.currencyPanel.Controls.Add(this.usdRadioButton);
             this.currencyPanel.Controls.Add(this.uahRadioButton);
-            this.currencyPanel.Location = new System.Drawing.Point(178, 25);
+            this.currencyPanel.Location = new System.Drawing.Point(187, 25);
             this.currencyPanel.Name = "currencyPanel";
             this.currencyPanel.Size = new System.Drawing.Size(86, 31);
             this.currencyPanel.TabIndex = 46;
@@ -152,6 +152,11 @@
             this.eurRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.eurRadioButton.UseVisualStyleBackColor = true;
             this.eurRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
+            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
             // 
             // usdRadioButton
             // 
@@ -188,7 +193,7 @@
             this.c12nByYearRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.c12nByYearRadioButton.Location = new System.Drawing.Point(124, 455);
             this.c12nByYearRadioButton.Name = "c12nByYearRadioButton";
-            this.c12nByYearRadioButton.Size = new System.Drawing.Size(144, 24);
+            this.c12nByYearRadioButton.Size = new System.Drawing.Size(153, 24);
             this.c12nByYearRadioButton.TabIndex = 45;
             this.c12nByYearRadioButton.Text = "Capitalization By Year";
             this.c12nByYearRadioButton.UseVisualStyleBackColor = true;
@@ -201,7 +206,7 @@
             this.c12nByQuarterRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.c12nByQuarterRadioButton.Location = new System.Drawing.Point(124, 425);
             this.c12nByQuarterRadioButton.Name = "c12nByQuarterRadioButton";
-            this.c12nByQuarterRadioButton.Size = new System.Drawing.Size(144, 24);
+            this.c12nByQuarterRadioButton.Size = new System.Drawing.Size(153, 24);
             this.c12nByQuarterRadioButton.TabIndex = 44;
             this.c12nByQuarterRadioButton.Text = "Capitalization By Quarter";
             this.c12nByQuarterRadioButton.UseVisualStyleBackColor = true;
@@ -218,7 +223,7 @@
             this.currencyComboBox.FormattingEnabled = true;
             this.currencyComboBox.Location = new System.Drawing.Point(10, 60);
             this.currencyComboBox.Name = "currencyComboBox";
-            this.currencyComboBox.Size = new System.Drawing.Size(254, 21);
+            this.currencyComboBox.Size = new System.Drawing.Size(263, 21);
             this.currencyComboBox.TabIndex = 20;
             this.currencyComboBox.ValueMember = "Key";
             // 
@@ -229,7 +234,7 @@
             this.c12nByMonthRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.c12nByMonthRadioButton.Location = new System.Drawing.Point(124, 395);
             this.c12nByMonthRadioButton.Name = "c12nByMonthRadioButton";
-            this.c12nByMonthRadioButton.Size = new System.Drawing.Size(144, 24);
+            this.c12nByMonthRadioButton.Size = new System.Drawing.Size(153, 24);
             this.c12nByMonthRadioButton.TabIndex = 43;
             this.c12nByMonthRadioButton.Text = "Capitalization By Month";
             this.c12nByMonthRadioButton.UseVisualStyleBackColor = true;
@@ -242,7 +247,7 @@
             this.c12nByDayRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.c12nByDayRadioButton.Location = new System.Drawing.Point(124, 365);
             this.c12nByDayRadioButton.Name = "c12nByDayRadioButton";
-            this.c12nByDayRadioButton.Size = new System.Drawing.Size(144, 24);
+            this.c12nByDayRadioButton.Size = new System.Drawing.Size(153, 24);
             this.c12nByDayRadioButton.TabIndex = 42;
             this.c12nByDayRadioButton.Text = "Capitalization By Day";
             this.c12nByDayRadioButton.UseVisualStyleBackColor = true;
@@ -309,7 +314,7 @@
             this.maxInterestRateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxInterestRateLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxInterestRateCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.maxInterestRateLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.maxInterestRateLabel.Location = new System.Drawing.Point(164, 323);
+            this.maxInterestRateLabel.Location = new System.Drawing.Point(173, 323);
             this.maxInterestRateLabel.Name = "maxInterestRateLabel";
             this.maxInterestRateLabel.Size = new System.Drawing.Size(100, 13);
             this.maxInterestRateLabel.TabIndex = 35;
@@ -347,7 +352,7 @@
             this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "InterestRateTickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.interestRateTrackBar.Location = new System.Drawing.Point(10, 290);
             this.interestRateTrackBar.Name = "interestRateTrackBar";
-            this.interestRateTrackBar.Size = new System.Drawing.Size(254, 30);
+            this.interestRateTrackBar.Size = new System.Drawing.Size(263, 30);
             this.interestRateTrackBar.TabIndex = 32;
             // 
             // interestRateTextBox
@@ -358,7 +363,7 @@
             this.errorProvider.SetIconPadding(this.interestRateTextBox, -20);
             this.interestRateTextBox.Location = new System.Drawing.Point(10, 264);
             this.interestRateTextBox.Name = "interestRateTextBox";
-            this.interestRateTextBox.Size = new System.Drawing.Size(254, 20);
+            this.interestRateTextBox.Size = new System.Drawing.Size(263, 20);
             this.interestRateTextBox.TabIndex = 30;
             this.interestRateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.interestRateTextBox_Validating);
             // 
@@ -367,7 +372,7 @@
             this.maxTermLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxTermLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxTermCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.maxTermLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.maxTermLabel.Location = new System.Drawing.Point(164, 221);
+            this.maxTermLabel.Location = new System.Drawing.Point(173, 221);
             this.maxTermLabel.Name = "maxTermLabel";
             this.maxTermLabel.Size = new System.Drawing.Size(100, 13);
             this.maxTermLabel.TabIndex = 29;
@@ -405,7 +410,7 @@
             this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "TermTickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.termTrackBar.Location = new System.Drawing.Point(10, 188);
             this.termTrackBar.Name = "termTrackBar";
-            this.termTrackBar.Size = new System.Drawing.Size(254, 30);
+            this.termTrackBar.Size = new System.Drawing.Size(263, 30);
             this.termTrackBar.TabIndex = 26;
             // 
             // termTextBox
@@ -416,7 +421,7 @@
             this.errorProvider.SetIconPadding(this.termTextBox, -20);
             this.termTextBox.Location = new System.Drawing.Point(10, 162);
             this.termTextBox.Name = "termTextBox";
-            this.termTextBox.Size = new System.Drawing.Size(254, 20);
+            this.termTextBox.Size = new System.Drawing.Size(263, 20);
             this.termTextBox.TabIndex = 25;
             this.termTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.termTextBox_Validating);
             // 
@@ -425,7 +430,7 @@
             this.maxAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxAmountLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxAmountCaption", true));
             this.maxAmountLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.maxAmountLabel.Location = new System.Drawing.Point(164, 120);
+            this.maxAmountLabel.Location = new System.Drawing.Point(173, 120);
             this.maxAmountLabel.Name = "maxAmountLabel";
             this.maxAmountLabel.Size = new System.Drawing.Size(100, 13);
             this.maxAmountLabel.TabIndex = 24;
@@ -465,7 +470,7 @@
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "AmountTickFrequency", true));
             this.amountTrackBar.Location = new System.Drawing.Point(10, 87);
             this.amountTrackBar.Name = "amountTrackBar";
-            this.amountTrackBar.Size = new System.Drawing.Size(254, 30);
+            this.amountTrackBar.Size = new System.Drawing.Size(263, 30);
             this.amountTrackBar.TabIndex = 21;
             // 
             // amountTextBox
@@ -476,14 +481,14 @@
             this.errorProvider.SetIconPadding(this.amountTextBox, -20);
             this.amountTextBox.Location = new System.Drawing.Point(10, 32);
             this.amountTextBox.Name = "amountTextBox";
-            this.amountTextBox.Size = new System.Drawing.Size(162, 20);
+            this.amountTextBox.Size = new System.Drawing.Size(171, 20);
             this.amountTextBox.TabIndex = 19;
             this.amountTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.amountTextBox_Validating);
             // 
             // splitter
             // 
             this.splitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter.Location = new System.Drawing.Point(274, 0);
+            this.splitter.Location = new System.Drawing.Point(283, 0);
             this.splitter.Name = "splitter";
             this.splitter.Size = new System.Drawing.Size(5, 489);
             this.splitter.TabIndex = 21;
@@ -503,9 +508,9 @@
             this.outputPanel.Controls.Add(this.amountCaptionLabel);
             this.outputPanel.Controls.Add(this.interestPaymentDataGridView);
             this.outputPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.outputPanel.Location = new System.Drawing.Point(279, 0);
+            this.outputPanel.Location = new System.Drawing.Point(288, 0);
             this.outputPanel.Name = "outputPanel";
-            this.outputPanel.Size = new System.Drawing.Size(269, 489);
+            this.outputPanel.Size = new System.Drawing.Size(347, 489);
             this.outputPanel.TabIndex = 22;
             // 
             // panel1
@@ -516,7 +521,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 108);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(269, 32);
+            this.panel1.Size = new System.Drawing.Size(347, 32);
             this.panel1.TabIndex = 35;
             // 
             // incomeValueLabel
@@ -525,7 +530,7 @@
             this.incomeValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "IncomeDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.incomeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incomeValueLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.incomeValueLabel.Location = new System.Drawing.Point(125, 6);
+            this.incomeValueLabel.Location = new System.Drawing.Point(157, 6);
             this.incomeValueLabel.Name = "incomeValueLabel";
             this.incomeValueLabel.Size = new System.Drawing.Size(80, 20);
             this.incomeValueLabel.TabIndex = 25;
@@ -548,7 +553,7 @@
             this.interestPaymentValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "InterestPaymentDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.interestPaymentValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interestPaymentValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.interestPaymentValueLabel.Location = new System.Drawing.Point(125, 80);
+            this.interestPaymentValueLabel.Location = new System.Drawing.Point(157, 80);
             this.interestPaymentValueLabel.Name = "interestPaymentValueLabel";
             this.interestPaymentValueLabel.Size = new System.Drawing.Size(34, 17);
             this.interestPaymentValueLabel.TabIndex = 34;
@@ -559,7 +564,7 @@
             this.interestPaymentCaptionLabel.AutoSize = true;
             this.interestPaymentCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interestPaymentCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.interestPaymentCaptionLabel.Location = new System.Drawing.Point(125, 58);
+            this.interestPaymentCaptionLabel.Location = new System.Drawing.Point(157, 58);
             this.interestPaymentCaptionLabel.Name = "interestPaymentCaptionLabel";
             this.interestPaymentCaptionLabel.Size = new System.Drawing.Size(129, 17);
             this.interestPaymentCaptionLabel.TabIndex = 33;
@@ -594,7 +599,7 @@
             this.termValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "TermDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.termValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.termValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.termValueLabel.Location = new System.Drawing.Point(125, 31);
+            this.termValueLabel.Location = new System.Drawing.Point(157, 31);
             this.termValueLabel.Name = "termValueLabel";
             this.termValueLabel.Size = new System.Drawing.Size(83, 17);
             this.termValueLabel.TabIndex = 30;
@@ -605,7 +610,7 @@
             this.termCaptionLabel.AutoSize = true;
             this.termCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.termCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.termCaptionLabel.Location = new System.Drawing.Point(125, 9);
+            this.termCaptionLabel.Location = new System.Drawing.Point(157, 9);
             this.termCaptionLabel.Name = "termCaptionLabel";
             this.termCaptionLabel.Size = new System.Drawing.Size(45, 17);
             this.termCaptionLabel.TabIndex = 29;
@@ -655,22 +660,8 @@
             this.interestPaymentDataGridView.Name = "interestPaymentDataGridView";
             this.interestPaymentDataGridView.ReadOnly = true;
             this.interestPaymentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.interestPaymentDataGridView.Size = new System.Drawing.Size(269, 349);
+            this.interestPaymentDataGridView.Size = new System.Drawing.Size(347, 349);
             this.interestPaymentDataGridView.TabIndex = 26;
-            // 
-            // incomesBindingSource
-            // 
-            this.incomesBindingSource.DataMember = "Incomes";
-            this.incomesBindingSource.DataSource = this.bindingSource;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.AllowNew = false;
-            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
             // 
             // keyDataGridViewTextBoxColumn
             // 
@@ -695,11 +686,20 @@
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             this.valueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // incomesBindingSource
+            // 
+            this.incomesBindingSource.DataMember = "Incomes";
+            this.incomesBindingSource.DataSource = this.bindingSource;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 489);
+            this.ClientSize = new System.Drawing.Size(635, 489);
             this.Controls.Add(this.splitter);
             this.Controls.Add(this.inputPanel);
             this.Controls.Add(this.outputPanel);
@@ -711,6 +711,7 @@
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
             this.currencyPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).EndInit();
@@ -721,7 +722,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

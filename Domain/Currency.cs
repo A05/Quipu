@@ -217,6 +217,9 @@ namespace Sx.Vx.Quipu.Domain
 
         public int CompareTo(Currency other)
         {
+            if (AlphabeticCode == null && other.AlphabeticCode == null)
+                return 0;
+
             return AlphabeticCode.CompareTo(other.AlphabeticCode);
         }
 

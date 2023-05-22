@@ -1,11 +1,20 @@
 ﻿using Sx.Vx.Quipu.Domain;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Sx.Vx.Quipu.WinUI
 {
     internal class CalculatorFormViewModelFactory
     {
+        private readonly LimitRepository _limitRepository;
+        
+        public CalculatorFormViewModelFactory(LimitRepository limitRepository)
+        {
+            _limitRepository = limitRepository ?? throw new ArgumentNullException(nameof(limitRepository));
+        }
+
         public CalculatorFormViewModel Create()
         {
             var currencies = GetCurrencies();
@@ -22,34 +31,63 @@ namespace Sx.Vx.Quipu.WinUI
                 new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByYear, "C12n by year")
             };
 
+            var currency = Currency.UAH;
+            var limit = _limitRepository.Get(currency);
+
             var viewModel = new CalculatorFormViewModel()
             {
-                Amount = 25,
-                MinAmount = 10,
-                MaxAmount = 100,
-                AmountTickFrequency = (100 - 10) / 15,
-                MinAmountCaption = $"{10} $",
-                MaxAmountCaption = $"{100} $",
+                Amount = limit.GetBeautifulAmount(),
+                Term = limit.GetBeautifulTerm(),
+                InterestRate = limit.GetBeautifulInterestRate(),
                 CurrencyEntries = currencies,
-                Currency = Currency.UAH,
+                Currency = currency,
                 ComboBoxCurrency = Currency.Empty,
-                Term = 12,
-                MinTerm = 3,
-                MaxTerm = 64,
-                TermTickFrequency = (64 - 3) / 15,
-                MinTermCaption = $"{3} mounths",
-                MaxTermCaption = $"{64} mounths",
-                InterestRate = 24,
-                MinInterestRate = 1,
-                MaxInterestRate = 100,
-                InterestRateTickFrequency = (100 - 1) / 15,
-                MinInterestRateCaption = $"{1} %",
-                MaxInterestRateCaption = $"{100} %",
                 InterestPaymentEntries = interestPayments,
                 InterestPayment = InterestPayment.EveryMonth
             };
 
+            ApplyLimit(viewModel, limit);
+
             return viewModel;
+        }
+
+        public void ApplyLimit(CalculatorFormViewModel viewModel)
+        {
+            Debug.Assert(viewModel != null);
+
+            var currency = viewModel.Currency;
+            var limit = _limitRepository.Get(currency);
+
+            viewModel.Amount = limit.ResolveAmount(viewModel.Amount);
+            viewModel.Term = limit.ResolveTerm(viewModel.Term);
+            viewModel.InterestRate = limit.ResolveInterestRate(viewModel.InterestRate);
+            
+            ApplyLimit(viewModel, limit);
+        }
+
+        private void ApplyLimit(CalculatorFormViewModel viewModel, Limit limit)
+        {
+            Debug.Assert(viewModel != null);
+
+            var currency = viewModel.Currency;
+
+            viewModel.MinAmount = limit.MinAmount;
+            viewModel.MaxAmount = limit.MaxAmount;
+            viewModel.AmountTickFrequency = limit.GetAmountTickFrequency();
+            viewModel.MinAmountCaption = $"{limit.MinAmount} {currency.AlphabeticCode}";
+            viewModel.MaxAmountCaption = $"{limit.MaxAmount} {currency.AlphabeticCode}";
+
+            viewModel.MinTerm = limit.MinTerm;
+            viewModel.MaxTerm = limit.MaxTerm;
+            viewModel.TermTickFrequency = limit.GetTermTickFrequency();
+            viewModel.MinTermCaption = $"{limit.MinTerm} mounths";
+            viewModel.MaxTermCaption = $"{limit.MaxTerm} mounths";
+            
+            viewModel.MinInterestRate = limit.MinInterestRate;
+            viewModel.MaxInterestRate = limit.MaxInterestRate;
+            viewModel.InterestRateTickFrequency = limit.GetInterestRateTickFrequency();
+            viewModel.MinInterestRateCaption = $"{limit.MinInterestRate} %";
+            viewModel.MaxInterestRateCaption = $"{limit.MaxInterestRate} %";
         }
 
         private KeyValuePair<Currency, string>[] GetCurrencies()
