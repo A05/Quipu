@@ -77,20 +77,16 @@ namespace Sx.Vx.Quipu.WinUI
 
             if (rb.Checked)
             {
-                int currencyCode;
-
-                if (sender == uahRadioButton)
-                    currencyCode = Currency.UAH.NumericCode;
-                else if (sender == usdRadioButton)
-                    currencyCode = Currency.USD.NumericCode;
-                else if (sender == eurRadioButton)
-                    currencyCode = Currency.EUR.NumericCode;
-                else
-                    throw new NotSupportedException();
-
                 var model = (CalculatorFormViewModel)bindingSource.DataSource;
 
-                model.CurrencyCode = currencyCode;
+                if (sender == uahRadioButton)
+                    model.Currency = Currency.UAH;
+                else if (sender == usdRadioButton)
+                    model.Currency = Currency.USD;
+                else if (sender == eurRadioButton)
+                    model.Currency = Currency.EUR;
+                else
+                    throw new NotSupportedException();
             }
         }
 

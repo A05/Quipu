@@ -169,5 +169,45 @@ namespace Sx.Vx.Quipu.Domain
             Assert.AreEqual(amount, m1.Amount);
             Assert.AreEqual(Currency.Empty, m1.Currency);
         }
+
+        [TestMethod]
+        public void ShouldDefineAddOperation()
+        {
+            var m1 = new Money(48, Currency.IDR);
+            var m2 = new Money(25, Currency.IDR);
+            var m = m1 + m2;
+
+            Assert.AreEqual(73, m.Amount);
+            Assert.AreEqual(Currency.IDR, m.Currency);
+        }
+
+        [TestMethod]
+        public void ShouldThrowOnAddOperationIfCurrenciesDifferent()
+        {
+            var m1 = new Money(48, Currency.UAH);
+            var m2 = new Money(25, Currency.IDR);
+
+            try { var m = m1 + m2; Assert.Fail(); } catch (InvalidOperationException) {}
+        }
+
+        [TestMethod]
+        public void ShouldDefineMinusOperation()
+        {
+            var m1 = new Money(48, Currency.IDR);
+            var m2 = new Money(25, Currency.IDR);
+            var m = m1 - m2;
+
+            Assert.AreEqual(23, m.Amount);
+            Assert.AreEqual(Currency.IDR, m.Currency);
+        }
+
+        [TestMethod]
+        public void ShouldThrowOnMinusOperationIfCurrenciesDifferent()
+        {
+            var m1 = new Money(48, Currency.UAH);
+            var m2 = new Money(25, Currency.IDR);
+
+            try { var m = m1 - m2; Assert.Fail(); } catch (InvalidOperationException) { }
+        }
     }
 }

@@ -16,12 +16,14 @@ namespace Sx.Vx.Quipu.Domain.Calculators
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());
             Assert.AreEqual(12483.03m, plan.TotalIncome);
+            Assert.AreEqual(Currency.UAH, plan.TotalIncome.Currency);
 
             plan = sut.Calculate(new Money(350000m, Currency.UAH), 11, 4.7m, InterestPayment.CapitalizationByQuarter);
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());
             Assert.AreEqual(15322.48m, plan.TotalIncome);
+            Assert.AreEqual(Currency.UAH, plan.TotalIncome.Currency);
         }
     }
 }

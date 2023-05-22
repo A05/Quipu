@@ -33,8 +33,7 @@ namespace Sx.Vx.Quipu.Domain
 
         public int CompareTo(Money other)
         {
-            if (Currency.CompareTo(other.Currency) != 0)
-                throw new InvalidOperationException();
+            AssertCurrenciesAreTheSame(this, other);
 
             return Amount.CompareTo(other.Amount);
         }
@@ -85,6 +84,20 @@ namespace Sx.Vx.Quipu.Domain
             return m1.CompareTo(m2) <= 0;
         }
 
+        public static Money operator +(Money m1, Money m2)
+        {
+            AssertCurrenciesAreTheSame(m1, m2);
+
+            return new Money(m1.Amount + m2.Amount, m1.Currency);
+        }
+
+        public static Money operator -(Money m1, Money m2)
+        {
+            AssertCurrenciesAreTheSame(m1, m2);
+
+            return new Money(m1.Amount - m2.Amount, m1.Currency);
+        }
+
         public static implicit operator decimal(Money m) => m.Amount;
         public static explicit operator double(Money m) => (double) m.Amount;
 
@@ -96,6 +109,12 @@ namespace Sx.Vx.Quipu.Domain
             var amount = Math.Truncate(Amount * precision) / precision;
 
             return amount;
+        }
+
+        private static void AssertCurrenciesAreTheSame(Money m1, Money m2)
+        {
+            if (m1.Currency.CompareTo(m2.Currency) != 0)
+                throw new InvalidOperationException();
         }
     }
 }

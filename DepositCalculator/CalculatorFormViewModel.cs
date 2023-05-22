@@ -10,8 +10,6 @@ namespace Sx.Vx.Quipu.WinUI
 {
     internal class CalculatorFormViewModel : INotifyPropertyChanged
     {
-        public const int MORE_CURRENCY_CODE = 0;
-
         #region Fields
         
         private int _amount;
@@ -20,9 +18,9 @@ namespace Sx.Vx.Quipu.WinUI
         private int _amountTickFrequency;
         private string _minAmountCaption;
         private string _maxAmountCaption;
-        private KeyValuePair<int, string>[] _currencyEntries;
-        private int _currencyCode;
-        private int _comboBoxCurrencyCode;
+        private KeyValuePair<Currency, string>[] _currencyEntries;
+        private Currency _currency;
+        private Currency _comboBoxCurrency;
         private int _term;
         private int _minTerm;
         private int _maxTerm;
@@ -119,7 +117,7 @@ namespace Sx.Vx.Quipu.WinUI
             }
         }
 
-        public KeyValuePair<int, string>[] CurrencyEntries
+        public KeyValuePair<Currency, string>[] CurrencyEntries
         {
             get => _currencyEntries;
             set
@@ -130,20 +128,20 @@ namespace Sx.Vx.Quipu.WinUI
             }
         }
 
-        public int CurrencyCode
+        public Currency Currency
         {
-            get => _currencyCode;
+            get => _currency;
             set
             {
-                var old = _currencyCode;
-                _currencyCode = value;
-                if (old != _currencyCode)
+                var old = _currency;
+                _currency = value;
+                if (old != _currency)
                 {
-                    _comboBoxCurrencyCode = MORE_CURRENCY_CODE;
+                    _comboBoxCurrency = Currency.Empty;
 
                     OnPropertyChanged();
 
-                    OnPropertyChanged(nameof(ComboBoxCurrencyCode));
+                    OnPropertyChanged(nameof(ComboBoxCurrency));
 
                     OnPropertyChanged(nameof(IsUahRadioButtonChecked));
                     OnPropertyChanged(nameof(IsUsdRadioButtonChecked));
@@ -154,23 +152,23 @@ namespace Sx.Vx.Quipu.WinUI
             }
         }
 
-        public int ComboBoxCurrencyCode
+        public Currency ComboBoxCurrency
         {
-            get => _comboBoxCurrencyCode;
+            get => _comboBoxCurrency;
             set
             {
-                var old = _comboBoxCurrencyCode;
-                _comboBoxCurrencyCode = value;
-                if (old != _comboBoxCurrencyCode)
+                var old = _comboBoxCurrency;
+                _comboBoxCurrency = value;
+                if (old != _comboBoxCurrency)
                 {
-                    if (_comboBoxCurrencyCode == MORE_CURRENCY_CODE)
-                        _currencyCode = Currency.UAH.NumericCode;
+                    if (_comboBoxCurrency == Currency.Empty)
+                        _currency = Currency.UAH;
                     else
-                        _currencyCode = _comboBoxCurrencyCode;
+                        _currency = _comboBoxCurrency;
 
                     OnPropertyChanged();
 
-                    OnPropertyChanged(nameof(CurrencyCode));
+                    OnPropertyChanged(nameof(Currency));
 
                     OnPropertyChanged(nameof(IsUahRadioButtonChecked));
                     OnPropertyChanged(nameof(IsUsdRadioButtonChecked));
@@ -183,17 +181,17 @@ namespace Sx.Vx.Quipu.WinUI
 
         public bool IsUahRadioButtonChecked
         {
-            get => CurrencyCode == Currency.UAH.NumericCode;
+            get => Currency == Currency.UAH;
         }
 
         public bool IsUsdRadioButtonChecked
         {
-            get => CurrencyCode == Currency.USD.NumericCode;
+            get => Currency == Currency.USD;
         }
 
         public bool IsEurRadioButtonChecked
         {
-            get => CurrencyCode == Currency.EUR.NumericCode;
+            get => Currency == Currency.EUR;
         }
 
         public int Term
@@ -425,7 +423,7 @@ namespace Sx.Vx.Quipu.WinUI
 
         public string AmountDisplayValue
         {
-            get => $"{Amount} {CurrencyCode}";
+            get => $"{Amount} {Currency.AlphabeticCode}";
         }
 
         public string TermDisplayValue

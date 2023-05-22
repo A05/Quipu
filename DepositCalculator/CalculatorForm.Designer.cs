@@ -32,8 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inputPanel = new System.Windows.Forms.Panel();
+            this.currencyPanel = new System.Windows.Forms.Panel();
+            this.eurRadioButton = new System.Windows.Forms.RadioButton();
+            this.usdRadioButton = new System.Windows.Forms.RadioButton();
+            this.uahRadioButton = new System.Windows.Forms.RadioButton();
             this.c12nByYearRadioButton = new System.Windows.Forms.RadioButton();
             this.c12nByQuarterRadioButton = new System.Windows.Forms.RadioButton();
+            this.currencyComboBox = new System.Windows.Forms.ComboBox();
             this.c12nByMonthRadioButton = new System.Windows.Forms.RadioButton();
             this.c12nByDayRadioButton = new System.Windows.Forms.RadioButton();
             this.endOfTermRadioButton = new System.Windows.Forms.RadioButton();
@@ -55,7 +60,6 @@
             this.minAmountLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.amountTrackBar = new System.Windows.Forms.TrackBar();
-            this.currencyComboBox = new System.Windows.Forms.ComboBox();
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.splitter = new System.Windows.Forms.Splitter();
             this.outputPanel = new System.Windows.Forms.Panel();
@@ -73,14 +77,11 @@
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
             this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.currencyPanel = new System.Windows.Forms.Panel();
-            this.uahRadioButton = new System.Windows.Forms.RadioButton();
-            this.usdRadioButton = new System.Windows.Forms.RadioButton();
-            this.eurRadioButton = new System.Windows.Forms.RadioButton();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inputPanel.SuspendLayout();
+            this.currencyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
@@ -89,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.currencyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +127,60 @@
             this.inputPanel.Size = new System.Drawing.Size(279, 489);
             this.inputPanel.TabIndex = 20;
             // 
+            // currencyPanel
+            // 
+            this.currencyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currencyPanel.Controls.Add(this.eurRadioButton);
+            this.currencyPanel.Controls.Add(this.usdRadioButton);
+            this.currencyPanel.Controls.Add(this.uahRadioButton);
+            this.currencyPanel.Location = new System.Drawing.Point(178, 25);
+            this.currencyPanel.Name = "currencyPanel";
+            this.currencyPanel.Size = new System.Drawing.Size(86, 31);
+            this.currencyPanel.TabIndex = 46;
+            // 
+            // eurRadioButton
+            // 
+            this.eurRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.eurRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsEurRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.eurRadioButton.Location = new System.Drawing.Point(60, 5);
+            this.eurRadioButton.Name = "eurRadioButton";
+            this.eurRadioButton.Size = new System.Drawing.Size(26, 22);
+            this.eurRadioButton.TabIndex = 23;
+            this.eurRadioButton.TabStop = true;
+            this.eurRadioButton.Text = "€";
+            this.eurRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.eurRadioButton.UseVisualStyleBackColor = true;
+            this.eurRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
+            // 
+            // usdRadioButton
+            // 
+            this.usdRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.usdRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsUsdRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.usdRadioButton.Location = new System.Drawing.Point(30, 5);
+            this.usdRadioButton.Name = "usdRadioButton";
+            this.usdRadioButton.Size = new System.Drawing.Size(26, 22);
+            this.usdRadioButton.TabIndex = 22;
+            this.usdRadioButton.TabStop = true;
+            this.usdRadioButton.Text = "$";
+            this.usdRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.usdRadioButton.UseVisualStyleBackColor = true;
+            this.usdRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
+            // 
+            // uahRadioButton
+            // 
+            this.uahRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.uahRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsUahRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.uahRadioButton.Location = new System.Drawing.Point(0, 5);
+            this.uahRadioButton.Name = "uahRadioButton";
+            this.uahRadioButton.Size = new System.Drawing.Size(26, 22);
+            this.uahRadioButton.TabIndex = 21;
+            this.uahRadioButton.TabStop = true;
+            this.uahRadioButton.Text = "₴";
+            this.uahRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uahRadioButton.UseVisualStyleBackColor = true;
+            this.uahRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
+            // 
             // c12nByYearRadioButton
             // 
             this.c12nByYearRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -152,6 +206,21 @@
             this.c12nByQuarterRadioButton.Text = "Capitalization By Quarter";
             this.c12nByQuarterRadioButton.UseVisualStyleBackColor = true;
             this.c12nByQuarterRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
+            // 
+            // currencyComboBox
+            // 
+            this.currencyComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "ComboBoxCurrency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bindingSource, "CurrencyEntries", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.currencyComboBox.DisplayMember = "Value";
+            this.currencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currencyComboBox.FormattingEnabled = true;
+            this.currencyComboBox.Location = new System.Drawing.Point(10, 60);
+            this.currencyComboBox.Name = "currencyComboBox";
+            this.currencyComboBox.Size = new System.Drawing.Size(254, 21);
+            this.currencyComboBox.TabIndex = 20;
+            this.currencyComboBox.ValueMember = "Key";
             // 
             // c12nByMonthRadioButton
             // 
@@ -399,22 +468,6 @@
             this.amountTrackBar.Size = new System.Drawing.Size(254, 30);
             this.amountTrackBar.TabIndex = 21;
             // 
-            // currencyComboBox
-            // 
-            this.currencyComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "ComboBoxCurrencyCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bindingSource, "CurrencyEntries", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.currencyComboBox.DisplayMember = "Value";
-            this.currencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.currencyComboBox.DropDownWidth = 275;
-            this.currencyComboBox.FormattingEnabled = true;
-            this.currencyComboBox.Location = new System.Drawing.Point(10, 60);
-            this.currencyComboBox.Name = "currencyComboBox";
-            this.currencyComboBox.Size = new System.Drawing.Size(254, 21);
-            this.currencyComboBox.TabIndex = 20;
-            this.currencyComboBox.ValueMember = "Key";
-            // 
             // amountTextBox
             // 
             this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -603,60 +656,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // currencyPanel
-            // 
-            this.currencyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.currencyPanel.Controls.Add(this.eurRadioButton);
-            this.currencyPanel.Controls.Add(this.usdRadioButton);
-            this.currencyPanel.Controls.Add(this.uahRadioButton);
-            this.currencyPanel.Location = new System.Drawing.Point(178, 25);
-            this.currencyPanel.Name = "currencyPanel";
-            this.currencyPanel.Size = new System.Drawing.Size(86, 31);
-            this.currencyPanel.TabIndex = 46;
-            // 
-            // uahRadioButton
-            // 
-            this.uahRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.uahRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsUahRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.uahRadioButton.Location = new System.Drawing.Point(0, 5);
-            this.uahRadioButton.Name = "uahRadioButton";
-            this.uahRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.uahRadioButton.TabIndex = 21;
-            this.uahRadioButton.TabStop = true;
-            this.uahRadioButton.Text = "₴";
-            this.uahRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uahRadioButton.UseVisualStyleBackColor = true;
-            this.uahRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
-            // 
-            // usdRadioButton
-            // 
-            this.usdRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.usdRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsUsdRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.usdRadioButton.Location = new System.Drawing.Point(30, 5);
-            this.usdRadioButton.Name = "usdRadioButton";
-            this.usdRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.usdRadioButton.TabIndex = 22;
-            this.usdRadioButton.TabStop = true;
-            this.usdRadioButton.Text = "$";
-            this.usdRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.usdRadioButton.UseVisualStyleBackColor = true;
-            this.usdRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
-            // 
-            // eurRadioButton
-            // 
-            this.eurRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.eurRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsEurRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.eurRadioButton.Location = new System.Drawing.Point(60, 5);
-            this.eurRadioButton.Name = "eurRadioButton";
-            this.eurRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.eurRadioButton.TabIndex = 23;
-            this.eurRadioButton.TabStop = true;
-            this.eurRadioButton.Text = "€";
-            this.eurRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.eurRadioButton.UseVisualStyleBackColor = true;
-            this.eurRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
-            // 
             // bindingSource
             // 
             this.bindingSource.AllowNew = false;
@@ -697,6 +696,7 @@
             this.Load += new System.EventHandler(this.CalculatorForm_Load);
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
+            this.currencyPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).EndInit();
@@ -707,7 +707,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.currencyPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 

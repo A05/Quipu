@@ -12,7 +12,7 @@ namespace Sx.Vx.Quipu.WinUI
         private static readonly string[] InputProperties = new[]
         {
             nameof(CalculatorFormViewModel.Amount),
-            nameof(CalculatorFormViewModel.CurrencyCode),
+            nameof(CalculatorFormViewModel.Currency),
             nameof(CalculatorFormViewModel.Term),
             nameof(CalculatorFormViewModel.InterestRate),
             nameof(CalculatorFormViewModel.InterestPayment)
@@ -99,13 +99,15 @@ namespace Sx.Vx.Quipu.WinUI
 
         private void CalculateIncomePlan()
         {
+            var money = new Money(_viewModel.Amount, _viewModel.Currency);
+
             var plan = _calculator.Calculate(
-                new Money(_viewModel.Amount, Currency.UAH), // TODO: SR (UUU) 
+                money,
                 _viewModel.Term,
                 _viewModel.InterestRate,
                 _viewModel.InterestPayment);
 
-            _viewModel.IncomeDisplayValue = $"{plan.TotalIncome:.00} {_viewModel.CurrencyCode}";
+            _viewModel.IncomeDisplayValue = plan.TotalIncome.ToString();
             
             _viewModel.Incomes.Clear();
             foreach (var (date, income) in plan.Incomes)

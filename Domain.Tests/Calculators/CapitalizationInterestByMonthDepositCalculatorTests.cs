@@ -16,6 +16,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());
             Assert.AreEqual(12532.56m, plan.TotalIncome);
+            Assert.AreEqual(Currency.UAH, plan.TotalIncome.Currency);
         }
     }
 }

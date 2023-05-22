@@ -31,8 +31,8 @@ namespace Sx.Vx.Quipu.WinUI
                 MinAmountCaption = $"{10} $",
                 MaxAmountCaption = $"{100} $",
                 CurrencyEntries = currencies,
-                CurrencyCode = Currency.UAH.NumericCode,
-                ComboBoxCurrencyCode = CalculatorFormViewModel.MORE_CURRENCY_CODE,
+                Currency = Currency.UAH,
+                ComboBoxCurrency = Currency.Empty,
                 Term = 12,
                 MinTerm = 3,
                 MaxTerm = 64,
@@ -52,19 +52,19 @@ namespace Sx.Vx.Quipu.WinUI
             return viewModel;
         }
 
-        private KeyValuePair<int, string>[] GetCurrencies()
+        private KeyValuePair<Currency, string>[] GetCurrencies()
         {
-            var currencies = new KeyValuePair<int, string>[Currency.Currencies.Count() - 3 + 1];
+            var currencies = new KeyValuePair<Currency, string>[Currency.Currencies.Count() - 3 + 1];
 
             int i = 0;
 
-            currencies[i++] = new KeyValuePair<int, string>(CalculatorFormViewModel.MORE_CURRENCY_CODE, "More...");
+            currencies[i++] = new KeyValuePair<Currency, string>(Currency.Empty, "More...");
 
             foreach (var c in Currency.Currencies.OrderBy(_ => _))
                 if (c == Currency.UAH || c == Currency.USD || c == Currency.EUR)
                     continue;
                 else                
-                    currencies[i++] = new KeyValuePair<int, string>(c.NumericCode, $"{c.AlphabeticCode} - {c.Name}");
+                    currencies[i++] = new KeyValuePair<Currency, string>(c, $"{c.AlphabeticCode} - {c.Name}");
 
             return currencies;
         }
