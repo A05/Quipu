@@ -1,24 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 
 namespace Sx.Vx.Quipu.WinUI
-{
-    // TODO: (NU) Implement IXmlSerializable for the encapsulation.
-
+{    
     public class Limit
     {
-        [XmlAttribute(AttributeName = "currency")]
-        public string CurrencyAlphabeticCode;
+        public int MinAmount { get; }
+        public int MaxAmount { get; }
+        public int MinTerm { get; }
+        public int MaxTerm { get; }
+        public int MinInterestRate { get; }
+        public int MaxInterestRate { get; }
 
-        public int MinAmount;
-        public int MaxAmount;
-        public int MinTerm;
-        public int MaxTerm;
-        public int MinInterestRate;
-        public int MaxInterestRate;
+        public Limit(int minAmount, int maxAmount, int minTerm, int maxTerm, int minInterestRate, int maxInterestRate)
+        {
+            if (minAmount <= 0)
+                throw new ArgumentException("Min amount must be greater than zero.", nameof(minAmount));
 
-        public Limit() {}
+            if (maxAmount <= 0)
+                throw new ArgumentException("Max amount must be greater than zero.", nameof(maxAmount));
+
+            if (minTerm <= 0)
+                throw new ArgumentException("Min term must be greater than zero.", nameof(minTerm));
+
+            if (maxTerm <= 0)
+                throw new ArgumentException("Max term must be greater than zero.", nameof(maxTerm));
+
+            if (minInterestRate <= 0)
+                throw new ArgumentException("Min interest rate must be greater than zero.", nameof(minInterestRate));
+
+            if (maxInterestRate <= 0)
+                throw new ArgumentException("Max interest rate must be greater than zero.", nameof(maxInterestRate));
+
+            MinAmount = minAmount;
+            MaxAmount = maxAmount;
+            MinTerm = minTerm;
+            MaxTerm = maxTerm;
+            MinInterestRate = minInterestRate;
+            MaxInterestRate = maxInterestRate;
+        }
 
         public int GetBeautifulAmount() => GetBeautiful(MinAmount, MaxAmount);
         public int GetBeautifulTerm() => GetBeautiful(MinTerm, MaxTerm);
@@ -34,7 +53,7 @@ namespace Sx.Vx.Quipu.WinUI
 
         public override string ToString()
         {
-            return $"{CurrencyAlphabeticCode}, A:{MinAmount}-{MaxAmount}, T:{MinTerm}-{MaxTerm}, IR:{MinInterestRate}-{MaxInterestRate}";
+            return $"A:{MinAmount}-{MaxAmount}, T:{MinTerm}-{MaxTerm}, IR:{MinInterestRate}-{MaxInterestRate}";
         }
 
         private int GetBeautiful(int min, int max)

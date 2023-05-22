@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Limits xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Limit>
+		<MinAmount>not a number</MinAmount>
+		<MaxAmount>10000</MaxAmount>
+		<MinTerm>1</MinTerm>
+		<MaxTerm>36</MaxTerm>
+		<MinInterestRate>1</MinInterestRate>
+		<MaxInterestRate>100</MaxInterestRate>
+	</Limit>
+	<Limit currency="UAH">
+		<MinAmount>10</MinAmount>
+		<MaxAmount>1000000</MaxAmount>
+		<MinTerm>1</MinTerm>
+		<MaxTerm>64</MaxTerm>
+		<MinInterestRate>14</MinInterestRate>
+		<MaxInterestRate>36</MaxInterestRate>
+	</Limit>
+	<Limit currency="USD">
+		<MinAmount>100</MinAmount>
+		<MaxAmount>200000</MaxAmount>
+		<MinTerm>3</MinTerm>
+		<MaxTerm>24</MaxTerm>
+		<MinInterestRate>3</MinInterestRate>
+		<MaxInterestRate>18</MaxInterestRate>
+	</Limit>
+	<Limit currency="EUR">
+		<MinAmount>100</MinAmount>
+		<MaxAmount>500000</MaxAmount>
+		<MinTerm>3</MinTerm>
+		<MaxTerm>36</MaxTerm>
+		<MinInterestRate>5</MinInterestRate>
+		<MaxInterestRate>24</MaxInterestRate>
+	</Limit>
+</Limits>

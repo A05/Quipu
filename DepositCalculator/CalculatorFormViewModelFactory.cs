@@ -74,8 +74,8 @@ namespace Sx.Vx.Quipu.WinUI
             viewModel.MinAmount = limit.MinAmount;
             viewModel.MaxAmount = limit.MaxAmount;
             viewModel.AmountTickFrequency = limit.GetAmountTickFrequency();
-            viewModel.MinAmountCaption = $"{limit.MinAmount} {currency.AlphabeticCode}";
-            viewModel.MaxAmountCaption = $"{limit.MaxAmount} {currency.AlphabeticCode}";
+            viewModel.MinAmountCaption = $"{limit.MinAmount:#,#} {currency.AlphabeticCode}";
+            viewModel.MaxAmountCaption = $"{limit.MaxAmount:#,#} {currency.AlphabeticCode}";
 
             viewModel.MinTerm = limit.MinTerm;
             viewModel.MaxTerm = limit.MaxTerm;
