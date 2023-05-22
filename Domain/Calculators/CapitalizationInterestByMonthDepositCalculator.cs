@@ -11,9 +11,6 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
         protected override DepositIncomePlan CalculateImpl(Money money, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
-            if (money <= 0)
-                throw new ArgumentException();
-
             var termStart = DateTime.Now;
             var termEnd = termStart.AddMonths(termInMonths);
 

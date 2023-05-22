@@ -12,9 +12,6 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
         protected sealed override DepositIncomePlan CalculateImpl(Money money, int termInMonths, decimal interestRate, InterestPayment interestPayment)
         {
-            if (money <= 0)
-                throw new ArgumentException();
-
             var totalIncome = money.New(0);
             var incomes = new List<(DateTime date, Money income)>(capacity: termInMonths);
 
