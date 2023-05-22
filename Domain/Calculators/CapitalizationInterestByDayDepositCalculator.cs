@@ -40,7 +40,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
                 leftDurationInDays -= periodDuratinInDays;
             }
 
-            var totalIncome = money.Get((decimal)revenue - money.Amount).Rounded;
+            var totalIncome = money.New((decimal)revenue - money.Amount).Rounded;
 
             return new DepositIncomePlan(totalIncome, new[] { (termEnd, totalIncome) }.AsEnumerable());
         }

@@ -29,7 +29,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
             var dInterestRateByMonth = dInterestRate / 12;
             revenue += revenue * dInterestRateByMonth * leftDurationInMonths;
 
-            var totalIncome = money.Get((decimal)revenue - money.Amount).Rounded;
+            var totalIncome = money.New((decimal)revenue - money.Amount).Rounded;
 
             return new DepositIncomePlan(totalIncome, new[] { (termEnd, totalIncome) }.AsEnumerable());
         }

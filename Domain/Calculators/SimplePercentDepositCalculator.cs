@@ -15,14 +15,14 @@ namespace Sx.Vx.Quipu.Domain.Calculators
             if (money <= 0)
                 throw new ArgumentException();
 
-            var totalIncome = money.Zero;
+            var totalIncome = money.New(0);
             var incomes = new List<(DateTime date, Money income)>(capacity: termInMonths);
 
             var termStart = DateTime.Now;
             var termEnd = termStart.AddMonths(termInMonths);
             var termDurationInDays = (termEnd - termStart).Days;
 
-            var totalOfIncomeInterval = money.Zero;
+            var totalOfIncomeInterval = money.New(0);
             var incomeIntervalInMonths = GetIncomeIntervalInMonths(termInMonths);
 
             var periodStart = termStart;
@@ -37,7 +37,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
                 var yearDurationInDays = DateTime.IsLeapYear(periodStart.Year) ? 366 : 365;
 
                 var periodIncomeAmount = money * (interestRate / 100m) * (periodDurationInDays / (decimal)yearDurationInDays);
-                var periodIncome = money.Get(periodIncomeAmount).Rounded;
+                var periodIncome = money.New(periodIncomeAmount).Rounded;
 
                 leftDurationInDays -= maxPeriodDurationInDays;
                 periodStart = periodEnd;
@@ -48,7 +48,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
                 if (months % incomeIntervalInMonths == 0 || leftDurationInDays <= 0)
                 {
                     incomes.Add((periodEnd, totalOfIncomeInterval));
-                    totalOfIncomeInterval = money.Zero;
+                    totalOfIncomeInterval = money.New(0);
                 }
             }
 

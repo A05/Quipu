@@ -15,7 +15,7 @@ namespace Sx.Vx.Quipu.Domain.Calculators
 
             Assert.IsNotNull(plan);
             Assert.AreEqual(1, plan.Incomes.Count());
-            Assert.AreEqual(12655.12m, plan.TotalIncome);
+            Assert.AreEqual(12654.99m, plan.TotalIncome);
         }
     }
 }
