@@ -18,12 +18,12 @@ namespace Sx.Vx.Quipu.WinUI
             nameof(CalculatorFormViewModel.InterestPayment)
         };
 
-        private readonly DepositCalculator _calculator;
+        private readonly IDepositCalculator _calculator;
         private readonly CalculatorFormViewModel _viewModel;
         private readonly CalculatorFormViewModelFactory _viewModelFactory;
-        private CalculatorForm _view;
+        private ICalculatorForm _view;
 
-        public CalculatorFormPresenter(CalculatorFormViewModelFactory viewModelFactory, DepositCalculatorFactory calculatorFactory)
+        public CalculatorFormPresenter(CalculatorFormViewModelFactory viewModelFactory, IDepositCalculatorFactory calculatorFactory)
         {
             if (viewModelFactory == null)
                 throw new ArgumentNullException(nameof(viewModelFactory));
@@ -37,7 +37,7 @@ namespace Sx.Vx.Quipu.WinUI
             _viewModel = viewModelFactory.Create();
         }
 
-        public void SetView(CalculatorForm view)
+        public void SetView(ICalculatorForm view)
         {
             Debug.Assert(_view == null);
 

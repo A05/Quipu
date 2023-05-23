@@ -2,11 +2,11 @@
 
 namespace Sx.Vx.Quipu.Domain
 {
-    public class DepositCalculatorFactory
+    public class DepositCalculatorFactory : IDepositCalculatorFactory
     {
         // TODO: Implement it with MEF.
 
-        public DepositCalculator Create()
+        public IDepositCalculator Create()
         {
             var o1 = new AtTheEndOfTermInterestDepositCalculator(null);
             var o2 = new EveryMonthInterestDepositCalculator(o1);

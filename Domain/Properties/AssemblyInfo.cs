@@ -36,3 +36,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: InternalsVisibleTo("Sx.Vx.Quipu.Domain.Tests")]
+[assembly: InternalsVisibleTo("Sx.Vx.Quipu.DepositCalculator.Tests")]

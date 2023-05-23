@@ -54,6 +54,8 @@
     <Compile Include="DepositCalculator.cs" />
     <Compile Include="DepositCalculatorFactory.cs" />
     <Compile Include="DepositIncomePlan.cs" />
+    <Compile Include="IDepositCalculator.cs" />
+    <Compile Include="IDepositCalculatorFactory.cs" />
     <Compile Include="InterestPayment.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

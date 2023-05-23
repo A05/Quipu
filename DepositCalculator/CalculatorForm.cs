@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.WinUI
 {
-    public partial class CalculatorForm : Form
+    internal partial class CalculatorForm : Form, ICalculatorForm
     {
         private readonly CalculatorFormPresenter _presenter;
 
@@ -20,7 +20,7 @@ namespace Sx.Vx.Quipu.WinUI
             _presenter.SetView(this);
         }
 
-        internal void SetViewModel(CalculatorFormViewModel viewModel)
+        public void SetViewModel(CalculatorFormViewModel viewModel)
         {
             bindingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
         }

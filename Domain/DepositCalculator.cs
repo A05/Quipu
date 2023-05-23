@@ -3,7 +3,7 @@ using System;
 
 namespace Sx.Vx.Quipu.Domain
 {
-    public abstract class DepositCalculator
+    public abstract class DepositCalculator : IDepositCalculator
     {
         private readonly DepositCalculator _next;
         private readonly InterestPayment _interestPayment;

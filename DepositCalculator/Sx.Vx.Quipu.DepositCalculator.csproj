@@ -55,6 +55,7 @@
     <Compile Include="CalculatorFormPresenter.cs" />
     <Compile Include="CalculatorFormViewModel.cs" />
     <Compile Include="CalculatorFormViewModelFactory.cs" />
+    <Compile Include="ICalculatorForm.cs" />
     <Compile Include="ILimitRepository.cs" />
     <Compile Include="Limit.cs" />
     <Compile Include="LimitRepository.cs" />
