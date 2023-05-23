@@ -85,5 +85,12 @@ namespace Sx.Vx.Quipu.WinUI
         {
             try { LimitRepository.Load("InvalidLimitsWithBadCurrency.xml"); Assert.Fail(); } catch (NotSupportedException) { }
         }
+
+        [TestMethod]
+        public void ShouldBeFallbackableOnLoad()
+        {
+            var sut = LimitRepository.Load("NotExistingFile.xml", fallbackOnError: true);
+            Assert.IsNotNull(sut);
+        }
     }
 }

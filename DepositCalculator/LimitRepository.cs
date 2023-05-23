@@ -141,13 +141,27 @@ namespace Sx.Vx.Quipu.WinUI
             }
         }
 
-        public static LimitRepository Load(string xmlFilePath = "Limits.xml")
+        public static LimitRepository Load(string xmlFilePath = "Limits.xml", bool fallbackOnError = false)
         {
             if (string.IsNullOrWhiteSpace(xmlFilePath))
                 throw new ArgumentException("File path must be specified.", nameof(xmlFilePath));
 
-            using (var loader = new Loader(xmlFilePath))
-                return loader.Load();
+            try
+            {
+                using (var loader = new Loader(xmlFilePath))
+                    return loader.Load();
+            }
+            catch
+            {
+                if (fallbackOnError)
+                    return new LimitRepository
+                    {
+                        _defaultLimit = new Limit(10, 1000, 3, 36, 2, 26),
+                        _limits = new Dictionary<Currency, Limit>()
+                    };
+
+                throw;
+            }
         }
 
         private Limit _defaultLimit;

@@ -30,7 +30,7 @@ namespace Sx.Vx.Quipu.WinUI
         {
             // TODO: Implement it with Unity.
 
-            var limitRepository = LimitRepository.Load();
+            var limitRepository = LimitRepository.Load(fallbackOnError: true);
             var viewModelFactory = new CalculatorFormViewModelFactory(limitRepository);
             var calculatorFactory = new DepositCalculatorFactory();
             var presenter = new CalculatorFormPresenter(viewModelFactory, calculatorFactory);
