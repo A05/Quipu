@@ -8,9 +8,9 @@ namespace Sx.Vx.Quipu.WinUI
 {
     internal class CalculatorFormViewModelFactory
     {
-        private readonly LimitRepository _limitRepository;
+        private readonly ILimitRepository _limitRepository;
         
-        public CalculatorFormViewModelFactory(LimitRepository limitRepository)
+        public CalculatorFormViewModelFactory(ILimitRepository limitRepository)
         {
             _limitRepository = limitRepository ?? throw new ArgumentNullException(nameof(limitRepository));
         }

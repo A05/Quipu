@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Sx.Vx.Quipu.WinUI
 {
-    internal class LimitRepository
+    internal class LimitRepository : ILimitRepository
     {
         private class Loader : IDisposable
         {
