@@ -19,18 +19,7 @@ namespace Sx.Vx.Quipu.WinUI
         public CalculatorFormViewModel Create()
         {
             var currencies = GetCurrencies();
-
-            var interestPayments = new[]
-            {
-                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryMonth, Resources.InterestPaymentEveryMonth),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryQuarter, Resources.InterestPaymentEveryQuarter),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryYear, Resources.InterestPaymentEveryYear),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.AtTheEndOfTerm, Resources.InterestPaymentAtTheEndOfTerm),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByDay, Resources.InterestPaymentCapitalizationByDay),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByMonth, Resources.InterestPaymentCapitalizationByMonth),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByQuarter, Resources.InterestPaymentCapitalizationByQuarter),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByYear, Resources.InterestPaymentCapitalizationByYear)
-            };
+            var interestPayments = GetInterestPayments();
 
             var currency = Currency.UAH;
             var limit = _limitRepository.Get(currency);
@@ -64,6 +53,27 @@ namespace Sx.Vx.Quipu.WinUI
             viewModel.InterestRate = limit.ResolveInterestRate(viewModel.InterestRate);
             
             ApplyLimit(viewModel, limit);
+        }
+
+        public void ApplyResources(CalculatorFormViewModel viewModel)
+        {
+            viewModel.CurrencyEntries = GetCurrencies();
+            viewModel.InterestPaymentEntries = GetInterestPayments();
+        }
+
+        private static KeyValuePair<InterestPayment, string>[] GetInterestPayments()
+        {
+            return new[]
+            {
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryMonth, Resources.InterestPaymentEveryMonth),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryQuarter, Resources.InterestPaymentEveryQuarter),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryYear, Resources.InterestPaymentEveryYear),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.AtTheEndOfTerm, Resources.InterestPaymentAtTheEndOfTerm),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByDay, Resources.InterestPaymentCapitalizationByDay),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByMonth, Resources.InterestPaymentCapitalizationByMonth),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByQuarter, Resources.InterestPaymentCapitalizationByQuarter),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByYear, Resources.InterestPaymentCapitalizationByYear)
+            };
         }
 
         private void ApplyLimit(CalculatorFormViewModel viewModel, Limit limit)

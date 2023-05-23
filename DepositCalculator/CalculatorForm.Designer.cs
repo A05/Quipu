@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -65,6 +66,7 @@
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.splitter = new System.Windows.Forms.Splitter();
             this.outputPanel = new System.Windows.Forms.Panel();
+            this.langButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.incomeValueLabel = new System.Windows.Forms.Label();
             this.incomeCaptionLabel = new System.Windows.Forms.Label();
@@ -96,6 +98,7 @@
             // 
             // inputPanel
             // 
+            resources.ApplyResources(this.inputPanel, "inputPanel");
             this.inputPanel.Controls.Add(this.currencyPanel);
             this.inputPanel.Controls.Add(this.c12nByYearRadioButton);
             this.inputPanel.Controls.Add(this.c12nByQuarterRadioButton);
@@ -122,34 +125,31 @@
             this.inputPanel.Controls.Add(this.label1);
             this.inputPanel.Controls.Add(this.amountTrackBar);
             this.inputPanel.Controls.Add(this.amountTextBox);
-            this.inputPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputPanel.Location = new System.Drawing.Point(0, 0);
+            this.errorProvider.SetError(this.inputPanel, resources.GetString("inputPanel.Error"));
+            this.errorProvider.SetIconAlignment(this.inputPanel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("inputPanel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.inputPanel, ((int)(resources.GetObject("inputPanel.IconPadding"))));
             this.inputPanel.Name = "inputPanel";
-            this.inputPanel.Size = new System.Drawing.Size(288, 489);
-            this.inputPanel.TabIndex = 0;
             // 
             // currencyPanel
             // 
-            this.currencyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.currencyPanel, "currencyPanel");
             this.currencyPanel.Controls.Add(this.eurRadioButton);
             this.currencyPanel.Controls.Add(this.usdRadioButton);
             this.currencyPanel.Controls.Add(this.uahRadioButton);
-            this.currencyPanel.Location = new System.Drawing.Point(187, 25);
+            this.errorProvider.SetError(this.currencyPanel, resources.GetString("currencyPanel.Error"));
+            this.errorProvider.SetIconAlignment(this.currencyPanel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("currencyPanel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.currencyPanel, ((int)(resources.GetObject("currencyPanel.IconPadding"))));
             this.currencyPanel.Name = "currencyPanel";
-            this.currencyPanel.Size = new System.Drawing.Size(86, 31);
-            this.currencyPanel.TabIndex = 2;
             // 
             // eurRadioButton
             // 
-            this.eurRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            resources.ApplyResources(this.eurRadioButton, "eurRadioButton");
             this.eurRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsEurRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.eurRadioButton.Location = new System.Drawing.Point(60, 5);
+            this.errorProvider.SetError(this.eurRadioButton, resources.GetString("eurRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.eurRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("eurRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.eurRadioButton, ((int)(resources.GetObject("eurRadioButton.IconPadding"))));
             this.eurRadioButton.Name = "eurRadioButton";
-            this.eurRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.eurRadioButton.TabIndex = 5;
             this.eurRadioButton.TabStop = true;
-            this.eurRadioButton.Text = "€";
-            this.eurRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.eurRadioButton.UseVisualStyleBackColor = true;
             this.eurRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
             // 
@@ -160,341 +160,296 @@
             // 
             // usdRadioButton
             // 
-            this.usdRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            resources.ApplyResources(this.usdRadioButton, "usdRadioButton");
             this.usdRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsUsdRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.usdRadioButton.Location = new System.Drawing.Point(30, 5);
+            this.errorProvider.SetError(this.usdRadioButton, resources.GetString("usdRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.usdRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("usdRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.usdRadioButton, ((int)(resources.GetObject("usdRadioButton.IconPadding"))));
             this.usdRadioButton.Name = "usdRadioButton";
-            this.usdRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.usdRadioButton.TabIndex = 4;
             this.usdRadioButton.TabStop = true;
-            this.usdRadioButton.Text = "$";
-            this.usdRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.usdRadioButton.UseVisualStyleBackColor = true;
             this.usdRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
             // 
             // uahRadioButton
             // 
-            this.uahRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            resources.ApplyResources(this.uahRadioButton, "uahRadioButton");
             this.uahRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsUahRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.uahRadioButton.Location = new System.Drawing.Point(0, 5);
+            this.errorProvider.SetError(this.uahRadioButton, resources.GetString("uahRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.uahRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("uahRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.uahRadioButton, ((int)(resources.GetObject("uahRadioButton.IconPadding"))));
             this.uahRadioButton.Name = "uahRadioButton";
-            this.uahRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.uahRadioButton.TabIndex = 3;
             this.uahRadioButton.TabStop = true;
-            this.uahRadioButton.Text = "₴";
-            this.uahRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.uahRadioButton.UseVisualStyleBackColor = true;
             this.uahRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
             // 
             // c12nByYearRadioButton
             // 
-            this.c12nByYearRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.c12nByYearRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.c12nByYearRadioButton.Location = new System.Drawing.Point(124, 455);
+            resources.ApplyResources(this.c12nByYearRadioButton, "c12nByYearRadioButton");
+            this.errorProvider.SetError(this.c12nByYearRadioButton, resources.GetString("c12nByYearRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.c12nByYearRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("c12nByYearRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.c12nByYearRadioButton, ((int)(resources.GetObject("c12nByYearRadioButton.IconPadding"))));
             this.c12nByYearRadioButton.Name = "c12nByYearRadioButton";
-            this.c12nByYearRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByYearRadioButton.TabIndex = 19;
-            this.c12nByYearRadioButton.Text = "Capitalization By Year";
             this.c12nByYearRadioButton.UseVisualStyleBackColor = true;
             this.c12nByYearRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // c12nByQuarterRadioButton
             // 
-            this.c12nByQuarterRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.c12nByQuarterRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.c12nByQuarterRadioButton.Location = new System.Drawing.Point(124, 425);
+            resources.ApplyResources(this.c12nByQuarterRadioButton, "c12nByQuarterRadioButton");
+            this.errorProvider.SetError(this.c12nByQuarterRadioButton, resources.GetString("c12nByQuarterRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.c12nByQuarterRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("c12nByQuarterRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.c12nByQuarterRadioButton, ((int)(resources.GetObject("c12nByQuarterRadioButton.IconPadding"))));
             this.c12nByQuarterRadioButton.Name = "c12nByQuarterRadioButton";
-            this.c12nByQuarterRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByQuarterRadioButton.TabIndex = 18;
-            this.c12nByQuarterRadioButton.Text = "Capitalization By Quarter";
             this.c12nByQuarterRadioButton.UseVisualStyleBackColor = true;
             this.c12nByQuarterRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // currencyComboBox
             // 
-            this.currencyComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.currencyComboBox, "currencyComboBox");
             this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource, "ComboBoxCurrency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.currencyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bindingSource, "CurrencyEntries", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.currencyComboBox.DisplayMember = "Value";
             this.currencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.errorProvider.SetError(this.currencyComboBox, resources.GetString("currencyComboBox.Error"));
             this.currencyComboBox.FormattingEnabled = true;
-            this.currencyComboBox.Location = new System.Drawing.Point(10, 60);
+            this.errorProvider.SetIconAlignment(this.currencyComboBox, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("currencyComboBox.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.currencyComboBox, ((int)(resources.GetObject("currencyComboBox.IconPadding"))));
             this.currencyComboBox.Name = "currencyComboBox";
-            this.currencyComboBox.Size = new System.Drawing.Size(263, 21);
-            this.currencyComboBox.TabIndex = 6;
             this.currencyComboBox.ValueMember = "Key";
             // 
             // c12nByMonthRadioButton
             // 
-            this.c12nByMonthRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.c12nByMonthRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.c12nByMonthRadioButton.Location = new System.Drawing.Point(124, 395);
+            resources.ApplyResources(this.c12nByMonthRadioButton, "c12nByMonthRadioButton");
+            this.errorProvider.SetError(this.c12nByMonthRadioButton, resources.GetString("c12nByMonthRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.c12nByMonthRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("c12nByMonthRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.c12nByMonthRadioButton, ((int)(resources.GetObject("c12nByMonthRadioButton.IconPadding"))));
             this.c12nByMonthRadioButton.Name = "c12nByMonthRadioButton";
-            this.c12nByMonthRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByMonthRadioButton.TabIndex = 17;
-            this.c12nByMonthRadioButton.Text = "Capitalization By Month";
             this.c12nByMonthRadioButton.UseVisualStyleBackColor = true;
             this.c12nByMonthRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // c12nByDayRadioButton
             // 
-            this.c12nByDayRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.c12nByDayRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.c12nByDayRadioButton.Location = new System.Drawing.Point(124, 365);
+            resources.ApplyResources(this.c12nByDayRadioButton, "c12nByDayRadioButton");
+            this.errorProvider.SetError(this.c12nByDayRadioButton, resources.GetString("c12nByDayRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.c12nByDayRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("c12nByDayRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.c12nByDayRadioButton, ((int)(resources.GetObject("c12nByDayRadioButton.IconPadding"))));
             this.c12nByDayRadioButton.Name = "c12nByDayRadioButton";
-            this.c12nByDayRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByDayRadioButton.TabIndex = 16;
-            this.c12nByDayRadioButton.Text = "Capitalization By Day";
             this.c12nByDayRadioButton.UseVisualStyleBackColor = true;
             this.c12nByDayRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // endOfTermRadioButton
             // 
-            this.endOfTermRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.endOfTermRadioButton.Location = new System.Drawing.Point(10, 455);
+            resources.ApplyResources(this.endOfTermRadioButton, "endOfTermRadioButton");
+            this.errorProvider.SetError(this.endOfTermRadioButton, resources.GetString("endOfTermRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.endOfTermRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("endOfTermRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.endOfTermRadioButton, ((int)(resources.GetObject("endOfTermRadioButton.IconPadding"))));
             this.endOfTermRadioButton.Name = "endOfTermRadioButton";
-            this.endOfTermRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.endOfTermRadioButton.TabIndex = 15;
-            this.endOfTermRadioButton.Text = "End of term";
             this.endOfTermRadioButton.UseVisualStyleBackColor = true;
             this.endOfTermRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // everyYearRadioButton
             // 
-            this.everyYearRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
-            this.everyYearRadioButton.Location = new System.Drawing.Point(10, 425);
+            resources.ApplyResources(this.everyYearRadioButton, "everyYearRadioButton");
+            this.errorProvider.SetError(this.everyYearRadioButton, resources.GetString("everyYearRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.everyYearRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("everyYearRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.everyYearRadioButton, ((int)(resources.GetObject("everyYearRadioButton.IconPadding"))));
             this.everyYearRadioButton.Name = "everyYearRadioButton";
-            this.everyYearRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.everyYearRadioButton.TabIndex = 14;
-            this.everyYearRadioButton.Text = "Every year";
             this.everyYearRadioButton.UseVisualStyleBackColor = true;
             this.everyYearRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // everyQuarterRadioButton
             // 
-            this.everyQuarterRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            resources.ApplyResources(this.everyQuarterRadioButton, "everyQuarterRadioButton");
             this.everyQuarterRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsEveryQuarterRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.everyQuarterRadioButton.Location = new System.Drawing.Point(10, 395);
+            this.errorProvider.SetError(this.everyQuarterRadioButton, resources.GetString("everyQuarterRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.everyQuarterRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("everyQuarterRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.everyQuarterRadioButton, ((int)(resources.GetObject("everyQuarterRadioButton.IconPadding"))));
             this.everyQuarterRadioButton.Name = "everyQuarterRadioButton";
-            this.everyQuarterRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.everyQuarterRadioButton.TabIndex = 13;
-            this.everyQuarterRadioButton.Text = "Every quarter";
             this.everyQuarterRadioButton.UseVisualStyleBackColor = true;
             this.everyQuarterRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // everyMonthRadioButton
             // 
-            this.everyMonthRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            resources.ApplyResources(this.everyMonthRadioButton, "everyMonthRadioButton");
             this.everyMonthRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "IsEveryMonthRadioButtonChecked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.everyMonthRadioButton.Location = new System.Drawing.Point(10, 365);
+            this.errorProvider.SetError(this.everyMonthRadioButton, resources.GetString("everyMonthRadioButton.Error"));
+            this.errorProvider.SetIconAlignment(this.everyMonthRadioButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("everyMonthRadioButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.everyMonthRadioButton, ((int)(resources.GetObject("everyMonthRadioButton.IconPadding"))));
             this.everyMonthRadioButton.Name = "everyMonthRadioButton";
-            this.everyMonthRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.everyMonthRadioButton.TabIndex = 12;
-            this.everyMonthRadioButton.Text = "Every month";
             this.everyMonthRadioButton.UseVisualStyleBackColor = true;
             this.everyMonthRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(10, 344);
+            resources.ApplyResources(this.label10, "label10");
+            this.errorProvider.SetError(this.label10, resources.GetString("label10.Error"));
+            this.errorProvider.SetIconAlignment(this.label10, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label10.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.label10, ((int)(resources.GetObject("label10.IconPadding"))));
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(129, 17);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "Interest payment";
             // 
             // maxInterestRateLabel
             // 
-            this.maxInterestRateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.maxInterestRateLabel, "maxInterestRateLabel");
             this.maxInterestRateLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxInterestRateCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider.SetError(this.maxInterestRateLabel, resources.GetString("maxInterestRateLabel.Error"));
             this.maxInterestRateLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.maxInterestRateLabel.Location = new System.Drawing.Point(173, 323);
+            this.errorProvider.SetIconAlignment(this.maxInterestRateLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("maxInterestRateLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.maxInterestRateLabel, ((int)(resources.GetObject("maxInterestRateLabel.IconPadding"))));
             this.maxInterestRateLabel.Name = "maxInterestRateLabel";
-            this.maxInterestRateLabel.Size = new System.Drawing.Size(100, 13);
-            this.maxInterestRateLabel.TabIndex = 35;
-            this.maxInterestRateLabel.Text = "Max";
-            this.maxInterestRateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // minInterestRateLabel
             // 
+            resources.ApplyResources(this.minInterestRateLabel, "minInterestRateLabel");
             this.minInterestRateLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MinInterestRateCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider.SetError(this.minInterestRateLabel, resources.GetString("minInterestRateLabel.Error"));
             this.minInterestRateLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.minInterestRateLabel.Location = new System.Drawing.Point(10, 323);
+            this.errorProvider.SetIconAlignment(this.minInterestRateLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("minInterestRateLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.minInterestRateLabel, ((int)(resources.GetObject("minInterestRateLabel.IconPadding"))));
             this.minInterestRateLabel.Name = "minInterestRateLabel";
-            this.minInterestRateLabel.Size = new System.Drawing.Size(100, 13);
-            this.minInterestRateLabel.TabIndex = 34;
-            this.minInterestRateLabel.Text = "Min";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 242);
+            resources.ApplyResources(this.label9, "label9");
+            this.errorProvider.SetError(this.label9, resources.GetString("label9.Error"));
+            this.errorProvider.SetIconAlignment(this.label9, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label9.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.label9, ((int)(resources.GetObject("label9.IconPadding"))));
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 17);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "Interest rate";
             // 
             // interestRateTrackBar
             // 
-            this.interestRateTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.interestRateTrackBar.AutoSize = false;
+            resources.ApplyResources(this.interestRateTrackBar, "interestRateTrackBar");
             this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "InterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxInterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinInterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.interestRateTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "InterestRateTickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.interestRateTrackBar.Location = new System.Drawing.Point(10, 290);
+            this.errorProvider.SetError(this.interestRateTrackBar, resources.GetString("interestRateTrackBar.Error"));
+            this.errorProvider.SetIconAlignment(this.interestRateTrackBar, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("interestRateTrackBar.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.interestRateTrackBar, ((int)(resources.GetObject("interestRateTrackBar.IconPadding"))));
             this.interestRateTrackBar.Name = "interestRateTrackBar";
-            this.interestRateTrackBar.Size = new System.Drawing.Size(263, 30);
-            this.interestRateTrackBar.TabIndex = 11;
             // 
             // interestRateTextBox
             // 
-            this.interestRateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.interestRateTextBox, "interestRateTextBox");
             this.interestRateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "InterestRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.errorProvider.SetIconPadding(this.interestRateTextBox, -20);
-            this.interestRateTextBox.Location = new System.Drawing.Point(10, 264);
+            this.errorProvider.SetError(this.interestRateTextBox, resources.GetString("interestRateTextBox.Error"));
+            this.errorProvider.SetIconAlignment(this.interestRateTextBox, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("interestRateTextBox.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.interestRateTextBox, ((int)(resources.GetObject("interestRateTextBox.IconPadding"))));
             this.interestRateTextBox.Name = "interestRateTextBox";
-            this.interestRateTextBox.Size = new System.Drawing.Size(263, 20);
-            this.interestRateTextBox.TabIndex = 10;
             this.interestRateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.interestRateTextBox_Validating);
             // 
             // maxTermLabel
             // 
-            this.maxTermLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.maxTermLabel, "maxTermLabel");
             this.maxTermLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxTermCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider.SetError(this.maxTermLabel, resources.GetString("maxTermLabel.Error"));
             this.maxTermLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.maxTermLabel.Location = new System.Drawing.Point(173, 221);
+            this.errorProvider.SetIconAlignment(this.maxTermLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("maxTermLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.maxTermLabel, ((int)(resources.GetObject("maxTermLabel.IconPadding"))));
             this.maxTermLabel.Name = "maxTermLabel";
-            this.maxTermLabel.Size = new System.Drawing.Size(100, 13);
-            this.maxTermLabel.TabIndex = 29;
-            this.maxTermLabel.Text = "Max";
-            this.maxTermLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // minTermLabel
             // 
+            resources.ApplyResources(this.minTermLabel, "minTermLabel");
             this.minTermLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MinTermCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider.SetError(this.minTermLabel, resources.GetString("minTermLabel.Error"));
             this.minTermLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.minTermLabel.Location = new System.Drawing.Point(10, 221);
+            this.errorProvider.SetIconAlignment(this.minTermLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("minTermLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.minTermLabel, ((int)(resources.GetObject("minTermLabel.IconPadding"))));
             this.minTermLabel.Name = "minTermLabel";
-            this.minTermLabel.Size = new System.Drawing.Size(100, 13);
-            this.minTermLabel.TabIndex = 28;
-            this.minTermLabel.Text = "Min";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 140);
+            resources.ApplyResources(this.label6, "label6");
+            this.errorProvider.SetError(this.label6, resources.GetString("label6.Error"));
+            this.errorProvider.SetIconAlignment(this.label6, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label6.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.label6, ((int)(resources.GetObject("label6.IconPadding"))));
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 17);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Term";
             // 
             // termTrackBar
             // 
-            this.termTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.termTrackBar.AutoSize = false;
+            resources.ApplyResources(this.termTrackBar, "termTrackBar");
             this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "Term", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxTerm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinTerm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.termTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "TermTickFrequency", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.termTrackBar.Location = new System.Drawing.Point(10, 188);
+            this.errorProvider.SetError(this.termTrackBar, resources.GetString("termTrackBar.Error"));
+            this.errorProvider.SetIconAlignment(this.termTrackBar, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("termTrackBar.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.termTrackBar, ((int)(resources.GetObject("termTrackBar.IconPadding"))));
             this.termTrackBar.Name = "termTrackBar";
-            this.termTrackBar.Size = new System.Drawing.Size(263, 30);
-            this.termTrackBar.TabIndex = 9;
             // 
             // termTextBox
             // 
-            this.termTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.termTextBox, "termTextBox");
             this.termTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Term", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.errorProvider.SetIconPadding(this.termTextBox, -20);
-            this.termTextBox.Location = new System.Drawing.Point(10, 162);
+            this.errorProvider.SetError(this.termTextBox, resources.GetString("termTextBox.Error"));
+            this.errorProvider.SetIconAlignment(this.termTextBox, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("termTextBox.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.termTextBox, ((int)(resources.GetObject("termTextBox.IconPadding"))));
             this.termTextBox.Name = "termTextBox";
-            this.termTextBox.Size = new System.Drawing.Size(263, 20);
-            this.termTextBox.TabIndex = 8;
             this.termTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.termTextBox_Validating);
             // 
             // maxAmountLabel
             // 
-            this.maxAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.maxAmountLabel, "maxAmountLabel");
             this.maxAmountLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MaxAmountCaption", true));
+            this.errorProvider.SetError(this.maxAmountLabel, resources.GetString("maxAmountLabel.Error"));
             this.maxAmountLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.maxAmountLabel.Location = new System.Drawing.Point(173, 120);
+            this.errorProvider.SetIconAlignment(this.maxAmountLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("maxAmountLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.maxAmountLabel, ((int)(resources.GetObject("maxAmountLabel.IconPadding"))));
             this.maxAmountLabel.Name = "maxAmountLabel";
-            this.maxAmountLabel.Size = new System.Drawing.Size(100, 13);
-            this.maxAmountLabel.TabIndex = 24;
-            this.maxAmountLabel.Text = "Max";
-            this.maxAmountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // minAmountLabel
             // 
+            resources.ApplyResources(this.minAmountLabel, "minAmountLabel");
             this.minAmountLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "MinAmountCaption", true));
+            this.errorProvider.SetError(this.minAmountLabel, resources.GetString("minAmountLabel.Error"));
             this.minAmountLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.minAmountLabel.Location = new System.Drawing.Point(10, 120);
+            this.errorProvider.SetIconAlignment(this.minAmountLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("minAmountLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.minAmountLabel, ((int)(resources.GetObject("minAmountLabel.IconPadding"))));
             this.minAmountLabel.Name = "minAmountLabel";
-            this.minAmountLabel.Size = new System.Drawing.Size(100, 13);
-            this.minAmountLabel.TabIndex = 23;
-            this.minAmountLabel.Text = "Min";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 10);
+            resources.ApplyResources(this.label1, "label1");
+            this.errorProvider.SetError(this.label1, resources.GetString("label1.Error"));
+            this.errorProvider.SetIconAlignment(this.label1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label1.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.label1, ((int)(resources.GetObject("label1.IconPadding"))));
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 17);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Amount";
             // 
             // amountTrackBar
             // 
-            this.amountTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.amountTrackBar.AutoSize = false;
+            resources.ApplyResources(this.amountTrackBar, "amountTrackBar");
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bindingSource, "MaxAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("Minimum", this.bindingSource, "MinAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTrackBar.DataBindings.Add(new System.Windows.Forms.Binding("TickFrequency", this.bindingSource, "AmountTickFrequency", true));
-            this.amountTrackBar.Location = new System.Drawing.Point(10, 87);
+            this.errorProvider.SetError(this.amountTrackBar, resources.GetString("amountTrackBar.Error"));
+            this.errorProvider.SetIconAlignment(this.amountTrackBar, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("amountTrackBar.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.amountTrackBar, ((int)(resources.GetObject("amountTrackBar.IconPadding"))));
             this.amountTrackBar.Name = "amountTrackBar";
-            this.amountTrackBar.Size = new System.Drawing.Size(263, 30);
-            this.amountTrackBar.TabIndex = 7;
             // 
             // amountTextBox
             // 
-            this.amountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.amountTextBox, "amountTextBox");
             this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.errorProvider.SetIconPadding(this.amountTextBox, -20);
-            this.amountTextBox.Location = new System.Drawing.Point(10, 32);
+            this.errorProvider.SetError(this.amountTextBox, resources.GetString("amountTextBox.Error"));
+            this.errorProvider.SetIconAlignment(this.amountTextBox, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("amountTextBox.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.amountTextBox, ((int)(resources.GetObject("amountTextBox.IconPadding"))));
             this.amountTextBox.Name = "amountTextBox";
-            this.amountTextBox.Size = new System.Drawing.Size(171, 20);
-            this.amountTextBox.TabIndex = 1;
             this.amountTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.amountTextBox_Validating);
             // 
             // splitter
             // 
-            this.splitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter.Location = new System.Drawing.Point(283, 0);
+            resources.ApplyResources(this.splitter, "splitter");
+            this.errorProvider.SetError(this.splitter, resources.GetString("splitter.Error"));
+            this.errorProvider.SetIconAlignment(this.splitter, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("splitter.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.splitter, ((int)(resources.GetObject("splitter.IconPadding"))));
             this.splitter.Name = "splitter";
-            this.splitter.Size = new System.Drawing.Size(5, 489);
-            this.splitter.TabIndex = 20;
             this.splitter.TabStop = false;
             // 
             // outputPanel
             // 
+            resources.ApplyResources(this.outputPanel, "outputPanel");
             this.outputPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.outputPanel.Controls.Add(this.langButton);
             this.outputPanel.Controls.Add(this.panel1);
             this.outputPanel.Controls.Add(this.interestPaymentValueLabel);
             this.outputPanel.Controls.Add(this.interestPaymentCaptionLabel);
@@ -505,140 +460,131 @@
             this.outputPanel.Controls.Add(this.amountValueLabel);
             this.outputPanel.Controls.Add(this.amountCaptionLabel);
             this.outputPanel.Controls.Add(this.interestPaymentDataGridView);
-            this.outputPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.outputPanel.Location = new System.Drawing.Point(288, 0);
+            this.errorProvider.SetError(this.outputPanel, resources.GetString("outputPanel.Error"));
+            this.errorProvider.SetIconAlignment(this.outputPanel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("outputPanel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.outputPanel, ((int)(resources.GetObject("outputPanel.IconPadding"))));
             this.outputPanel.Name = "outputPanel";
-            this.outputPanel.Size = new System.Drawing.Size(347, 489);
-            this.outputPanel.TabIndex = 21;
+            // 
+            // langButton
+            // 
+            resources.ApplyResources(this.langButton, "langButton");
+            this.errorProvider.SetError(this.langButton, resources.GetString("langButton.Error"));
+            this.errorProvider.SetIconAlignment(this.langButton, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("langButton.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.langButton, ((int)(resources.GetObject("langButton.IconPadding"))));
+            this.langButton.Image = global::Sx.Vx.Quipu.WinUI.Properties.Resources.globe_16;
+            this.langButton.Name = "langButton";
+            this.langButton.UseVisualStyleBackColor = true;
+            this.langButton.Click += new System.EventHandler(this.langButton_Click);
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
             this.panel1.Controls.Add(this.incomeValueLabel);
             this.panel1.Controls.Add(this.incomeCaptionLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 108);
+            this.errorProvider.SetError(this.panel1, resources.GetString("panel1.Error"));
+            this.errorProvider.SetIconAlignment(this.panel1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("panel1.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.panel1, ((int)(resources.GetObject("panel1.IconPadding"))));
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(347, 32);
-            this.panel1.TabIndex = 35;
             // 
             // incomeValueLabel
             // 
-            this.incomeValueLabel.AutoSize = true;
+            resources.ApplyResources(this.incomeValueLabel, "incomeValueLabel");
             this.incomeValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "IncomeDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.incomeValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorProvider.SetError(this.incomeValueLabel, resources.GetString("incomeValueLabel.Error"));
             this.incomeValueLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.incomeValueLabel.Location = new System.Drawing.Point(157, 6);
+            this.errorProvider.SetIconAlignment(this.incomeValueLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("incomeValueLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.incomeValueLabel, ((int)(resources.GetObject("incomeValueLabel.IconPadding"))));
             this.incomeValueLabel.Name = "incomeValueLabel";
-            this.incomeValueLabel.Size = new System.Drawing.Size(80, 20);
-            this.incomeValueLabel.TabIndex = 25;
-            this.incomeValueLabel.Text = "20.000 $";
             // 
             // incomeCaptionLabel
             // 
-            this.incomeCaptionLabel.AutoSize = true;
-            this.incomeCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.incomeCaptionLabel, "incomeCaptionLabel");
+            this.errorProvider.SetError(this.incomeCaptionLabel, resources.GetString("incomeCaptionLabel.Error"));
             this.incomeCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.incomeCaptionLabel.Location = new System.Drawing.Point(6, 6);
+            this.errorProvider.SetIconAlignment(this.incomeCaptionLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("incomeCaptionLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.incomeCaptionLabel, ((int)(resources.GetObject("incomeCaptionLabel.IconPadding"))));
             this.incomeCaptionLabel.Name = "incomeCaptionLabel";
-            this.incomeCaptionLabel.Size = new System.Drawing.Size(69, 20);
-            this.incomeCaptionLabel.TabIndex = 24;
-            this.incomeCaptionLabel.Text = "Income";
             // 
             // interestPaymentValueLabel
             // 
-            this.interestPaymentValueLabel.AutoSize = true;
+            resources.ApplyResources(this.interestPaymentValueLabel, "interestPaymentValueLabel");
             this.interestPaymentValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "InterestPaymentDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.interestPaymentValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorProvider.SetError(this.interestPaymentValueLabel, resources.GetString("interestPaymentValueLabel.Error"));
             this.interestPaymentValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.interestPaymentValueLabel.Location = new System.Drawing.Point(157, 80);
+            this.errorProvider.SetIconAlignment(this.interestPaymentValueLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("interestPaymentValueLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.interestPaymentValueLabel, ((int)(resources.GetObject("interestPaymentValueLabel.IconPadding"))));
             this.interestPaymentValueLabel.Name = "interestPaymentValueLabel";
-            this.interestPaymentValueLabel.Size = new System.Drawing.Size(34, 17);
-            this.interestPaymentValueLabel.TabIndex = 34;
-            this.interestPaymentValueLabel.Text = "N/A";
             // 
             // interestPaymentCaptionLabel
             // 
-            this.interestPaymentCaptionLabel.AutoSize = true;
-            this.interestPaymentCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.interestPaymentCaptionLabel, "interestPaymentCaptionLabel");
+            this.errorProvider.SetError(this.interestPaymentCaptionLabel, resources.GetString("interestPaymentCaptionLabel.Error"));
             this.interestPaymentCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.interestPaymentCaptionLabel.Location = new System.Drawing.Point(157, 58);
+            this.errorProvider.SetIconAlignment(this.interestPaymentCaptionLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("interestPaymentCaptionLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.interestPaymentCaptionLabel, ((int)(resources.GetObject("interestPaymentCaptionLabel.IconPadding"))));
             this.interestPaymentCaptionLabel.Name = "interestPaymentCaptionLabel";
-            this.interestPaymentCaptionLabel.Size = new System.Drawing.Size(129, 17);
-            this.interestPaymentCaptionLabel.TabIndex = 33;
-            this.interestPaymentCaptionLabel.Text = "Interest payment";
             // 
             // interestRateValueLabel
             // 
-            this.interestRateValueLabel.AutoSize = true;
+            resources.ApplyResources(this.interestRateValueLabel, "interestRateValueLabel");
             this.interestRateValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "InterestRateDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.interestRateValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorProvider.SetError(this.interestRateValueLabel, resources.GetString("interestRateValueLabel.Error"));
             this.interestRateValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.interestRateValueLabel.Location = new System.Drawing.Point(6, 80);
+            this.errorProvider.SetIconAlignment(this.interestRateValueLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("interestRateValueLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.interestRateValueLabel, ((int)(resources.GetObject("interestRateValueLabel.IconPadding"))));
             this.interestRateValueLabel.Name = "interestRateValueLabel";
-            this.interestRateValueLabel.Size = new System.Drawing.Size(39, 17);
-            this.interestRateValueLabel.TabIndex = 32;
-            this.interestRateValueLabel.Text = "45%";
             // 
             // interestRateCaptionLabel
             // 
-            this.interestRateCaptionLabel.AutoSize = true;
-            this.interestRateCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.interestRateCaptionLabel, "interestRateCaptionLabel");
+            this.errorProvider.SetError(this.interestRateCaptionLabel, resources.GetString("interestRateCaptionLabel.Error"));
             this.interestRateCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.interestRateCaptionLabel.Location = new System.Drawing.Point(6, 58);
+            this.errorProvider.SetIconAlignment(this.interestRateCaptionLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("interestRateCaptionLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.interestRateCaptionLabel, ((int)(resources.GetObject("interestRateCaptionLabel.IconPadding"))));
             this.interestRateCaptionLabel.Name = "interestRateCaptionLabel";
-            this.interestRateCaptionLabel.Size = new System.Drawing.Size(97, 17);
-            this.interestRateCaptionLabel.TabIndex = 31;
-            this.interestRateCaptionLabel.Text = "Interest rate";
             // 
             // termValueLabel
             // 
-            this.termValueLabel.AutoSize = true;
+            resources.ApplyResources(this.termValueLabel, "termValueLabel");
             this.termValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "TermDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.termValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorProvider.SetError(this.termValueLabel, resources.GetString("termValueLabel.Error"));
             this.termValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.termValueLabel.Location = new System.Drawing.Point(157, 31);
+            this.errorProvider.SetIconAlignment(this.termValueLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("termValueLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.termValueLabel, ((int)(resources.GetObject("termValueLabel.IconPadding"))));
             this.termValueLabel.Name = "termValueLabel";
-            this.termValueLabel.Size = new System.Drawing.Size(83, 17);
-            this.termValueLabel.TabIndex = 30;
-            this.termValueLabel.Text = "36 months";
             // 
             // termCaptionLabel
             // 
-            this.termCaptionLabel.AutoSize = true;
-            this.termCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.termCaptionLabel, "termCaptionLabel");
+            this.errorProvider.SetError(this.termCaptionLabel, resources.GetString("termCaptionLabel.Error"));
             this.termCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.termCaptionLabel.Location = new System.Drawing.Point(157, 9);
+            this.errorProvider.SetIconAlignment(this.termCaptionLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("termCaptionLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.termCaptionLabel, ((int)(resources.GetObject("termCaptionLabel.IconPadding"))));
             this.termCaptionLabel.Name = "termCaptionLabel";
-            this.termCaptionLabel.Size = new System.Drawing.Size(45, 17);
-            this.termCaptionLabel.TabIndex = 29;
-            this.termCaptionLabel.Text = "Term";
             // 
             // amountValueLabel
             // 
-            this.amountValueLabel.AutoSize = true;
+            resources.ApplyResources(this.amountValueLabel, "amountValueLabel");
             this.amountValueLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "AmountDisplayValue", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.amountValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorProvider.SetError(this.amountValueLabel, resources.GetString("amountValueLabel.Error"));
             this.amountValueLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.amountValueLabel.Location = new System.Drawing.Point(6, 31);
+            this.errorProvider.SetIconAlignment(this.amountValueLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("amountValueLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.amountValueLabel, ((int)(resources.GetObject("amountValueLabel.IconPadding"))));
             this.amountValueLabel.Name = "amountValueLabel";
-            this.amountValueLabel.Size = new System.Drawing.Size(63, 17);
-            this.amountValueLabel.TabIndex = 28;
-            this.amountValueLabel.Text = "10.00 $";
             // 
             // amountCaptionLabel
             // 
-            this.amountCaptionLabel.AutoSize = true;
-            this.amountCaptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.amountCaptionLabel, "amountCaptionLabel");
+            this.errorProvider.SetError(this.amountCaptionLabel, resources.GetString("amountCaptionLabel.Error"));
             this.amountCaptionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.amountCaptionLabel.Location = new System.Drawing.Point(6, 9);
+            this.errorProvider.SetIconAlignment(this.amountCaptionLabel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("amountCaptionLabel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.amountCaptionLabel, ((int)(resources.GetObject("amountCaptionLabel.IconPadding"))));
             this.amountCaptionLabel.Name = "amountCaptionLabel";
-            this.amountCaptionLabel.Size = new System.Drawing.Size(62, 17);
-            this.amountCaptionLabel.TabIndex = 27;
-            this.amountCaptionLabel.Text = "Amount";
             // 
             // interestPaymentDataGridView
             // 
+            resources.ApplyResources(this.interestPaymentDataGridView, "interestPaymentDataGridView");
             this.interestPaymentDataGridView.AllowUserToAddRows = false;
             this.interestPaymentDataGridView.AllowUserToDeleteRows = false;
             this.interestPaymentDataGridView.AllowUserToResizeRows = false;
@@ -652,14 +598,13 @@
             this.keyDataGridViewTextBoxColumn,
             this.valueDataGridViewTextBoxColumn});
             this.interestPaymentDataGridView.DataSource = this.incomesBindingSource;
-            this.interestPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.interestPaymentDataGridView.Location = new System.Drawing.Point(0, 140);
+            this.errorProvider.SetError(this.interestPaymentDataGridView, resources.GetString("interestPaymentDataGridView.Error"));
+            this.errorProvider.SetIconAlignment(this.interestPaymentDataGridView, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("interestPaymentDataGridView.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.interestPaymentDataGridView, ((int)(resources.GetObject("interestPaymentDataGridView.IconPadding"))));
             this.interestPaymentDataGridView.MultiSelect = false;
             this.interestPaymentDataGridView.Name = "interestPaymentDataGridView";
             this.interestPaymentDataGridView.ReadOnly = true;
             this.interestPaymentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.interestPaymentDataGridView.Size = new System.Drawing.Size(347, 349);
-            this.interestPaymentDataGridView.TabIndex = 22;
             // 
             // keyDataGridViewTextBoxColumn
             // 
@@ -668,7 +613,7 @@
             dataGridViewCellStyle2.NullValue = null;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.keyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.keyDataGridViewTextBoxColumn.HeaderText = "Date";
+            resources.ApplyResources(this.keyDataGridViewTextBoxColumn, "keyDataGridViewTextBoxColumn");
             this.keyDataGridViewTextBoxColumn.Name = "keyDataGridViewTextBoxColumn";
             this.keyDataGridViewTextBoxColumn.ReadOnly = true;
             this.keyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -679,7 +624,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle3.NullValue = null;
             this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Income";
+            resources.ApplyResources(this.valueDataGridViewTextBoxColumn, "valueDataGridViewTextBoxColumn");
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             this.valueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -692,19 +637,18 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            resources.ApplyResources(this.errorProvider, "errorProvider");
             // 
             // CalculatorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 489);
             this.Controls.Add(this.splitter);
             this.Controls.Add(this.inputPanel);
             this.Controls.Add(this.outputPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CalculatorForm";
-            this.Text = "Deposit Calculator";
             this.Load += new System.EventHandler(this.CalculatorForm_Load);
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
@@ -772,6 +716,7 @@
         private System.Windows.Forms.RadioButton eurRadioButton;
         private System.Windows.Forms.RadioButton usdRadioButton;
         private System.Windows.Forms.RadioButton uahRadioButton;
+        private System.Windows.Forms.Button langButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
     }

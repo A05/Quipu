@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AmountRangeError" xml:space="preserve">
-    <value>Amount should be integer and be between {0} and {1}.</value>
+    <value>Сума має бути цілим числом і бути між {0} і {1}.</value>
   </data>
   <data name="MinAmountMustBeGreaterThanZero" xml:space="preserve">
     <value>Min amount must be greater than zero.</value>
@@ -127,82 +127,82 @@
     <value>Value of the {0} property must be greater then zero, but it is {1}.</value>
   </data>
   <data name="InterestPaymentCapitalizationByMonth" xml:space="preserve">
-    <value>Capitalization / month</value>
+    <value>Капіталізація / місяць</value>
   </data>
   <data name="InterestRateRangeError" xml:space="preserve">
-    <value>Interest rate should be integer and be between {0} and {1}.</value>
+    <value>Відсоткова ставка має бути цілим числом і бути між {0} і {1}.</value>
   </data>
   <data name="MinTermMustBeGreaterThanZero" xml:space="preserve">
     <value>Min term must be greater than zero.</value>
   </data>
   <data name="TermRangeError" xml:space="preserve">
-    <value>Term should be integer and be between {0} and {1}.</value>
+    <value>Термін має бути цілим і бути між {0} і {1}.</value>
   </data>
   <data name="MaxTermMustBeGreaterThanZero" xml:space="preserve">
     <value>Max term must be greater than zero.</value>
   </data>
   <data name="FirstCurrencyComboBoxItemName" xml:space="preserve">
-    <value>More ...</value>
+    <value>Більше...</value>
   </data>
   <data name="FilePathMustBeSpecified" xml:space="preserve">
     <value>File path must be specified.</value>
   </data>
   <data name="InterestPaymentAtTheEndOfTerm" xml:space="preserve">
-    <value>At the end of term</value>
+    <value>В кінці терміну</value>
   </data>
   <data name="MinInterestRateMustBeGreaterThanZero" xml:space="preserve">
     <value>Min interest rate must be greater than zero.</value>
   </data>
   <data name="InterestPaymentEveryMonth" xml:space="preserve">
-    <value>Every months</value>
+    <value>Кожен місяць</value>
   </data>
   <data name="UnhandledErrorCaption" xml:space="preserve">
-    <value>Error</value>
+    <value>Помилка</value>
   </data>
   <data name="CurrencyIsNotSupportedYet" xml:space="preserve">
-    <value>The {0} currency is not supported yet.</value>
+    <value>Валюта {0} ще не підтримується.</value>
   </data>
   <data name="PropertyMustBeInteger" xml:space="preserve">
     <value>Value of the {0} property must be integer, but it is {1}.</value>
   </data>
   <data name="InterestPaymentCapitalizationByQuarter" xml:space="preserve">
-    <value>Capitalization / quarter</value>
+    <value>Капіталізація / квартал</value>
   </data>
   <data name="MaxInterestRateMustBeGreaterThanZero" xml:space="preserve">
     <value>Max interest rate must be greater than zero.</value>
   </data>
   <data name="DefaultLimitMustBeSetError" xml:space="preserve">
-    <value>The default limit must be set.</value>
+    <value>Необхідно встановити ліміт за замовчуванням.</value>
   </data>
   <data name="InterestPaymentEveryYear" xml:space="preserve">
-    <value>Every year</value>
+    <value>Щороку</value>
   </data>
   <data name="MaxAmountMustBeGreaterThanZero" xml:space="preserve">
     <value>Max amount must be greater than zero.</value>
   </data>
   <data name="InterestPaymentCapitalizationByYear" xml:space="preserve">
-    <value>Capitalization / year</value>
+    <value>Капіталізація / рік</value>
   </data>
   <data name="DefaultLimitIsAlreadySetError" xml:space="preserve">
-    <value>The default limit is already set.</value>
+    <value>Ліміт за замовчуванням уже встановлено.</value>
   </data>
   <data name="TermCaptionSuffix" xml:space="preserve">
-    <value>months</value>
+    <value>місяців</value>
   </data>
   <data name="UnhandledErrorMessage" xml:space="preserve">
-    <value>Something goes wrong. Please contact the authors.\r\n\r\n{0}</value>
+    <value>Щось пішло не так. Будь ласка, зв'яжіться з авторами.\r\n\r\n{0}</value>
   </data>
   <data name="InterestPaymentCapitalizationByDay" xml:space="preserve">
-    <value>Capitalization / day</value>
+    <value>Капіталізація / день</value>
   </data>
   <data name="InterestPaymentEveryQuarter" xml:space="preserve">
-    <value>Every quater</value>
+    <value>Кожен квартал</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="globe.16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\globe.16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WindowTitle" xml:space="preserve">
-    <value>Deposit Calculator</value>
+    <value>Депозитний калькулятор</value>
   </data>
 </root>

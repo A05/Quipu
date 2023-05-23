@@ -117,92 +117,92 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AmountRangeError" xml:space="preserve">
-    <value>Amount should be integer and be between {0} and {1}.</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="incomeCaptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
   </data>
-  <data name="MinAmountMustBeGreaterThanZero" xml:space="preserve">
-    <value>Min amount must be greater than zero.</value>
+  <data name="incomeCaptionLabel.Text" xml:space="preserve">
+    <value>Дохід</value>
   </data>
-  <data name="PropertyMustBeGreaterThenZero" xml:space="preserve">
-    <value>Value of the {0} property must be greater then zero, but it is {1}.</value>
+  <data name="interestPaymentCaptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 17</value>
   </data>
-  <data name="InterestPaymentCapitalizationByMonth" xml:space="preserve">
-    <value>Capitalization / month</value>
+  <data name="interestPaymentCaptionLabel.Text" xml:space="preserve">
+    <value>Виплата відсотків</value>
   </data>
-  <data name="InterestRateRangeError" xml:space="preserve">
-    <value>Interest rate should be integer and be between {0} and {1}.</value>
+  <data name="interestRateCaptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 17</value>
   </data>
-  <data name="MinTermMustBeGreaterThanZero" xml:space="preserve">
-    <value>Min term must be greater than zero.</value>
+  <data name="interestRateCaptionLabel.Text" xml:space="preserve">
+    <value>Процентна ставка</value>
   </data>
-  <data name="TermRangeError" xml:space="preserve">
-    <value>Term should be integer and be between {0} and {1}.</value>
+  <data name="termCaptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 17</value>
   </data>
-  <data name="MaxTermMustBeGreaterThanZero" xml:space="preserve">
-    <value>Max term must be greater than zero.</value>
+  <data name="termCaptionLabel.Text" xml:space="preserve">
+    <value>Термін</value>
   </data>
-  <data name="FirstCurrencyComboBoxItemName" xml:space="preserve">
-    <value>More ...</value>
+  <data name="amountCaptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 17</value>
   </data>
-  <data name="FilePathMustBeSpecified" xml:space="preserve">
-    <value>File path must be specified.</value>
+  <data name="amountCaptionLabel.Text" xml:space="preserve">
+    <value>Сума</value>
   </data>
-  <data name="InterestPaymentAtTheEndOfTerm" xml:space="preserve">
-    <value>At the end of term</value>
+  <data name="keyDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Дата</value>
   </data>
-  <data name="MinInterestRateMustBeGreaterThanZero" xml:space="preserve">
-    <value>Min interest rate must be greater than zero.</value>
+  <data name="valueDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Дохід</value>
   </data>
-  <data name="InterestPaymentEveryMonth" xml:space="preserve">
-    <value>Every months</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Депозитний калькулятор</value>
   </data>
-  <data name="UnhandledErrorCaption" xml:space="preserve">
-    <value>Error</value>
+  <data name="c12nByYearRadioButton.Text" xml:space="preserve">
+    <value>Капіталізація за роками</value>
   </data>
-  <data name="CurrencyIsNotSupportedYet" xml:space="preserve">
-    <value>The {0} currency is not supported yet.</value>
+  <data name="c12nByQuarterRadioButton.Text" xml:space="preserve">
+    <value>Капіталізація по кварталах</value>
   </data>
-  <data name="PropertyMustBeInteger" xml:space="preserve">
-    <value>Value of the {0} property must be integer, but it is {1}.</value>
+  <data name="c12nByMonthRadioButton.Text" xml:space="preserve">
+    <value>Капіталізація за місяцями</value>
   </data>
-  <data name="InterestPaymentCapitalizationByQuarter" xml:space="preserve">
-    <value>Capitalization / quarter</value>
+  <data name="c12nByDayRadioButton.Text" xml:space="preserve">
+    <value>Капіталізація по днях</value>
   </data>
-  <data name="MaxInterestRateMustBeGreaterThanZero" xml:space="preserve">
-    <value>Max interest rate must be greater than zero.</value>
+  <data name="endOfTermRadioButton.Text" xml:space="preserve">
+    <value>В кінці терміну</value>
   </data>
-  <data name="DefaultLimitMustBeSetError" xml:space="preserve">
-    <value>The default limit must be set.</value>
+  <data name="everyYearRadioButton.Text" xml:space="preserve">
+    <value>Щороку</value>
   </data>
-  <data name="InterestPaymentEveryYear" xml:space="preserve">
-    <value>Every year</value>
+  <data name="everyQuarterRadioButton.Text" xml:space="preserve">
+    <value>Кожен квартал</value>
   </data>
-  <data name="MaxAmountMustBeGreaterThanZero" xml:space="preserve">
-    <value>Max amount must be greater than zero.</value>
+  <data name="everyMonthRadioButton.Text" xml:space="preserve">
+    <value>Кожен місяць</value>
   </data>
-  <data name="InterestPaymentCapitalizationByYear" xml:space="preserve">
-    <value>Capitalization / year</value>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 17</value>
   </data>
-  <data name="DefaultLimitIsAlreadySetError" xml:space="preserve">
-    <value>The default limit is already set.</value>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Виплата відсотків</value>
   </data>
-  <data name="TermCaptionSuffix" xml:space="preserve">
-    <value>months</value>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 17</value>
   </data>
-  <data name="UnhandledErrorMessage" xml:space="preserve">
-    <value>Something goes wrong. Please contact the authors.\r\n\r\n{0}</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Процентна ставка</value>
   </data>
-  <data name="InterestPaymentCapitalizationByDay" xml:space="preserve">
-    <value>Capitalization / day</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 17</value>
   </data>
-  <data name="InterestPaymentEveryQuarter" xml:space="preserve">
-    <value>Every quater</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Термін</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="globe.16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\globe.16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 17</value>
   </data>
-  <data name="WindowTitle" xml:space="preserve">
-    <value>Deposit Calculator</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Сума</value>
   </data>
 </root>

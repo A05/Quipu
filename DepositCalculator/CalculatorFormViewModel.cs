@@ -109,9 +109,8 @@ namespace Sx.Vx.Quipu.WinUI
             get => _currencyEntries;
             set
             {
-                Debug.Assert(_currencyEntries == null);
-
                 _currencyEntries = value ?? throw new ArgumentNullException(nameof(value));
+                OnPropertyChanged();
             }
         }
 
@@ -323,9 +322,8 @@ namespace Sx.Vx.Quipu.WinUI
             get => _interestPaymentEntries;
             set
             {
-                Debug.Assert(_interestPaymentEntries == null);
-
                 _interestPaymentEntries = value ?? throw new ArgumentNullException(nameof(value));
+                OnPropertyChanged();
             }
         }
 

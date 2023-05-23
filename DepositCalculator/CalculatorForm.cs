@@ -1,7 +1,10 @@
 ﻿using Sx.Vx.Quipu.Domain;
+using Sx.Vx.Quipu.WinUI.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.WinUI
@@ -9,19 +12,41 @@ namespace Sx.Vx.Quipu.WinUI
     internal partial class CalculatorForm : Form, ICalculatorForm
     {
         private readonly CalculatorFormPresenter _presenter;
+        private readonly ComponentResourceManager _resourceManager;
 
         internal CalculatorForm(CalculatorFormPresenter presenter)
         {
             _presenter = presenter ?? throw new ArgumentNullException(nameof(presenter));
-            
+
+            _resourceManager = new ComponentResourceManager(GetType());
+
             InitializeComponent();
 
-            _presenter.SetView(this);
+            _presenter.SetView(this);            
         }
 
         public void SetViewModel(CalculatorFormViewModel viewModel)
         {
             bindingSource.DataSource = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
+        }
+
+        public void ApplyResources(CultureInfo culture)
+        {
+            Text = Resources.WindowTitle; // It is not applied with the "standard" way.
+
+            ApplyResources(this, culture);
+        }
+
+        private void ApplyResources(Control parent, CultureInfo culture)
+        {
+            _resourceManager.ApplyResources(parent, parent.Name, culture);
+
+            if (parent.GetType() == typeof(DataGridView))
+                foreach (DataGridViewColumn col in ((DataGridView)parent).Columns)
+                    _resourceManager.ApplyResources(col, col.Name, culture);
+
+            foreach (Control child in parent.Controls)
+                ApplyResources(child, culture);
         }
 
         private void CalculatorForm_Load(object sender, EventArgs e)
@@ -120,6 +145,11 @@ namespace Sx.Vx.Quipu.WinUI
             var model = (CalculatorFormViewModel)bindingSource.DataSource;
 
             model.InterestPayment = interestPayment;
+        }        
+
+        private void langButton_Click(object sender, EventArgs e)
+        {
+            _presenter.HandleClickOnLanguageButton();
         }
     }
 }

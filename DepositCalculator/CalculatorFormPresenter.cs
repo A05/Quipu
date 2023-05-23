@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 
 namespace Sx.Vx.Quipu.WinUI
 {
@@ -54,6 +56,21 @@ namespace Sx.Vx.Quipu.WinUI
             Debug.Assert(_view != null);
 
             _viewModel.PropertyChanged += HandlePropertyChangedOnViewModel;
+        }
+
+        public void HandleClickOnLanguageButton()
+        {
+            Debug.Assert(_view != null);
+
+            CultureInfo ukCulture = new CultureInfo("uk"), enCulture = new CultureInfo("en");
+            CultureInfo newCulture = Thread.CurrentThread.CurrentUICulture.Equals(ukCulture) ? enCulture : ukCulture;
+
+            Thread.CurrentThread.CurrentUICulture = newCulture;
+            
+            _view.ApplyResources(newCulture);
+            _viewModelFactory.ApplyResources(_viewModel);
+
+            CalculateIncomePlan(); // The properties (inc. text) of all controls were reverted to their default values.
         }
 
         public bool IsAmountValid(string amount, out string error)

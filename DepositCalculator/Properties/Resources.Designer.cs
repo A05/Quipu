@@ -115,6 +115,16 @@ namespace Sx.Vx.Quipu.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap globe_16 {
+            get {
+                object obj = ResourceManager.GetObject("globe.16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to At the end of term.
         /// </summary>
         internal static string InterestPaymentAtTheEndOfTerm {
@@ -124,7 +134,7 @@ namespace Sx.Vx.Quipu.WinUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C12n by day.
+        ///   Looks up a localized string similar to Capitalization / day.
         /// </summary>
         internal static string InterestPaymentCapitalizationByDay {
             get {
@@ -133,7 +143,7 @@ namespace Sx.Vx.Quipu.WinUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C12n by month.
+        ///   Looks up a localized string similar to Capitalization / month.
         /// </summary>
         internal static string InterestPaymentCapitalizationByMonth {
             get {
@@ -142,7 +152,7 @@ namespace Sx.Vx.Quipu.WinUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C12n by quarter.
+        ///   Looks up a localized string similar to Capitalization / quarter.
         /// </summary>
         internal static string InterestPaymentCapitalizationByQuarter {
             get {
@@ -151,7 +161,7 @@ namespace Sx.Vx.Quipu.WinUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C12n by year.
+        ///   Looks up a localized string similar to Capitalization / year.
         /// </summary>
         internal static string InterestPaymentCapitalizationByYear {
             get {
@@ -268,7 +278,7 @@ namespace Sx.Vx.Quipu.WinUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to mounths.
+        ///   Looks up a localized string similar to months.
         /// </summary>
         internal static string TermCaptionSuffix {
             get {
@@ -300,6 +310,15 @@ namespace Sx.Vx.Quipu.WinUI.Properties {
         internal static string UnhandledErrorMessage {
             get {
                 return ResourceManager.GetString("UnhandledErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposit Calculator.
+        /// </summary>
+        internal static string WindowTitle {
+            get {
+                return ResourceManager.GetString("WindowTitle", resourceCulture);
             }
         }
     }
