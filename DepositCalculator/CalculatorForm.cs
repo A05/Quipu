@@ -2,7 +2,6 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Sx.Vx.Quipu.WinUI
@@ -121,16 +120,6 @@ namespace Sx.Vx.Quipu.WinUI
             var model = (CalculatorFormViewModel)bindingSource.DataSource;
 
             model.InterestPayment = interestPayment;
-        }
-
-        private void maxAmountLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void minAmountLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Sx.Vx.Quipu.Domain;
+using Sx.Vx.Quipu.WinUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,14 +22,14 @@ namespace Sx.Vx.Quipu.WinUI
 
             var interestPayments = new[]
             {
-                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryMonth, "Every months"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryQuarter, "Every quater"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryYear, "Every year"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.AtTheEndOfTerm, "At the end of term"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByDay, "C12n by day"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByMonth, "C12n by month"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByQuarter, "C12n by quarter"),
-                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByYear, "C12n by year")
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryMonth, Resources.InterestPaymentEveryMonth),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryQuarter, Resources.InterestPaymentEveryQuarter),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.EveryYear, Resources.InterestPaymentEveryYear),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.AtTheEndOfTerm, Resources.InterestPaymentAtTheEndOfTerm),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByDay, Resources.InterestPaymentCapitalizationByDay),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByMonth, Resources.InterestPaymentCapitalizationByMonth),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByQuarter, Resources.InterestPaymentCapitalizationByQuarter),
+                new KeyValuePair<InterestPayment, string>(InterestPayment.CapitalizationByYear, Resources.InterestPaymentCapitalizationByYear)
             };
 
             var currency = Currency.UAH;
@@ -88,7 +89,7 @@ namespace Sx.Vx.Quipu.WinUI
 
             int i = 0;
 
-            currencies[i++] = new KeyValuePair<Currency, string>(Currency.Empty, "More...");
+            currencies[i++] = new KeyValuePair<Currency, string>(Currency.Empty, Resources.FirstCurrencyComboBoxItemName);
 
             foreach (var c in Currency.Currencies.OrderBy(_ => _))
                 if (c == Currency.UAH || c == Currency.USD || c == Currency.EUR)

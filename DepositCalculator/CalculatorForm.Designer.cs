@@ -35,6 +35,7 @@
             this.inputPanel = new System.Windows.Forms.Panel();
             this.currencyPanel = new System.Windows.Forms.Panel();
             this.eurRadioButton = new System.Windows.Forms.RadioButton();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usdRadioButton = new System.Windows.Forms.RadioButton();
             this.uahRadioButton = new System.Windows.Forms.RadioButton();
             this.c12nByYearRadioButton = new System.Windows.Forms.RadioButton();
@@ -76,13 +77,13 @@
             this.amountValueLabel = new System.Windows.Forms.Label();
             this.amountCaptionLabel = new System.Windows.Forms.Label();
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
-            this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.inputPanel.SuspendLayout();
             this.currencyPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
@@ -91,7 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inputPanel
@@ -152,6 +152,11 @@
             this.eurRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.eurRadioButton.UseVisualStyleBackColor = true;
             this.eurRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
+            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
             // 
             // usdRadioButton
             // 
@@ -431,7 +436,6 @@
             this.maxAmountLabel.TabIndex = 24;
             this.maxAmountLabel.Text = "Max";
             this.maxAmountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.maxAmountLabel.Click += new System.EventHandler(this.maxAmountLabel_Click);
             // 
             // minAmountLabel
             // 
@@ -442,7 +446,6 @@
             this.minAmountLabel.Size = new System.Drawing.Size(100, 13);
             this.minAmountLabel.TabIndex = 23;
             this.minAmountLabel.Text = "Min";
-            this.minAmountLabel.Click += new System.EventHandler(this.minAmountLabel_Click);
             // 
             // label1
             // 
@@ -658,20 +661,6 @@
             this.interestPaymentDataGridView.Size = new System.Drawing.Size(347, 349);
             this.interestPaymentDataGridView.TabIndex = 22;
             // 
-            // incomesBindingSource
-            // 
-            this.incomesBindingSource.DataMember = "Incomes";
-            this.incomesBindingSource.DataSource = this.bindingSource;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.AllowNew = false;
-            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
-            // 
             // keyDataGridViewTextBoxColumn
             // 
             this.keyDataGridViewTextBoxColumn.DataPropertyName = "Key";
@@ -695,6 +684,15 @@
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             this.valueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // incomesBindingSource
+            // 
+            this.incomesBindingSource.DataMember = "Incomes";
+            this.incomesBindingSource.DataSource = this.bindingSource;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -711,6 +709,7 @@
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
             this.currencyPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).EndInit();
@@ -721,7 +720,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

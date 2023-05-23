@@ -1,4 +1,5 @@
 ﻿using Sx.Vx.Quipu.Domain;
+using Sx.Vx.Quipu.WinUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,7 +65,7 @@ namespace Sx.Vx.Quipu.WinUI
                     return true;
                 }
             
-            error = $"Amount should be integer and be between {_viewModel.MinAmount} and {_viewModel.MaxAmount}.";
+            error = string.Format(Resources.AmountRangeError, _viewModel.MinAmount, _viewModel.MaxAmount);
             return false;            
         }
 
@@ -77,7 +78,7 @@ namespace Sx.Vx.Quipu.WinUI
                     return true;
                 }
 
-            error = $"Term should be integer and be between {_viewModel.MinTerm} and {_viewModel.MaxTerm}.";
+            error = string.Format(Resources.TermRangeError, _viewModel.MinTerm, _viewModel.MaxTerm);
             return false;
         }
 
@@ -90,7 +91,7 @@ namespace Sx.Vx.Quipu.WinUI
                     return true;
                 }
 
-            error = $"Term should be integer and be between {_viewModel.MinInterestRate} and {_viewModel.MaxInterestRate}.";
+            error = string.Format(Resources.InterestRateRangeError, _viewModel.MinInterestRate, _viewModel.MaxInterestRate);
             return false;
         }
 

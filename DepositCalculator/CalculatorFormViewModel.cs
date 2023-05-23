@@ -1,4 +1,5 @@
 ﻿using Sx.Vx.Quipu.Domain;
+using Sx.Vx.Quipu.WinUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -242,12 +243,12 @@ namespace Sx.Vx.Quipu.WinUI
 
         public string MinTermCaption
         {
-            get => $"{MinTerm} mounths";
+            get => $"{MinTerm} {Resources.TermCaptionSuffix}";
         }
 
         public string MaxTermCaption
         {
-            get => $"{MaxTerm} mounths";
+            get => $"{MaxTerm} {Resources.TermCaptionSuffix}";
         }
 
         public int InterestRate
@@ -401,7 +402,7 @@ namespace Sx.Vx.Quipu.WinUI
 
         public string TermDisplayValue
         {
-            get => $"{Term} months";
+            get => $"{Term} {Resources.TermCaptionSuffix}";
         }
 
         public string InterestRateDisplayValue

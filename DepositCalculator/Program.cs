@@ -1,4 +1,5 @@
 ﻿using Sx.Vx.Quipu.Domain;
+using Sx.Vx.Quipu.WinUI.Properties;
 using System;
 using System.Windows.Forms;
 
@@ -22,7 +23,12 @@ namespace Sx.Vx.Quipu.WinUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(mainForm, $"Something goes wrong. Please contact the authors.\r\n\r\n{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    mainForm, 
+                    string.Format(Resources.UnhandledErrorMessage, ex), 
+                    Resources.UnhandledErrorCaption, 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
             }
         }
 

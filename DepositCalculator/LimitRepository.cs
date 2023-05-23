@@ -1,4 +1,5 @@
 ﻿using Sx.Vx.Quipu.Domain;
+using Sx.Vx.Quipu.WinUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -63,7 +64,7 @@ namespace Sx.Vx.Quipu.WinUI
                         ProcessNode(reader);
 
                 if (_repository._defaultLimit == null)
-                    throw new ApplicationException("The default limit must be set.");
+                    throw new ApplicationException(Resources.DefaultLimitMustBeSetError);
 
                 return _repository;
             }
@@ -107,7 +108,7 @@ namespace Sx.Vx.Quipu.WinUI
                             if (_state.CurrencyAlphabeticCode == null)
                             {
                                 if (_repository._defaultLimit != null)
-                                    throw new ApplicationException("The default limit is already set.");
+                                    throw new ApplicationException(Resources.DefaultLimitIsAlreadySetError);
 
                                 _repository._defaultLimit = limit;
                             }
@@ -115,7 +116,7 @@ namespace Sx.Vx.Quipu.WinUI
                             {
                                 var currency = Currency.Currencies.FirstOrDefault(i => i.AlphabeticCode == _state.CurrencyAlphabeticCode);
                                 if (currency == Currency.Empty)
-                                    throw new NotSupportedException($"The {_state.CurrencyAlphabeticCode} currency is not supported yet.");
+                                    throw new NotSupportedException(string.Format(Resources.CurrencyIsNotSupportedYet, _state.CurrencyAlphabeticCode));
 
                                 _repository._limits.Add(currency, limit);
                             }
@@ -132,10 +133,10 @@ namespace Sx.Vx.Quipu.WinUI
                 Debug.Assert(!string.IsNullOrEmpty(propertyName));
 
                 if (!int.TryParse(value, out var result))
-                    throw new ApplicationException($"Value of the {propertyName} property must be integer, but it is {value}.");
+                    throw new ApplicationException(string.Format(Resources.PropertyMustBeInteger, propertyName, value));
 
                 if (result <= 0)
-                    throw new ApplicationException($"Value of the {propertyName} property must be greater then zero, but it is {result}.");
+                    throw new ApplicationException(string.Format(Resources.PropertyMustBeGreaterThenZero, propertyName, result));
 
                 return result;
             }
@@ -144,7 +145,7 @@ namespace Sx.Vx.Quipu.WinUI
         public static LimitRepository Load(string xmlFilePath = "Limits.xml", bool fallbackOnError = false)
         {
             if (string.IsNullOrWhiteSpace(xmlFilePath))
-                throw new ArgumentException("File path must be specified.", nameof(xmlFilePath));
+                throw new ArgumentException(Resources.FilePathMustBeSpecified, nameof(xmlFilePath));
 
             try
             {

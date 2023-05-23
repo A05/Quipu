@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Sx.Vx.Quipu.WinUI.Properties;
+using System;
 
 namespace Sx.Vx.Quipu.WinUI
 {    
-    public class Limit
+    internal class Limit
     {
         public int MinAmount { get; }
         public int MaxAmount { get; }
@@ -14,22 +15,22 @@ namespace Sx.Vx.Quipu.WinUI
         public Limit(int minAmount, int maxAmount, int minTerm, int maxTerm, int minInterestRate, int maxInterestRate)
         {
             if (minAmount <= 0)
-                throw new ArgumentException("Min amount must be greater than zero.", nameof(minAmount));
+                throw new ArgumentException(Resources.MinAmountMustBeGreaterThanZero, nameof(minAmount));
 
             if (maxAmount <= 0)
-                throw new ArgumentException("Max amount must be greater than zero.", nameof(maxAmount));
+                throw new ArgumentException(Resources.MaxAmountMustBeGreaterThanZero, nameof(maxAmount));
 
             if (minTerm <= 0)
-                throw new ArgumentException("Min term must be greater than zero.", nameof(minTerm));
+                throw new ArgumentException(Resources.MinTermMustBeGreaterThanZero, nameof(minTerm));
 
             if (maxTerm <= 0)
-                throw new ArgumentException("Max term must be greater than zero.", nameof(maxTerm));
+                throw new ArgumentException(Resources.MaxTermMustBeGreaterThanZero, nameof(maxTerm));
 
             if (minInterestRate <= 0)
-                throw new ArgumentException("Min interest rate must be greater than zero.", nameof(minInterestRate));
+                throw new ArgumentException(Resources.MinInterestRateMustBeGreaterThanZero, nameof(minInterestRate));
 
             if (maxInterestRate <= 0)
-                throw new ArgumentException("Max interest rate must be greater than zero.", nameof(maxInterestRate));
+                throw new ArgumentException(Resources.MaxInterestRateMustBeGreaterThanZero, nameof(maxInterestRate));
 
             MinAmount = minAmount;
             MaxAmount = maxAmount;
