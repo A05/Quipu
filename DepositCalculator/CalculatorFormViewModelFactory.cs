@@ -69,25 +69,17 @@ namespace Sx.Vx.Quipu.WinUI
         {
             Debug.Assert(viewModel != null);
 
-            var currency = viewModel.Currency;
-
             viewModel.MinAmount = limit.MinAmount;
             viewModel.MaxAmount = limit.MaxAmount;
             viewModel.AmountTickFrequency = limit.GetAmountTickFrequency();
-            viewModel.MinAmountCaption = $"{limit.MinAmount:#,#} {currency.AlphabeticCode}";
-            viewModel.MaxAmountCaption = $"{limit.MaxAmount:#,#} {currency.AlphabeticCode}";
 
             viewModel.MinTerm = limit.MinTerm;
             viewModel.MaxTerm = limit.MaxTerm;
             viewModel.TermTickFrequency = limit.GetTermTickFrequency();
-            viewModel.MinTermCaption = $"{limit.MinTerm} mounths";
-            viewModel.MaxTermCaption = $"{limit.MaxTerm} mounths";
             
             viewModel.MinInterestRate = limit.MinInterestRate;
             viewModel.MaxInterestRate = limit.MaxInterestRate;
             viewModel.InterestRateTickFrequency = limit.GetInterestRateTickFrequency();
-            viewModel.MinInterestRateCaption = $"{limit.MinInterestRate} %";
-            viewModel.MaxInterestRateCaption = $"{limit.MaxInterestRate} %";
         }
 
         private KeyValuePair<Currency, string>[] GetCurrencies()

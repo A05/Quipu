@@ -66,6 +66,7 @@
     <Compile Include="CalculatorFormViewModelFactoryTests.cs" />
     <Compile Include="LimitRepositoryTests.cs" />
     <Compile Include="LimitTests.cs" />
+    <Compile Include="CalculatorFormViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

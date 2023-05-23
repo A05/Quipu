@@ -16,8 +16,6 @@ namespace Sx.Vx.Quipu.WinUI
         private int _minAmount;
         private int _maxAmount;
         private int _amountTickFrequency;
-        private string _minAmountCaption;
-        private string _maxAmountCaption;
         private KeyValuePair<Currency, string>[] _currencyEntries;
         private Currency _currency;
         private Currency _comboBoxCurrency;
@@ -25,14 +23,10 @@ namespace Sx.Vx.Quipu.WinUI
         private int _minTerm;
         private int _maxTerm;
         private int _termTickFrequency;
-        private string _minTermCaption;
-        private string _maxTermCaption;
         private int _interestRate;
         private int _minInterestRate;
         private int _maxInterestRate;
         private int _interestRateTickFrequency;
-        private string _minInterestRateCaption;
-        private string _maxInterestRateCaption;
         private KeyValuePair<InterestPayment, string>[] _interestPaymentEntries;
         private InterestPayment _interestPayment;
         private string _incomeDisplayValue;
@@ -65,7 +59,10 @@ namespace Sx.Vx.Quipu.WinUI
                 var old = _minAmount;
                 _minAmount = value;
                 if (old != _minAmount)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(MinAmountCaption));
+                }
             }
         }
 
@@ -77,7 +74,10 @@ namespace Sx.Vx.Quipu.WinUI
                 var old = _maxAmount;
                 _maxAmount = value;
                 if (old != _maxAmount)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(MaxAmountCaption));
+                }
             }
         }
 
@@ -95,26 +95,12 @@ namespace Sx.Vx.Quipu.WinUI
 
         public string MinAmountCaption
         {
-            get => _minAmountCaption;
-            set
-            {
-                var old = _minAmountCaption;
-                _minAmountCaption = value;
-                if (old != _minAmountCaption)
-                    OnPropertyChanged();
-            }
+            get => $"{MinAmount:#,#} {Currency.AlphabeticCode}";
         }
 
         public string MaxAmountCaption
         {
-            get => _maxAmountCaption;
-            set
-            {
-                var old = _maxAmountCaption;
-                _maxAmountCaption = value;
-                if (old != _maxAmountCaption)
-                    OnPropertyChanged();
-            }
+            get => $"{MaxAmount:#,#} {Currency.AlphabeticCode}";
         }
 
         public KeyValuePair<Currency, string>[] CurrencyEntries
@@ -146,6 +132,9 @@ namespace Sx.Vx.Quipu.WinUI
                     OnPropertyChanged(nameof(IsUahRadioButtonChecked));
                     OnPropertyChanged(nameof(IsUsdRadioButtonChecked));
                     OnPropertyChanged(nameof(IsEurRadioButtonChecked));
+
+                    OnPropertyChanged(nameof(MinAmountCaption));
+                    OnPropertyChanged(nameof(MaxAmountCaption));
 
                     OnPropertyChanged(nameof(AmountDisplayValue));
                 }
@@ -217,7 +206,10 @@ namespace Sx.Vx.Quipu.WinUI
                 var old = _minTerm;
                 _minTerm = value;
                 if (old != _minTerm)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(MinTermCaption));
+                }
             }
         }
 
@@ -229,7 +221,10 @@ namespace Sx.Vx.Quipu.WinUI
                 var old = _maxTerm;
                 _maxTerm = value;
                 if (old != _maxTerm)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(MaxTermCaption));
+                }
             }
         }
 
@@ -247,26 +242,12 @@ namespace Sx.Vx.Quipu.WinUI
 
         public string MinTermCaption
         {
-            get => _minTermCaption;
-            set
-            {
-                var old = _minTermCaption;
-                _minTermCaption = value;
-                if (old != _minTermCaption)
-                    OnPropertyChanged();
-            }
+            get => $"{MinTerm} mounths";
         }
 
         public string MaxTermCaption
         {
-            get => _maxTermCaption;
-            set
-            {
-                var old = _maxTermCaption;
-                _maxTermCaption = value;
-                if (old != _maxTermCaption)
-                    OnPropertyChanged();
-            }
+            get => $"{MaxTerm} mounths";
         }
 
         public int InterestRate
@@ -292,7 +273,10 @@ namespace Sx.Vx.Quipu.WinUI
                 var old = _minInterestRate;
                 _minInterestRate = value;
                 if (old != _minInterestRate)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(MinInterestRateCaption));
+                }
             }
         }
 
@@ -304,7 +288,10 @@ namespace Sx.Vx.Quipu.WinUI
                 var old = _maxInterestRate;
                 _maxInterestRate = value;
                 if (old != _maxInterestRate)
+                {
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(MaxInterestRateCaption));
+                }
             }
         }
 
@@ -322,26 +309,12 @@ namespace Sx.Vx.Quipu.WinUI
 
         public string MinInterestRateCaption
         {
-            get => _minInterestRateCaption;
-            set
-            {
-                var old = _minInterestRateCaption;
-                _minInterestRateCaption = value;
-                if (old != _minInterestRateCaption)
-                    OnPropertyChanged();
-            }
+            get => $"{MinInterestRate} %";
         }
 
         public string MaxInterestRateCaption
         {
-            get => _maxInterestRateCaption;
-            set
-            {
-                var old = _maxInterestRateCaption;
-                _maxInterestRateCaption = value;
-                if (old != _maxInterestRateCaption)
-                    OnPropertyChanged();
-            }
+            get => $"{MaxInterestRate} %";
         }
 
         public KeyValuePair<InterestPayment, string>[] InterestPaymentEntries
