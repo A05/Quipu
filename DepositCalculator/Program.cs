@@ -9,12 +9,21 @@ namespace Sx.Vx.Quipu.WinUI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            CalculatorForm mainForm = null;
 
-            var mainForm = Bootstrap();
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(mainForm);
+                mainForm = Bootstrap();
+
+                Application.Run(mainForm);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(mainForm, $"Something goes wrong. Please contact the authors.\r\n\r\n{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         static CalculatorForm Bootstrap()
