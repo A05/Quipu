@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedSources\DomainAssemblyInfo.cs">
+      <Link>Properties\DomainAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Calculators\AtTheEndOfTermInterestDepositCalculator.cs" />
     <Compile Include="Calculators\CapitalizationInterestByMonthDepositCalculator.cs" />
     <Compile Include="Calculators\CapitalizationInterestByQuarterDepositCalculator.cs" />

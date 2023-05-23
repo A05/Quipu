@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedSources\DomainAssemblyInfo.cs">
+      <Link>Properties\DomainAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Calculators\AtTheEndOfTermInterestDepositCalculatorTests.cs" />
     <Compile Include="Calculators\CapitalizationInterestByDayDepositCalculatorTests.cs" />
     <Compile Include="Calculators\CapitalizationInterestByMonthDepositCalculatorTests.cs" />
