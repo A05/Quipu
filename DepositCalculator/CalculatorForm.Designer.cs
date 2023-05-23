@@ -35,7 +35,6 @@
             this.inputPanel = new System.Windows.Forms.Panel();
             this.currencyPanel = new System.Windows.Forms.Panel();
             this.eurRadioButton = new System.Windows.Forms.RadioButton();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usdRadioButton = new System.Windows.Forms.RadioButton();
             this.uahRadioButton = new System.Windows.Forms.RadioButton();
             this.c12nByYearRadioButton = new System.Windows.Forms.RadioButton();
@@ -77,13 +76,13 @@
             this.amountValueLabel = new System.Windows.Forms.Label();
             this.amountCaptionLabel = new System.Windows.Forms.Label();
             this.interestPaymentDataGridView = new System.Windows.Forms.DataGridView();
-            this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inputPanel.SuspendLayout();
             this.currencyPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).BeginInit();
@@ -92,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inputPanel
@@ -126,7 +126,7 @@
             this.inputPanel.Location = new System.Drawing.Point(0, 0);
             this.inputPanel.Name = "inputPanel";
             this.inputPanel.Size = new System.Drawing.Size(288, 489);
-            this.inputPanel.TabIndex = 20;
+            this.inputPanel.TabIndex = 0;
             // 
             // currencyPanel
             // 
@@ -137,7 +137,7 @@
             this.currencyPanel.Location = new System.Drawing.Point(187, 25);
             this.currencyPanel.Name = "currencyPanel";
             this.currencyPanel.Size = new System.Drawing.Size(86, 31);
-            this.currencyPanel.TabIndex = 46;
+            this.currencyPanel.TabIndex = 2;
             // 
             // eurRadioButton
             // 
@@ -146,17 +146,12 @@
             this.eurRadioButton.Location = new System.Drawing.Point(60, 5);
             this.eurRadioButton.Name = "eurRadioButton";
             this.eurRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.eurRadioButton.TabIndex = 23;
+            this.eurRadioButton.TabIndex = 5;
             this.eurRadioButton.TabStop = true;
             this.eurRadioButton.Text = "€";
             this.eurRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.eurRadioButton.UseVisualStyleBackColor = true;
             this.eurRadioButton.CheckedChanged += new System.EventHandler(this.currencyRadioButton_CheckedChanged);
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.AllowNew = false;
-            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
             // 
             // usdRadioButton
             // 
@@ -165,7 +160,7 @@
             this.usdRadioButton.Location = new System.Drawing.Point(30, 5);
             this.usdRadioButton.Name = "usdRadioButton";
             this.usdRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.usdRadioButton.TabIndex = 22;
+            this.usdRadioButton.TabIndex = 4;
             this.usdRadioButton.TabStop = true;
             this.usdRadioButton.Text = "$";
             this.usdRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,7 +174,7 @@
             this.uahRadioButton.Location = new System.Drawing.Point(0, 5);
             this.uahRadioButton.Name = "uahRadioButton";
             this.uahRadioButton.Size = new System.Drawing.Size(26, 22);
-            this.uahRadioButton.TabIndex = 21;
+            this.uahRadioButton.TabIndex = 3;
             this.uahRadioButton.TabStop = true;
             this.uahRadioButton.Text = "₴";
             this.uahRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,7 +189,7 @@
             this.c12nByYearRadioButton.Location = new System.Drawing.Point(124, 455);
             this.c12nByYearRadioButton.Name = "c12nByYearRadioButton";
             this.c12nByYearRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByYearRadioButton.TabIndex = 45;
+            this.c12nByYearRadioButton.TabIndex = 19;
             this.c12nByYearRadioButton.Text = "Capitalization By Year";
             this.c12nByYearRadioButton.UseVisualStyleBackColor = true;
             this.c12nByYearRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -207,7 +202,7 @@
             this.c12nByQuarterRadioButton.Location = new System.Drawing.Point(124, 425);
             this.c12nByQuarterRadioButton.Name = "c12nByQuarterRadioButton";
             this.c12nByQuarterRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByQuarterRadioButton.TabIndex = 44;
+            this.c12nByQuarterRadioButton.TabIndex = 18;
             this.c12nByQuarterRadioButton.Text = "Capitalization By Quarter";
             this.c12nByQuarterRadioButton.UseVisualStyleBackColor = true;
             this.c12nByQuarterRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -224,7 +219,7 @@
             this.currencyComboBox.Location = new System.Drawing.Point(10, 60);
             this.currencyComboBox.Name = "currencyComboBox";
             this.currencyComboBox.Size = new System.Drawing.Size(263, 21);
-            this.currencyComboBox.TabIndex = 20;
+            this.currencyComboBox.TabIndex = 6;
             this.currencyComboBox.ValueMember = "Key";
             // 
             // c12nByMonthRadioButton
@@ -235,7 +230,7 @@
             this.c12nByMonthRadioButton.Location = new System.Drawing.Point(124, 395);
             this.c12nByMonthRadioButton.Name = "c12nByMonthRadioButton";
             this.c12nByMonthRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByMonthRadioButton.TabIndex = 43;
+            this.c12nByMonthRadioButton.TabIndex = 17;
             this.c12nByMonthRadioButton.Text = "Capitalization By Month";
             this.c12nByMonthRadioButton.UseVisualStyleBackColor = true;
             this.c12nByMonthRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -248,7 +243,7 @@
             this.c12nByDayRadioButton.Location = new System.Drawing.Point(124, 365);
             this.c12nByDayRadioButton.Name = "c12nByDayRadioButton";
             this.c12nByDayRadioButton.Size = new System.Drawing.Size(153, 24);
-            this.c12nByDayRadioButton.TabIndex = 42;
+            this.c12nByDayRadioButton.TabIndex = 16;
             this.c12nByDayRadioButton.Text = "Capitalization By Day";
             this.c12nByDayRadioButton.UseVisualStyleBackColor = true;
             this.c12nByDayRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -259,7 +254,7 @@
             this.endOfTermRadioButton.Location = new System.Drawing.Point(10, 455);
             this.endOfTermRadioButton.Name = "endOfTermRadioButton";
             this.endOfTermRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.endOfTermRadioButton.TabIndex = 41;
+            this.endOfTermRadioButton.TabIndex = 15;
             this.endOfTermRadioButton.Text = "End of term";
             this.endOfTermRadioButton.UseVisualStyleBackColor = true;
             this.endOfTermRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -270,7 +265,7 @@
             this.everyYearRadioButton.Location = new System.Drawing.Point(10, 425);
             this.everyYearRadioButton.Name = "everyYearRadioButton";
             this.everyYearRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.everyYearRadioButton.TabIndex = 40;
+            this.everyYearRadioButton.TabIndex = 14;
             this.everyYearRadioButton.Text = "Every year";
             this.everyYearRadioButton.UseVisualStyleBackColor = true;
             this.everyYearRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -282,7 +277,7 @@
             this.everyQuarterRadioButton.Location = new System.Drawing.Point(10, 395);
             this.everyQuarterRadioButton.Name = "everyQuarterRadioButton";
             this.everyQuarterRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.everyQuarterRadioButton.TabIndex = 39;
+            this.everyQuarterRadioButton.TabIndex = 13;
             this.everyQuarterRadioButton.Text = "Every quarter";
             this.everyQuarterRadioButton.UseVisualStyleBackColor = true;
             this.everyQuarterRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -294,7 +289,7 @@
             this.everyMonthRadioButton.Location = new System.Drawing.Point(10, 365);
             this.everyMonthRadioButton.Name = "everyMonthRadioButton";
             this.everyMonthRadioButton.Size = new System.Drawing.Size(108, 24);
-            this.everyMonthRadioButton.TabIndex = 38;
+            this.everyMonthRadioButton.TabIndex = 12;
             this.everyMonthRadioButton.Text = "Every month";
             this.everyMonthRadioButton.UseVisualStyleBackColor = true;
             this.everyMonthRadioButton.CheckedChanged += new System.EventHandler(this.interestPaymentRadioButton_CheckedChanged);
@@ -353,7 +348,7 @@
             this.interestRateTrackBar.Location = new System.Drawing.Point(10, 290);
             this.interestRateTrackBar.Name = "interestRateTrackBar";
             this.interestRateTrackBar.Size = new System.Drawing.Size(263, 30);
-            this.interestRateTrackBar.TabIndex = 32;
+            this.interestRateTrackBar.TabIndex = 11;
             // 
             // interestRateTextBox
             // 
@@ -364,7 +359,7 @@
             this.interestRateTextBox.Location = new System.Drawing.Point(10, 264);
             this.interestRateTextBox.Name = "interestRateTextBox";
             this.interestRateTextBox.Size = new System.Drawing.Size(263, 20);
-            this.interestRateTextBox.TabIndex = 30;
+            this.interestRateTextBox.TabIndex = 10;
             this.interestRateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.interestRateTextBox_Validating);
             // 
             // maxTermLabel
@@ -411,7 +406,7 @@
             this.termTrackBar.Location = new System.Drawing.Point(10, 188);
             this.termTrackBar.Name = "termTrackBar";
             this.termTrackBar.Size = new System.Drawing.Size(263, 30);
-            this.termTrackBar.TabIndex = 26;
+            this.termTrackBar.TabIndex = 9;
             // 
             // termTextBox
             // 
@@ -422,7 +417,7 @@
             this.termTextBox.Location = new System.Drawing.Point(10, 162);
             this.termTextBox.Name = "termTextBox";
             this.termTextBox.Size = new System.Drawing.Size(263, 20);
-            this.termTextBox.TabIndex = 25;
+            this.termTextBox.TabIndex = 8;
             this.termTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.termTextBox_Validating);
             // 
             // maxAmountLabel
@@ -471,7 +466,7 @@
             this.amountTrackBar.Location = new System.Drawing.Point(10, 87);
             this.amountTrackBar.Name = "amountTrackBar";
             this.amountTrackBar.Size = new System.Drawing.Size(263, 30);
-            this.amountTrackBar.TabIndex = 21;
+            this.amountTrackBar.TabIndex = 7;
             // 
             // amountTextBox
             // 
@@ -482,7 +477,7 @@
             this.amountTextBox.Location = new System.Drawing.Point(10, 32);
             this.amountTextBox.Name = "amountTextBox";
             this.amountTextBox.Size = new System.Drawing.Size(171, 20);
-            this.amountTextBox.TabIndex = 19;
+            this.amountTextBox.TabIndex = 1;
             this.amountTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.amountTextBox_Validating);
             // 
             // splitter
@@ -491,7 +486,7 @@
             this.splitter.Location = new System.Drawing.Point(283, 0);
             this.splitter.Name = "splitter";
             this.splitter.Size = new System.Drawing.Size(5, 489);
-            this.splitter.TabIndex = 21;
+            this.splitter.TabIndex = 20;
             this.splitter.TabStop = false;
             // 
             // outputPanel
@@ -511,7 +506,7 @@
             this.outputPanel.Location = new System.Drawing.Point(288, 0);
             this.outputPanel.Name = "outputPanel";
             this.outputPanel.Size = new System.Drawing.Size(347, 489);
-            this.outputPanel.TabIndex = 22;
+            this.outputPanel.TabIndex = 21;
             // 
             // panel1
             // 
@@ -661,7 +656,21 @@
             this.interestPaymentDataGridView.ReadOnly = true;
             this.interestPaymentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.interestPaymentDataGridView.Size = new System.Drawing.Size(347, 349);
-            this.interestPaymentDataGridView.TabIndex = 26;
+            this.interestPaymentDataGridView.TabIndex = 22;
+            // 
+            // incomesBindingSource
+            // 
+            this.incomesBindingSource.DataMember = "Incomes";
+            this.incomesBindingSource.DataSource = this.bindingSource;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
+            this.bindingSource.DataSource = typeof(Sx.Vx.Quipu.WinUI.CalculatorFormViewModel);
             // 
             // keyDataGridViewTextBoxColumn
             // 
@@ -686,15 +695,6 @@
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             this.valueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // incomesBindingSource
-            // 
-            this.incomesBindingSource.DataMember = "Incomes";
-            this.incomesBindingSource.DataSource = this.bindingSource;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -711,7 +711,6 @@
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
             this.currencyPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.termTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountTrackBar)).EndInit();
@@ -722,6 +721,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.interestPaymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
